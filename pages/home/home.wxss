@@ -1,0 +1,63 @@
+.bg_dark{
+  background-color: #242a37;
+  width: 100%;
+}
+
+
+/* start 头部 */
+
+
+/* 搜索框 */
+.searchFiel{
+  height: 80rpx;
+  /* background-color: red; */
+  margin-top: 180rpx;
+}
+
+/* 约束让input 成为圆角 */
+.input-father {
+  position: relative;
+  width: 570rpx;
+  height: 80rpx;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-left: 20rpx;
+  background: rgba(142,142,147,0.12);
+}
+
+/* 搜索的input */
+.searchFiel input {
+  padding-left: 0rpx;
+  padding-top: 0rpx;
+  width: 570rpx;
+  height: 80rpx;
+  text-align: center;
+  color: #4e586e;
+  font-family: "Avenir-Book";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  background: rgba(142,142,147,0.12);
+}
+
+/* 搜索按钮样式 */
+.oval {
+  position: absolute;
+  right: 50rpx;
+  top: 180rpx;
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 25px;
+  background: linear-gradient(220deg, #F78361, #F54B64);
+}
+
+.oval image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 8rpx 0rpx 0rpx 8rpx;
+}
+
+
+
+/* end 头部 */

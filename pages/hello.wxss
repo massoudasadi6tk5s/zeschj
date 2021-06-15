@@ -1,0 +1,12 @@
+/* pages/hello.wxss */
+
+page{
+  height: 100%;
+  width: 100%;
+}
+
+.add {
+  height: 100%;
+  width: 100%;
+  background: red;
+}

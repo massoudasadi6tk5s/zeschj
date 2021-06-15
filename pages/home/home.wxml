@@ -1,0 +1,23 @@
+<view class="bg_dark">
+  
+  <!-- 搜索框 -->
+  <view class="searchFiel">
+    <view class="input-father">
+      <input placeholder="搜索" maxlength="20"  />
+    </view>
+
+    <!-- 搜索按钮 -->
+    <view class="oval">
+      <image mode="scaleToFill" src="../../images/home/_icons--13-photo.png"/>
+    </view>
+
+  </view>
+
+
+  <!-- 主体部分 -->
+  
+
+
+
+
+</view>
