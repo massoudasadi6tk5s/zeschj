@@ -52,7 +52,7 @@ HTTP.put = function(url, params, cb, contenttype) {
 
 function ajax(url, params, cb, action, contenttype) {
   
-  my.request({
+  wx.request({
     url: url,
     method: action,
     data: params,
@@ -79,5 +79,5 @@ function ajax(url, params, cb, action, contenttype) {
 
 module.exports = {
   API: API,
-  ajax: HTTP
+  HTTP: HTTP
 }

@@ -1,0 +1,94 @@
+page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 背景图片 */
+
+.bg_img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 背景图上的一层 蒙板 */
+
+.bg_copy {
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* 主标题 */
+.main_healding {
+  position: absolute;
+  left: 30rpx;
+  top: 640rpx;
+  width: 90%;
+  /* 字体调整 */
+  color: #fff;
+  font-family: "Avenir-Black";
+  font-size: 100rpx;
+  font-weight: 400;
+  line-height: 100rpx;
+  letter-spacing: -0.7040002px;
+
+  z-index: 3;
+  /* 动画调整 */
+  animation-delay: 0.1s;
+}
+
+/* 副标题 */
+.subheading {
+  position: absolute;
+  left: 30rpx;
+  top: 880rpx;
+  width: 90%;
+  /* 字体调整 */
+  color: #fff;
+  font-family: '宋体';
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  z-index: 3;
+}
+
+/*  start 授权部分样式  */
+
+.authorization {
+  position: absolute;
+  left: 30rpx;
+  top: 1050rpx;
+
+
+  /* 盒子样式调整 */
+  width: 315px;
+  height: 44px;
+  border-radius: 22px;
+  background: linear-gradient(220deg, #F78361, #F54B64);
+
+    /* 字体调整 */
+  color: #ffffff;
+  font-family: "Avenir-Heavy";
+  font-size: 50rpx;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: -0.3617648px;
+
+  z-index: 3;
+  /* 动画调整 */
+  animation-delay: 0.2s;
+}
+
+
+.authorization view{
+  margin-top: 20rpx;
+}
+
+
+/* end  授权部分样式 */
