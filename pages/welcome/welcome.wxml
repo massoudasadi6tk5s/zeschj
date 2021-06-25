@@ -19,7 +19,7 @@
 
 
 <!-- 授权按钮 -->
-<view class="authorization animated fadeInRight ">
+<view class="authorization animated fadeInRight " bindtap="goToHome">
   <view>
     <text> 支 持 </text>
   </view>

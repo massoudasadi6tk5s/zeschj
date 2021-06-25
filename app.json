@@ -5,7 +5,7 @@
     "pages/test"
   ],
   "window": {
-    "navigationStyle": "custom"
-  }
-
+    
+  },
+  "sitemapLocation": "sitemap.json"
 }
