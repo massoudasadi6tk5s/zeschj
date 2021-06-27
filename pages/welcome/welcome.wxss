@@ -25,7 +25,7 @@ page {
 /* 主标题 */
 .main_healding {
   position: absolute;
-  left: 30rpx;
+  left: 40rpx;
   top: 640rpx;
   width: 90%;
   /* 字体调整 */
@@ -44,7 +44,7 @@ page {
 /* 副标题 */
 .subheading {
   position: absolute;
-  left: 30rpx;
+  left: 40rpx;
   top: 880rpx;
   width: 90%;
   /* 字体调整 */
@@ -61,7 +61,7 @@ page {
 
 .authorization {
   position: absolute;
-  left: 30rpx;
+  left: 40rpx;
   top: 1050rpx;
 
 

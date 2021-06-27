@@ -15,6 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
+    // 隐藏底部导航栏
+    // wx.hideTabBar()
     // ajax.HTTP.get(ajax.API.FINDALL, null, this.cbFindAll, 'form');
   },
 
@@ -26,11 +30,7 @@ Page({
   // 跳转到主页
   goToHome(){
 
-    console.log(1);
 
-    wx.redirectTo({
-      url: '/pages/home/home'
-    })
 
   },
 
