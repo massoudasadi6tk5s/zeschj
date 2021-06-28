@@ -5,15 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 被点击的导航菜单索引
+    currentIndexNav: 0,
+    // 导航
+    navList: [
+      {"text": "最热", "id": 1},
+      { "text": "最新", "id": 2 },
+      { "text": "附近", "id": 3 },
+      { "text": "妹子", "id": 4 },
+      { "text": "汉子", "id": 5 },
 
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.redirectTo({
-      url: '/pages/welcome/welcome',
+    // wx.redirectTo({
+    //   url: '/pages/welcome/welcome',
+    // })
+  },
+
+  activeNav(e){
+    this.setData({
+      currentIndexNav: e.target.dataset.index
     })
   },
 

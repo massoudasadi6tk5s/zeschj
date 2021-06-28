@@ -2,13 +2,25 @@
   "pages": [
     "pages/home/home",
     "pages/welcome/welcome",
-
     "pages/test"
   ],
-  "window": {
-    
-  }
-
-
-
+  "window": {},
+  "tabBar": {
+    "backgroundColor": "#242A37",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png",
+        "text": "日志"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

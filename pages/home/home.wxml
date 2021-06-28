@@ -1,0 +1,311 @@
+<view class="main">
+
+  <!-- 搜索的容器 -->
+  <view class="navbar">
+
+    <!-- 搜索框 -->
+    <view class="searchFiel">
+      <image class="searchIcon" src="../../images/home/_icons--search.png"></image>
+      <view class="search">
+        <text>搜索</text>
+      </view>
+
+    </view>
+
+    <view class="oval">
+      <image class="icons13Pho" src="../../images/home/_icons--13-photo.png"></image>
+    </view>
+
+
+
+  </view>
+
+  <!-- 首页导航 -->
+  <view class="nav-wrap">
+    <!-- 我需要左右滚动 -->
+    <scroll-view class="nav" scroll-x>
+      <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}}" wx:for="{{navList}}" wx:key="{{index}}">
+        {{item.text}}
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <!-- 帖子 || 诉求 -->
+  <view class="postView">
+
+    <scroll-view class="postScroll" scroll-y>
+
+
+      <!-- 靠左边的 -->
+      <view class="postListLeft">
+        <!-- 单个帖子 -->
+        <view class="postItem">
+          <!-- 个人信息 -->
+          <view class="itemUserInfo">
+            <image src="../../images/home/oval.png"></image>
+              <!-- 个人昵称 -->
+            <view class="itemNickName">
+              <text>Joel Jacobs</text>
+            </view>
+
+            <view class="time">
+              <text>2 hours ago</text>
+            </view>
+
+          </view>
+
+          <!-- 帖子照片 || 可能没有-->
+          <view class="rectangle">
+            <image src="../../images/home/rectangle-copy-12.png"></image>
+          </view>
+
+          <!-- 帖子类型 && 帖子内容 -->
+          <view class="postContent">
+            <!-- 类型 -->
+            <view class="postType">
+              <text>#relax，#travel</text>
+            </view>
+
+            <view class="postDetails">
+              <text>Bryce Canyon A Stunning US Travel Destination</text>
+            </view>
+
+          </view>
+
+          <!-- 喜欢&评论 容器 -->
+          <view class="likeAndComment">
+            <view class="like">
+              <image src="../../images/home/_icons--8-like.png"></image>
+              <view class="likeCount"><text>1120</text></view>
+            </view>
+
+            <view class="comment">
+              <image src="../../images/home/_icons--8-like-copy.png"></image>
+              <view class="CommentCount"><text>1120</text></view>
+            </view>
+          </view>
+
+
+        </view>
+
+         <!-- 单个帖子 -->
+        <view class="postItem">
+          <!-- 个人信息 -->
+          <view class="itemUserInfo">
+            <image src="../../images/home/oval.png"></image>
+              <!-- 个人昵称 -->
+            <view class="itemNickName">
+              <text>Joel Jacobs</text>
+            </view>
+
+            <view class="time">
+              <text>2 hours ago</text>
+            </view>
+
+          </view>
+
+          <!-- 帖子照片 || 可能没有-->
+          <!-- <view class="rectangle">
+            <image src="../../images/home/rectangle-copy-12.png"></image>
+          </view> -->
+
+          <!-- 帖子类型 && 帖子内容 -->
+          <view class="postContent">
+            <!-- 类型 -->
+            <view class="postType">
+              <text>#relax，#travel</text>
+            </view>
+
+            <view class="postDetails">
+              <text>Bryce Canyon A Stunning US Travel Destination</text>
+            </view>
+
+          </view>
+
+          <!-- 喜欢&评论 容器 -->
+          <view class="likeAndComment">
+            <view class="like">
+              <image src="../../images/home/_icons--8-like.png"></image>
+              <view class="likeCount"><text>1120</text></view>
+            </view>
+
+            <view class="comment">
+              <image src="../../images/home/_icons--8-like-copy.png"></image>
+              <view class="CommentCount"><text>1120</text></view>
+            </view>
+          </view>
+
+
+        </view>
+
+         <!-- 单个帖子 -->
+        <view class="postItem">
+          <!-- 个人信息 -->
+          <view class="itemUserInfo">
+            <image src="../../images/home/oval.png"></image>
+              <!-- 个人昵称 -->
+            <view class="itemNickName">
+              <text>Joel Jacobs</text>
+            </view>
+
+            <view class="time">
+              <text>2 hours ago</text>
+            </view>
+
+          </view>
+
+          <!-- 帖子照片 || 可能没有-->
+          <view class="rectangle">
+            <image src="../../images/home/rectangle-copy-12.png"></image>
+          </view>
+
+          <!-- 帖子类型 && 帖子内容 -->
+          <view class="postContent">
+            <!-- 类型 -->
+            <view class="postType">
+              <text>#relax，#travel</text>
+            </view>
+
+            <view class="postDetails">
+              <text>Bryce Canyon A Stunning US Travel Destination</text>
+            </view>
+
+          </view>
+
+          <!-- 喜欢&评论 容器 -->
+          <view class="likeAndComment">
+            <view class="like">
+              <image src="../../images/home/_icons--8-like.png"></image>
+              <view class="likeCount"><text>1120</text></view>
+            </view>
+
+            <view class="comment">
+              <image src="../../images/home/_icons--8-like-copy.png"></image>
+              <view class="CommentCount"><text>1120</text></view>
+            </view>
+          </view>
+
+
+        </view>
+
+
+      </view>
+
+      <!-- 靠右边的 -->
+      <view class="postListRight">
+         <!-- 单个帖子 -->
+        <view class="postItem">
+          <!-- 个人信息 -->
+          <view class="itemUserInfo">
+            <image src="../../images/home/oval.png"></image>
+              <!-- 个人昵称 -->
+            <view class="itemNickName">
+              <text>Joel Jacobs</text>
+            </view>
+
+            <view class="time">
+              <text>2 hours ago</text>
+            </view>
+
+          </view>
+
+          <!-- 帖子照片 || 可能没有-->
+          <!-- <view class="rectangle">
+            <image src="../../images/home/rectangle-copy-12.png"></image>
+          </view> -->
+
+          <!-- 帖子类型 && 帖子内容 -->
+          <view class="postContent">
+            <!-- 类型 -->
+            <view class="postType">
+              <text>#relax，#travel</text>
+            </view>
+
+            <view class="postDetails">
+              <text>Bryce Canyon A Stunning US Travel Destination</text>
+            </view>
+
+          </view>
+
+          <!-- 喜欢&评论 容器 -->
+          <view class="likeAndComment">
+            <view class="like">
+              <image src="../../images/home/_icons--8-like.png"></image>
+              <view class="likeCount"><text>1120</text></view>
+            </view>
+
+            <view class="comment">
+              <image src="../../images/home/_icons--8-like-copy.png"></image>
+              <view class="CommentCount"><text>1120</text></view>
+            </view>
+          </view>
+
+
+        </view>
+
+
+
+         <!-- 单个帖子 -->
+        <view class="postItem">
+          <!-- 个人信息 -->
+          <view class="itemUserInfo">
+            <image src="../../images/home/oval.png"></image>
+              <!-- 个人昵称 -->
+            <view class="itemNickName">
+              <text>Joel Jacobs</text>
+            </view>
+
+            <view class="time">
+              <text>2 hours ago</text>
+            </view>
+
+          </view>
+
+          <!-- 帖子照片 || 可能没有-->
+          <view class="rectangle">
+            <image src="../../images/home/rectangle-copy-12.png"></image>
+          </view>
+
+          <!-- 帖子类型 && 帖子内容 -->
+          <view class="postContent">
+            <!-- 类型 -->
+            <view class="postType">
+              <text>#relax，#travel</text>
+            </view>
+
+            <view class="postDetails">
+              <text>Bryce Canyon A Stunning US Travel Destination</text>
+            </view>
+
+          </view>
+
+          <!-- 喜欢&评论 容器 -->
+          <view class="likeAndComment">
+            <view class="like">
+              <image src="../../images/home/_icons--8-like.png"></image>
+              <view class="likeCount"><text>1120</text></view>
+            </view>
+
+            <view class="comment">
+              <image src="../../images/home/_icons--8-like-copy.png"></image>
+              <view class="CommentCount"><text>1120</text></view>
+            </view>
+          </view>
+
+
+        </view>
+      </view>
+
+
+      
+
+
+
+    </scroll-view>
+
+  </view>
+
+
+
+</view>
