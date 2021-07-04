@@ -4,7 +4,7 @@
   <view class="navbar">
 
     <!-- 搜索框 -->
-    <view class="searchFiel">
+    <view class="searchFiel animated rotateInDownRight">
       <image class="searchIcon" src="../../images/home/_icons--search.png"></image>
       <view class="search">
         <text>搜索</text>
@@ -12,7 +12,7 @@
 
     </view>
 
-    <view class="oval">
+    <view class="oval animated rotateInDownRight">
       <image class="icons13Pho" src="../../images/home/_icons--13-photo.png"></image>
     </view>
 
@@ -24,7 +24,7 @@
   <view class="nav-wrap">
     <!-- 我需要左右滚动 -->
     <scroll-view class="nav" scroll-x>
-      <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}}" wx:for="{{navList}}" wx:key="{{index}}">
+      <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}} animated bounceInRight" style="animation-delay:{{index/10}}s;" wx:for="{{navList}}" wx:key="{{index}}">
         {{item.text}}
       </view>
 

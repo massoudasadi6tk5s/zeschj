@@ -159,6 +159,7 @@ scroll-view{
   width: 340rpx;
   max-height: 712rpx;
   margin-top: 30rpx;
+  margin-bottom: 30rpx;
   box-shadow: rgba(0,0,0,0.5) 0px 3px 20px ;
   border-radius: 16px;
 }
