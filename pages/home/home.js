@@ -11,11 +11,10 @@ Page({
     navList: [
       {"text": "最热", "id": 1},
       { "text": "最新", "id": 2 },
-      { "text": "附近", "id": 3 },
-      { "text": "妹子", "id": 4 },
-      { "text": "汉子", "id": 5 },
+      { "text": "附近", "id": 3 }
 
     ],
+    current: 0
   },
 
   /**
@@ -27,11 +26,27 @@ Page({
     // })
   },
 
+  // 滑动选择标签
   activeNav(e){
     this.setData({
-      currentIndexNav: e.target.dataset.index
+      currentIndexNav: e.target.dataset.index,
+      current: e.target.dataset.index
     })
   },
+
+  // 帖子下滑触底
+  postSole(e){
+    console.log("Hello World")
+  },
+
+  swiperCurrent(e){
+    console.log(e.detail.current)
+
+    this.setData({
+      currentIndexNav: e.detail.current
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
