@@ -36,7 +36,7 @@ Page({
 
   // 帖子下滑触底
   postSole(e){
-    console.log("Hello World")
+    
   },
 
   swiperCurrent(e){

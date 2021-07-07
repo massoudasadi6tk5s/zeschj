@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/welcome/welcome",
-    "pages/test"
+    "pages/user/user",
+    
+    "pages/welcome/welcome"
+    
   ],
   "window": {},
   "tabBar": {
@@ -15,10 +17,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/home/home",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home-active.png",
-        "text": "日志"
+        "pagePath": "pages/user/user",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user-active.png",
+        "text": "我的"
       }
     ]
   },

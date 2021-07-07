@@ -1,0 +1,93 @@
+
+
+<scroll-view class="userprofil" scroll-y enable-back-to-top	>
+
+  <!-- 背景图片 & 蒙版 -->
+  <view class="imagesFather">
+    <!-- 背景图片 -->
+    <image class="rectangle" src="../../images/user/rectangle.png"></image>
+    <!-- 蒙版 -->
+    <image class="rectangleC " src="../../images/user/rectangle-copy.png"></image>
+    <image class="rectangleC" src="../../images/user/rectangle-copy-5.png"></image>
+  </view>
+
+
+  <!-- 主体信息 容器 -->
+  <view class="contents ">
+    <!-- 头像 & 名字 容器-->
+    <view class="avatar ">
+      <!-- 头像  -->
+      <view class="mePhoto"> 
+        <image src="../../images/user/me.png"></image>
+      </view>
+
+      <!-- 名字 -->
+      <view class="name">
+        <text>Jesus Bishop</text>
+      </view>
+
+      <!-- 其他一些东西 -->
+      <view class="jorgecutis ">
+        <text>@jorgecutis</text>
+      </view>
+      
+    </view>
+
+
+    <!-- 各种按钮 容器 -->
+    <view class="addfriends ">
+      <!-- 消息按钮 -->
+      <view class="message">
+
+      </view>
+
+      <!-- phone 按钮 -->
+      <view class="phone">
+
+      </view>
+
+      <!-- 按钮 -->
+      <view class="follow ">
+        <view>FOLLOW</view>
+      </view>
+
+
+
+
+    </view>
+
+
+    <!-- about me 容器-->
+    <view class="aboutMeFather">
+      <view class="aboutMe">About me</view>
+
+      <view class="aboutMeInfo">
+        The availability of low-cost flights and last minute internet deals means that cheap holidays are far easier to come by than they used to be, but it can still take a bit of shopping around to get the best discounts.
+      </view>
+
+    </view>
+
+    <!-- 照片墙 容器 -->
+    <view class="photos ">
+      <view class="photoTitle">照片</view>
+
+      <view class="photoInfo">
+        <image class="photoOne" src="../../images/user/rectangle-copy-12.png"></image>
+        <image class="photoOne" src="../../images/user/rectangle-copy-14.png"></image>
+        <image class="photoOne" src="../../images/user/rectangle-copy-15.png"></image>
+      </view>
+
+    </view>
+
+    
+
+
+  </view>
+
+
+  
+
+
+</scroll-view>
+
+

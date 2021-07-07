@@ -80,7 +80,7 @@ page{
 
 /*  start 滑动标签 */
 .nav-wrap {
-  margin-left: 25rpx;
+  /* margin-left: 25rpx; */
 }
 
 .nav {
