@@ -48,6 +48,14 @@ Page({
   },
 
 
+  // 进入诉求详情
+  gotoDetails(){
+    wx.navigateTo({
+      url: '/pages/appealDetails/apealDetails'
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

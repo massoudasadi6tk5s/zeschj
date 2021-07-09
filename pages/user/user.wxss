@@ -1,6 +1,7 @@
 /* pages/user/user.wxss */
 page{
   background: #242a37;
+  
 }
 
 .userprofil{

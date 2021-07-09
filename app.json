@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/user/user",
     
+    "pages/appeal/appeal",
+    "pages/appealDetails/apealDetails",
+    "pages/user/user",
     "pages/welcome/welcome"
     
   ],
@@ -11,7 +12,7 @@
     "backgroundColor": "#242A37",
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/appeal/appeal",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-active.png",
         "text": "首页"
