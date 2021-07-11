@@ -1,6 +1,6 @@
 // pages/test.js
 const ajax = require('../../utils/ajax.js')
-
+const app = getApp();
 
 Page({
 
@@ -30,7 +30,11 @@ Page({
   // 跳转到主页
   goToHome(){
 
+    app.globalData.welcomePage = true // 表示已经显示了欢迎页
 
+    wx.switchTab({
+      url: '/pages/appeal/appeal',
+    })
 
   },
 

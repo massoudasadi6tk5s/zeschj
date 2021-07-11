@@ -42,8 +42,8 @@ page{
 
 .search{
   position: absolute;
-  width: 46.5px;
-  height: 20px;
+  width: 93rpx;
+  height: 40rpx;
 
   left: 80rpx;
   top: 15rpx;
