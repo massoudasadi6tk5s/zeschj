@@ -33,12 +33,12 @@ Page({
   onLoad: function(options) {
 
     // 进入欢迎页
-    // if (!app.globalData.welcomePage) {
-    //   wx.redirectTo({
-    //     url: '/pages/welcome/welcome',
-    //   })
-    //   return
-    // }
+    if (!app.globalData.welcomePage) {
+      wx.redirectTo({
+        url: '/pages/welcome/welcome',
+      })
+      return
+    }
 
   },
 
@@ -66,9 +66,37 @@ Page({
 
   // 进入诉求详情
   gotoDetails() {
-    wx.navigateTo({
-      url: '/pages/appealDetails/apealDetails'
+
+    wx.checkSession({
+      success(){
+        wx.getUserInfo({
+          withCredentials: true,
+          success: function (res) {
+            console.log('获取用户信息')
+            console.log(res)
+          },
+          fail(res){
+            console.log('获取用户信息错误')
+            console.log(res)
+          }
+        })
+      },
+      fail(){
+        wx.login({
+          success(res) {
+            console.log(res.code)
+
+          }
+        })
+      }
     })
+
+    
+
+    // wx.navigateTo({
+    //   url: '/pages/appealDetails/apealDetails'
+    // })
+
   },
 
 

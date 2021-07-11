@@ -19,8 +19,8 @@
 
 
 <!-- 授权按钮 -->
-<view class="authorization animated fadeInRight " bindtap="goToHome">
+<button open-type="getUserInfo" class="authorization animated fadeInRight " bindtap="goToHome">
   <view>
     <text> 支 持 </text>
   </view>
-</view>
+</button>

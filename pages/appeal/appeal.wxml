@@ -42,7 +42,7 @@
           <!-- 靠左边的 -->
           <view class="postListLeft">
             <!-- 单个帖子 -->
-            <view class="postItem animated slideInLeft" bindtap="gotoDetails">
+            <view open-type="getUserInfo" class="postItem animated slideInLeft" bindtap="gotoDetails">
               <!-- 个人信息 -->
               <view class="itemUserInfo">
                 <image src="../../images/appeal/oval.png"></image>

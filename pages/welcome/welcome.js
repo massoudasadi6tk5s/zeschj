@@ -30,11 +30,35 @@ Page({
   // 跳转到主页
   goToHome(){
 
-    app.globalData.welcomePage = true // 表示已经显示了欢迎页
+    wx.checkSession({
+      success() {
+        wx.getUserInfo({
+          // withCredentials: true,
+          success: function (res) {
+            console.log('获取用户信息')
+            console.log(res)
+          },
+          fail(res) {
+            console.log('获取用户信息错误')
+            console.log(res)
+          }
+        })
+      },
+      fail() {
+        wx.login({
+          success(res) {
+            console.log(res.code)
 
-    wx.switchTab({
-      url: '/pages/appeal/appeal',
+          }
+        })
+      }
     })
+
+    // app.globalData.welcomePage = true // 表示已经显示了欢迎页
+
+    // wx.switchTab({
+    //   url: '/pages/appeal/appeal',
+    // })
 
   },
 
