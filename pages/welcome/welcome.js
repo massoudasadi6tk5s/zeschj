@@ -17,21 +17,26 @@ Page({
   onLoad: function (options) {
 
 
+    // 获取其 code 传到后端 获取其 session_key
+    wx.login({
+      success(res) {
+        console.log(res.code)
+        ajax.HTTP.get(ajax.API.getUserCode + '/'+ res.code, null, null, 'json');
+      }
+    })
+
+
     // 隐藏底部导航栏
     // wx.hideTabBar()
     // ajax.HTTP.get(ajax.API.FINDALL, null, this.cbFindAll, 'form');
   },
 
-  cbFindAll(res){
-    console.log(res);
-  },
 
 
   // 跳转到主页
-  goToHome(){
+  bindgetuserinfo(){
 
-    wx.checkSession({
-      success() {
+
         wx.getUserInfo({
           // withCredentials: true,
           success: function (res) {
@@ -43,16 +48,7 @@ Page({
             console.log(res)
           }
         })
-      },
-      fail() {
-        wx.login({
-          success(res) {
-            console.log(res.code)
 
-          }
-        })
-      }
-    })
 
     // app.globalData.welcomePage = true // 表示已经显示了欢迎页
 

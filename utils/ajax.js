@@ -6,11 +6,11 @@ const CONTENT_TYPE = {
 }
 
 // 域名
-const host = 'http://localhost:8080'
+const host = 'http://localhost:8090'
 
 
 // 模块
-const moduleA = "user";
+const moduleUser = "user";
 
 const moduleTest = "test"
  
@@ -21,8 +21,19 @@ const API = {
   FINDALL: `${host}/${moduleTest}/findAll`,  // 测试查询所有的
 
 
+
+  // start 通用接口
+
+  // end 通用接口
+
+
+
+
   // start 用户相关接口
-  alipayAuthorization: `${host}/${moduleA}/alipayAuthorization` // 用户授权接口
+
+  getUserCode: `${host}/${moduleUser}/getUserCode`, // 获取用户code, 后台换取 session_key。（获取后端对应的UUID）
+
+  userAuthorization: `${host}/${moduleUser}/userAuthorization` // 用户授权接口
 
 
 
