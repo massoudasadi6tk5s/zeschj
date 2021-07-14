@@ -21,7 +21,13 @@ Page({
     wx.login({
       success(res) {
         console.log(res.code)
-        ajax.HTTP.get(ajax.API.getUserCode + '/'+ res.code, null, null, 'json');
+        ajax.HTTP.get(ajax.API.getUserCode + '/'+ res.code, null, function(res){
+
+          if(res.data.code == 200) {
+            wx.setStorageSync('sessionToUuid', res.data.data)
+          }
+          
+        }, 'json');
       }
     })
 
