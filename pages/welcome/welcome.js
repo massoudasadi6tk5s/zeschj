@@ -24,7 +24,7 @@ Page({
         ajax.HTTP.get(ajax.API.getUserCode + '/'+ res.code, null, function(res){
 
           if(res.data.code == 200) {
-            wx.setStorageSync('sessionToUuid', res.data.data)
+            wx.setStorageSync('sessionKeyToUuid', res.data.data)
           }
           
         }, 'json');
@@ -48,6 +48,17 @@ Page({
           success: function (res) {
             console.log('获取用户信息')
             console.log(res)
+
+            let params = {
+              rawData: res.rawData,
+              signature: res.signature,
+              encryptedData: res.encryptedData,
+              iv: res.iv,
+              sessionKeyToUuid: wx.getStorageSync('sessionKeyToUuid')
+            }
+            ajax.HTTP.post(ajax.API.userAuthorization, params, function(res){
+              console.log(res);
+            }, 'json');
           },
           fail(res) {
             console.log('获取用户信息错误')
