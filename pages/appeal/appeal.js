@@ -1,5 +1,6 @@
 // pages/test.js
 const app = getApp()
+const ajax = require('../../utils/ajax.js')
 
 Page({
 
@@ -32,13 +33,15 @@ Page({
    */
   onLoad: function(options) {
 
+    
+
     // 进入欢迎页
-    if (!app.globalData.welcomePage) {
-      wx.redirectTo({
-        url: '/pages/welcome/welcome',
-      })
-      return
-    }
+    // if (!app.globalData.welcomePage) {
+    //   wx.redirectTo({
+    //     url: '/pages/welcome/welcome',
+    //   })
+    //   return
+    // }
 
   },
 

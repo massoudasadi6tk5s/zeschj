@@ -57,7 +57,10 @@ Page({
               sessionKeyToUuid: wx.getStorageSync('sessionKeyToUuid')
             }
             ajax.HTTP.post(ajax.API.userAuthorization, params, function(res){
-              console.log(res);
+
+              wx.setStorageSync('userInfo', res.data.data)
+
+              console.log(res.data.data);
             }, 'json');
           },
           fail(res) {

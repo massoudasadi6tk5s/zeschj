@@ -31,6 +31,8 @@ const API = {
 
   // start 用户相关接口
 
+  detectionUserAuthorization: `${host}/${moduleUser}/detectionUserAuthorization`, // 检测用户登录
+
   getUserCode: `${host}/${moduleUser}/getUserCode`, // 获取用户code, 后台换取 session_key。（获取后端对应的UUID）
 
   userAuthorization: `${host}/${moduleUser}/userAuthorization` // 用户授权接口
