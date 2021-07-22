@@ -32,9 +32,6 @@ Page({
     })
 
 
-    // 隐藏底部导航栏
-    // wx.hideTabBar()
-    // ajax.HTTP.get(ajax.API.FINDALL, null, this.cbFindAll, 'form');
   },
 
 
@@ -58,8 +55,15 @@ Page({
             }
             ajax.HTTP.post(ajax.API.userAuthorization, params, function(res){
 
-              wx.setStorageSync('userInfo', res.data.data)
+              if(res.data.code == 200){
+                wx.setStorageSync('userInfo', res.data.data)
 
+                wx.navigateTo({
+                  url: '/pages/appeal/apeal'
+                })
+
+              }
+              
               console.log(res.data.data);
             }, 'json');
           },
@@ -69,8 +73,6 @@ Page({
           }
         })
 
-
-    // app.globalData.welcomePage = true // 表示已经显示了欢迎页
 
     // wx.switchTab({
     //   url: '/pages/appeal/appeal',

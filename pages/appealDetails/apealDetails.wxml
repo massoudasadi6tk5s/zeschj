@@ -1,3 +1,8 @@
+<import src="../../template/return/return.wxml"/>
+
+<template is="return"></template>
+
+
 <view class="extra2 ">
   <image class="rectangleC8" src="../../images/appealDetails/rectangle-copy-8.png"></image>
   <image class="rectangleC9" src="../../images/appealDetails/rectangle-copy-9.png"></image>

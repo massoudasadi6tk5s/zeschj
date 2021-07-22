@@ -1,3 +1,5 @@
+@import "../../template/return/return.wxss";
+
 /* pages/appealDetails/apealDetails.wxss */
 page{
   background: #242a37;

@@ -5,14 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo:{
+      headPortrait: '../../images/user/me.png',
+      nickName: '小小微距',
+      signature: '拉近你我距离',
+      readme: '不论性别与否，男性朋友、女性朋友、男朋友或女朋友等，多么希望有一个人来看望自己啊。',
+      photos: ['../../images/user/rectangle-copy-12.png', '../../images/user/rectangle-copy-14.png', 
+        '../../images/user/rectangle-copy-15.png'
+      ]
 
+      
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.hideTabBar()
+
   },
 
   /**
@@ -27,6 +37,15 @@ Page({
    */
   onShow: function () {
 
+  },
+
+
+  // 返回到首页
+  return(e){
+    console.log('返回首页')
+    wx.switchTab({
+      url: '/pages/appeal/appeal'
+    })
   },
 
   /**
