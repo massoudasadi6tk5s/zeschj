@@ -1,21 +1,28 @@
 {
   "pages": [
-    
     "pages/appeal/appeal",
     "pages/appealDetails/apealDetails",
     "pages/user/user",
-    "pages/welcome/welcome"
-    
+    "pages/welcome/welcome",
+    "pages/message/message"
   ],
   "window": {},
   "tabBar": {
     "backgroundColor": "#242A37",
+    "color": "#4e586e",
+    "selectedColor": "#f54b64",
     "list": [
       {
         "pagePath": "pages/appeal/appeal",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-active.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message-active.png",
+        "text": "消息"
       },
       {
         "pagePath": "pages/user/user",
