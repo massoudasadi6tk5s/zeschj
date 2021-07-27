@@ -64,7 +64,7 @@
       <view class="aboutMe">关于我</view>
 
       <view class="aboutMeInfo">
-        {{userInfo.readme}}
+        {{userInfo.introduce}}
       </view>
 
     </view>

@@ -4,7 +4,7 @@ page{
   background-color: #242A37;
   width: 100%;
   height: 100%;
-}
+} 
 
 .main{
   width: 100%;

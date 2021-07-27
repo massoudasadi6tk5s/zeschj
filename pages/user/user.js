@@ -9,7 +9,7 @@ Page({
       headPortrait: '../../images/user/me.png',
       nickName: '小小微距',
       signature: '拉近你我距离',
-      readme: '不论性别与否，男性朋友、女性朋友、男朋友或女朋友等，多么希望有一个人来看望自己啊。',
+      introduce: '不论性别与否，男性朋友、女性朋友、男朋友或女朋友等，多么希望有一个人来看望自己啊。',
       photos: ['../../images/user/rectangle-copy-12.png', '../../images/user/rectangle-copy-14.png', 
         '../../images/user/rectangle-copy-15.png'
       ]
@@ -22,6 +22,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var userInfo = wx.getStorageSync("userInfo")
+    if(!userInfo){
+
+      wx.navigateTo({
+        url: '/pages/welcome/welcome',
+      })
+
+      return
+
+    }
+
+    this.setData({
+      userInfo: userInfo
+    })
+
 
   },
 

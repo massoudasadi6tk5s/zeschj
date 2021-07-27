@@ -74,10 +74,6 @@ Page({
         })
 
 
-    // wx.switchTab({
-    //   url: '/pages/appeal/appeal',
-    // })
-
   },
 
 
