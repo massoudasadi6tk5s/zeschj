@@ -69,7 +69,7 @@
 
     </view>
 
-    <!-- 照片墙 容器 -->
+    <!-- 照片墙 容器 （发现没有表） -->
     <view class="photos ">
       <view class="photoTitle">照片</view>
 
