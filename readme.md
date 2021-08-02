@@ -43,21 +43,9 @@
 
 ## 小程序原型图(16M)
 
-[https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo%20Social%20UI%20Kit_Dark%20theme.pdf](https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo Social UI Kit_Dark theme.pdf)
+> [https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo%20Social%20UI%20Kit_Dark%20theme.pdf](https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo Social UI Kit_Dark theme.pdf)
 
 
-
-## 完成的页面展示
-
-<img src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191122210636.jpg" style="width:500px;" />
-
-
-
-<img src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191122210656.jpg" style="width:500px" />
-
-
-
-<img src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191122210701.jpg" style="width:500px" />
 
 ## 部分原型页面展示
 
