@@ -52,7 +52,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var userInfo = wx.getStorageSync("userInfo")
+    if (!userInfo) {
+      return
+    }
 
+    this.setData({
+      userInfo: userInfo
+    })
   },
 
 

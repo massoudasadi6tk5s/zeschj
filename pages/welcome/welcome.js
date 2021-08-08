@@ -25,6 +25,7 @@ Page({
 
           if(res.data.code == 200) {
             wx.setStorageSync('sessionKeyToUuid', res.data.data)
+
           }
           
         }, 'json');
@@ -58,10 +59,9 @@ Page({
               if(res.data.code == 200){
                 wx.setStorageSync('userInfo', res.data.data)
 
-                wx.navigateTo({
-                  url: '/pages/appeal/apeal'
+                wx.switchTab({
+                  url: '/pages/appeal/appeal',
                 })
-
               }
               
               console.log(res.data.data);

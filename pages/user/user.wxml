@@ -74,9 +74,9 @@
       <view class="photoTitle">照片</view>
 
       <view class="photoInfo">
-        <image class="photoOne" src="{{userInfo.photos[0]}}"></image>
+        <!-- <image class="photoOne" src="{{userInfo.photos[0]}}"></image>
         <image class="photoOne" src="{{userInfo.photos[1]}}"></image>
-        <image class="photoOne" src="{{userInfo.photos[2]}}"></image>
+        <image class="photoOne" src="{{userInfo.photos[2]}}"></image> -->
       </view>
 
     </view>

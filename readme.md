@@ -43,7 +43,7 @@
 
 ## 小程序原型图(16M)
 
-> [https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo%20Social%20UI%20Kit_Dark%20theme.pdf](https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo Social UI Kit_Dark theme.pdf)
+> https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo%20Social%20UI%20Kit_Dark%20theme.pdf
 
 
 

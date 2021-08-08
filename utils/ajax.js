@@ -7,6 +7,7 @@ const CONTENT_TYPE = {
 
 // 域名
 const host = 'https://www.weiju.fun/weiju'
+// const host = 'http://localhost:8080/weiju'
 
 
 // 模块
