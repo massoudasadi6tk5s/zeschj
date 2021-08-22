@@ -43,13 +43,15 @@
 
 
 
+各位小伙伴，很是热情呀，人员达70余人。必须限制了。😫😫
+
+
+
 > Java后台地址： https://gitee.com/huixi_and_their_friends/weiju.git
 
 
 
-|                              QQ                              |
-| :----------------------------------------------------------: |
-| ![](https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/qrcode_1578487330214.jpg) |
+
 
 
 
