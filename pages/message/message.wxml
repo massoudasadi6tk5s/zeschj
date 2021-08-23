@@ -1,6 +1,31 @@
 <view class="main">
 
-  
+  <view class="messageTitle">
+    <view>Message</view>
+  </view>
+
+  <view class="friendListFather">
+
+    <scroll-view scroll-x>
+      <view class="friend" wx:for="{{6}}">
+
+        <view class="friendHeadPhoto">
+          <image src="../../images/message/Oval-5-Copy.png"></image>
+          <view class="oval2Copy"></view>
+        </view>
+
+        <view class="friendName">
+          叶秋
+        </view>
+      
+      </view>
+
+
+    </scroll-view>
+
+  </view>
+
+
 
 
 
