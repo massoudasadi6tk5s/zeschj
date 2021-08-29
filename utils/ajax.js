@@ -47,7 +47,7 @@ const API = {
 }
 
 
-// 请求方式 1.请求地址 2.携带参数 3.回调函数 4.请求头类型 //测试
+// 请求方式 1.请求地址 2.携带参数 3.回调函数 4.请求头类型
 var HTTP = {}
 HTTP.get = function(url, params, cb, contenttype) {
   ajax(url, params, cb, 'GET', contenttype)
