@@ -13,10 +13,15 @@
 <view class="home-page"></view>
 ```
 #### js变量名
-基本的驼峰命名
+* 基本变量的驼峰命名
 ```js
 let homePage = []
 let name = '小明'
+```
+* 常量名的大写或首字符大写
+```js
+const AudioContext = wx.createInnerAudioContext() 
+const API = {}
 ```
 ### 目录结构规范
 * components   //公共的组件封装文件夹
