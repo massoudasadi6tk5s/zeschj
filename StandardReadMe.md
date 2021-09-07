@@ -23,6 +23,28 @@ let name = '小明'
 const AudioContext = wx.createInnerAudioContext() 
 const API = {}
 ```
+### css(wxss)书写规范
+```css```或```wxss```的样式书写，应遵循父元素下的子元素，递进式的书写，谨慎处理公共样式
+```html
+<view class="home-page">
+    <view class="header">
+        <view class="title">标题</view>
+    </view>
+<view>
+```
+* 反例
+```css
+.home-page{}
+.header{}
+.title{}
+```
+* 标准
+```css
+.home-page{}
+.home-page .header{}
+.home-page .header .title{}
+```
+注意：对于敏感的单词，例如```header```和```title```等，一定要做特别的限制要求，容易造成样式混合错乱。开发中自己视情况而定。
 ### 目录结构规范
 * components   //公共的组件封装文件夹
 * assets       //静态资源文件
