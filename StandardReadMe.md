@@ -1,12 +1,12 @@
 ## 前端项目规范
 ### 命名规范
 #### 前端小程序文件名
-以首字母大写为主，例如：
-* HomePage
-    * HomePage.wxml
-    * HomePage.wxss
-    * HomePage.js
-    * HomePage.json
+以首字母小写为主的驼峰写法（默认创建时就是小写，改大写时麻烦），例如：
+* homePage
+    * homePage.wxml
+    * homePage.wxss
+    * homePage.js
+    * homePage.json
 #### class样式类命名
 小写并以中线连接，例如
 ```
@@ -45,6 +45,25 @@ const API = {}
 .home-page .header .title{}
 ```
 注意：对于敏感的单词，例如```header```和```title```等，一定要做特别的限制要求，容易造成样式混合错乱。开发中自己视情况而定。
+
+### JS处理规范
+
+#### js变量定义
+
+- 比如data 中的值，必须在 wxml 中有用，不然不放在 data 中。  其他值放入pageData中。
+
+  ```javascript
+  Page({
+      
+      data: {}
+      pageData:{}
+  })
+  ```
+
+  
+
+
+
 ### 目录结构规范
 * components   //公共的组件封装文件夹
 * assets       //静态资源文件
