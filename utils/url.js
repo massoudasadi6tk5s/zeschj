@@ -1,11 +1,13 @@
 //所有的url接口
-const host = 'https://www.weiju.fun/weiju'
+// const host = 'https://www.weiju.fun/weiju'
+const host = 'http://localhost:8080/weiju'
 // 模块
-const moduleUser = "user";
+const moduleUser = "wjUser";
 const moduleTest = "test"
 // 具体请求（接口）
 const API = {
-  FINDALL: `${host}/${moduleTest}/findAll`,  // 测试查询所有的
+  testOne: `${host}/${moduleTest}/testOne`,  // 测试查询所有的
+  testTwo: `${host}/${moduleUser}/testOne`,
   // start 通用接口
   // end 通用接口
   // start 用户相关接口

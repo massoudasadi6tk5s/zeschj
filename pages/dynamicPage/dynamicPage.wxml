@@ -1,0 +1,47 @@
+<!--pages/dynamicPage/dynamicPage.wxml-->
+<view class="dynamic-page">
+  <!-- 头部搜索部分 -->
+  <view class="header-box">
+    <view class="input-box">
+      <image src="../../images/appeal/_icons--search.png" class="search"></image>
+      <input placeholder="Search"></input>
+    </view>
+    <image src="../../images/user/me.png" class="avatar"></image>
+  </view>
+  <!-- 第二行发现部分 -->
+  <view class="view-all">
+    <text class="text1">Discover</text>
+    <text class="text2">View all</text>
+  </view>
+  <!-- 动态展示部分 -->
+  <view class="dynamic-content">
+    <view class="user-header">
+      <image src="../../images/user/me.png" class="avatar"></image>
+      <view class="right-text">
+        <view class="name">小风尘</view>
+        <view class="time">2 hours ago</view>
+      </view>
+    </view>
+    <view class="info">
+      第一次发视频
+    </view>
+    <view class="image-box">
+      <image src="../../images/user/rectangle-copy-12.png" mode="aspectFill"></image>
+    </view>
+    <view class="evaluation">
+      <view class="heart">
+        <image src="../../images/appeal/_icons--8-like.png"></image>
+        <text>66</text>
+      </view>
+      <view class="heart copy">
+        <image src="../../images/appeal/_icons--8-like-copy.png"></image>
+        <text>66</text>
+      </view>
+      <view class="avatar-more">
+        <image src="../../images/user/me.png" class="avatar1"></image>
+        <image src="../../images/user/me.png" class="avatar2"></image>
+        <image src="../../images/user/me.png" class="avatar3"></image>
+      </view>
+    </view>
+  </view>
+</view>

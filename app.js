@@ -4,6 +4,8 @@ const ajax = require('utils/ajax.js')
 App({
   onLaunch: function () {
 
+    ajax.HTTP.get(ajax.API.testTwo, null, function(res){}, 'json')
+
 
     if(wx.getStorageSync('userInfo')){
       return
@@ -22,10 +24,10 @@ App({
         ajax.HTTP.post(ajax.API.detectionUserAuthorization, params, function (res) {
           console.log(res)
           
-          if (!res.data.data) {
+          if (!res.data.result) {
             return
           }
-          wx.setStorageSync('userInfo', res.data.data)
+          wx.setStorageSync('userInfo', res.data.result)
         }, 'json');
 
       }

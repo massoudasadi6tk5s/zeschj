@@ -1,0 +1,169 @@
+/* pages/dynamicPage/dynamicPage.wxss */
+
+page {
+  background-color: #242a37;
+  width: 100%;
+  height: 100%;
+}
+
+.dynamic-page {
+  padding: 10rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+}
+
+.dynamic-page .header-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dynamic-page .header-box .input-box {
+  background: #313544;
+  height: 70rpx;
+  width: 500rpx;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.dynamic-page .header-box .input-box input {
+  flex: 1;
+  color: #fff;
+  font-size: 15px;
+}
+
+.dynamic-page .header-box .input-box .search {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 15rpx;
+}
+
+.dynamic-page .header-box .avatar {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+/*  */
+
+.dynamic-page .view-all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40rpx 0;
+}
+
+.dynamic-page .view-all .text1 {
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.dynamic-page .view-all .text2 {
+  font-size: 15px;
+  color: #f55264;
+}
+
+.dynamic-page .dynamic-content {
+  min-height: 200rpx;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 20px;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.dynamic-page .dynamic-content .user-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dynamic-page .dynamic-content .user-header .avatar {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 20rpx;
+}
+
+.dynamic-page .dynamic-content .user-header .right-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dynamic-page .dynamic-content .user-header .right-text .name {
+  font-size: 16px;
+  color: #fff;
+}
+
+.dynamic-page .dynamic-content .user-header .right-text .time {
+  color: #999;
+  font-size: 12px;
+}
+
+.dynamic-page .dynamic-content .info {
+  color: #fff;
+  font-size: 15px;
+  margin: 20rpx 0;
+}
+
+.dynamic-page .dynamic-content .image-box {
+  height: 600rpx;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dynamic-page .dynamic-content .image-box image {
+  height: 100%;
+  width: 100%;
+}
+
+.dynamic-page .dynamic-content .evaluation {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.dynamic-page .dynamic-content .evaluation .heart image {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.dynamic-page .dynamic-content .evaluation .heart {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dynamic-page .dynamic-content .evaluation .copy {
+  margin-left: 40rpx;
+}
+.dynamic-page .dynamic-content .evaluation .avatar-more {
+  height:50rpx;
+  position: absolute;
+  right:0;
+
+}
+.dynamic-page .dynamic-content .evaluation .avatar-more image{
+  height:50rpx;
+  width:50rpx;
+  border:2px solid #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.dynamic-page .dynamic-content .evaluation .avatar-more .avatar2{
+  position: absolute;
+  right:30rpx;
+  top:0;
+}
+.dynamic-page .dynamic-content .evaluation .avatar-more .avatar3{
+  position: absolute;
+  right:60rpx;
+  top:0;
+}
