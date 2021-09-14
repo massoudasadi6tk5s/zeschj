@@ -24,7 +24,7 @@ Page({
         ajax.HTTP.get(ajax.API.getUserCode + '/'+ res.code, null, function(res){
 
           if(res.data.code == 200) {
-            wx.setStorageSync('sessionKeyToUuid', res.data.data)
+            wx.setStorageSync('sessionKeyToUuid', res.data.result)
 
           }
           
@@ -57,14 +57,14 @@ Page({
             ajax.HTTP.post(ajax.API.userAuthorization, params, function(res){
 
               if(res.data.code == 200){
-                wx.setStorageSync('userInfo', res.data.data)
+                wx.setStorageSync('userInfo', res.data.result)
 
                 wx.switchTab({
                   url: '/pages/appeal/appeal',
                 })
               }
               
-              console.log(res.data.data);
+              console.log(res.data.result);
             }, 'json');
           },
           fail(res) {
