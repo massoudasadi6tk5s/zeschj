@@ -1,6 +1,6 @@
 //所有的url接口
-// const host = 'https://www.weiju.fun/weiju'
-const host = 'http://localhost:8080/weiju'
+const host = 'https://www.weiju.fun/weiju'
+// const host = 'http://localhost:8080/weiju'
 // 模块
 const moduleUser = "wjUser";
 const moduleTest = "test"
