@@ -55,9 +55,11 @@
 
 
 
-## 关于整个的结构图
+## 关于整个的结构图（使用幕布完成）
 
-![](https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/%E5%BE%AE%E8%B7%9D.png)
+> 结构图地址：https://mubu.com/doc/aZ6rrEPIfw
+
+![微距结构图](https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/%E5%BE%AE%E8%B7%9D2020.2.7.png)
 
 
 
