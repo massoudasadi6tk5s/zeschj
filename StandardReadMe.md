@@ -24,6 +24,8 @@ const AudioContext = wx.createInnerAudioContext()
 const API = {}
 ```
 ### css(wxss)书写规范
+1. css声明书写
+
 ```css```或```wxss```的样式书写，应遵循父元素下的子元素，递进式的书写，谨慎处理公共样式
 ```html
 <view class="home-page">
@@ -45,6 +47,21 @@ const API = {}
 .home-page .header .title{}
 ```
 注意：对于敏感的单词，例如```header```和```title```等，一定要做特别的限制要求，容易造成样式混合错乱。开发中自己视情况而定。
+
+2. rpx和px的运用
+
+```rpx```(手机的宽度是750rpx)使用属性：
+* width
+* height
+* padding
+* margin
+* top，bottom，righit，left
+
+```px```使用属性：
+* font-size
+* box-shadow
+* border-radius
+* border
 
 ### JS处理规范
 
