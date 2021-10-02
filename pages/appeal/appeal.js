@@ -32,7 +32,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let params = {
+      page: 1,
+      pageSize: 10
+    }
+    ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e){
+      console.log(e)
+    }, 'json')
   },
 
   // 滑动选择标签
