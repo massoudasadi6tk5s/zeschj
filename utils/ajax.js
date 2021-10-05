@@ -30,6 +30,15 @@ function ajax(url, params, cb, action, contenttype) {
     },
     success: (res) => {
 
+      if(res.data.code!=200){
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
+
       if(typeof cb === 'function'){
         cb(res)
       }
