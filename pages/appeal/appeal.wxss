@@ -23,18 +23,17 @@ page{
   align-content: center;
 }
 
-.searchFiel{
+.search-fiel{
   position: relative;
 
   width: 80%;
   height: 72rpx;
   background-color: rgba(142,142,147,0.12);
-  /* background-color: red; */
   border-radius: 25px;
   
 }
 
-.searchIcon{
+.search-icon{
   width: 48rpx;
   height: 48rpx;
   margin-top: 15rpx;
@@ -70,7 +69,7 @@ page{
   background: linear-gradient(220deg, #F78361, #F54B64);
 }
 
-.icons13Pho{
+.icons-13-pho{
   width: 48rpx;
   height: 48rpx;
 
@@ -124,7 +123,7 @@ swiper-item{
   /* height: 100%; */
 }
 
-.postView{
+.post-view{
   width: 100%;
   height: 100%;
 }
@@ -133,11 +132,11 @@ scroll-view{
   height: 100%;
 }
 
-.postScroll{
+.post-scroll{
   position: relative;
 }
 
-.postListLeft{
+.post-list-left{
 
   width: 340rpx;
   height: 100%;
@@ -145,7 +144,7 @@ scroll-view{
   margin: 20rpx 20rpx 20rpx 20rpx;
 }
 
-.postListRight{
+.post-list-right{
   position: absolute;
   right: 20rpx;
   top: 0rpx;
@@ -157,7 +156,7 @@ scroll-view{
 
 
 
-.postItem{
+.post-item{
   width: 340rpx;
   max-height: 712rpx;
   margin-top: 30rpx;
@@ -166,42 +165,47 @@ scroll-view{
   border-radius: 16px;
 }
 
-.itemUserInfo{
-  position: relative;
+.item-user-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: 340rpx;
   height: 120rpx;
-  /* background: greenyellow; */
 }
 
-.itemUserInfo image{
+.item-user-info image{
   width: 60rpx;
   height: 60rpx;
-  margin-top: 30rpx;
-  margin-left: 30rpx;
+  border-radius: 50%;
 
 }
 
-.itemNickName{
-  position: absolute;
-  top: 30rpx;
-  left: 120rpx;
+/* 个人昵称与分布时间的 父容器 */
+.item-nickname-time-father{
+  display: flex;
+  flex-direction: column;
+}
 
+.item-nick-name{
+  
   width: 180rpx;
-
   color: #ffffff;
   font-family: "Avenir-Medium";
   font-size: 13px;
   font-weight: 400;
   line-height: 22px;
-  letter-spacing: -0.3135294px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
   
 }
 
 .time{
-  position: absolute;
-  top: 60rpx;
-  left: 120rpx;
-
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 150rpx;
   color: #4e586e;
   font-family: "Avenir-Book";
   font-size: 13px;
@@ -216,14 +220,14 @@ scroll-view{
   height: 278rpx;
 }
 
-.postContent{
+.post-content{
   width: 302rpx;
   margin: 0rpx auto;
-
-  /* background: pink; */
 }
 
-.postType{
+.post-type{
+  display: flex;
+  align-items: center;
   width: 302rpx;
   height: 40rpx;
 
@@ -235,7 +239,7 @@ scroll-view{
   letter-spacing: -0.24px;
 }
 
-.postDetails{
+.post-details{
   width: 302rpx;
 
   color: #ffffff;
@@ -244,29 +248,33 @@ scroll-view{
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }
 
 /* 喜欢&评论 容器 */
-.likeAndComment{
-  position: relative;
+.like-and-comment{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
-  width: 310rpx;
   height: 70rpx;
-
-  margin-left: 30rpx;
-  margin-top: 30rpx;
-
 }
 
-.likeAndComment image{
+.like{
+  display: flex;
+  align-items: center;
+  width: 130rpx;
+}
+
+.like-and-comment image{
   width: 48rpx;
   height: 48rpx;
 }
 
-.likeCount{
-  position: absolute;
-  top: 0rpx;
-  left: 50rpx;
+.like-count{
 
   width: 68rpx;
 
@@ -279,16 +287,12 @@ scroll-view{
 }
 
 .comment{
-  position: absolute;
-  top: 0rpx;
-  left: 150rpx;
+  display: flex;
+  align-items: center;
+  width: 130rpx;
 }
 
-.CommentCount{
-  position: absolute;
-  top: 0rpx;
-  left: 50rpx;
-
+.comment-count{
   color: #ffffff;
   font-family: "Avenir-Book";
   font-size: 15px;

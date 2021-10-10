@@ -1,15 +1,13 @@
-
-
 <view class="main">
 
-  
+
 
   <!-- 搜索的容器 -->
   <view class="navbar">
 
     <!-- 搜索框 -->
-    <view class="searchFiel animated rotateInDownRight">
-      <image class="searchIcon" src="../../images/appeal/_icons--search.png"></image>
+    <view class="search-fiel animated rotateInDownRight">
+      <image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
       <view class="search">
         <text>搜索</text>
       </view>
@@ -17,7 +15,7 @@
     </view>
 
     <view class="oval animated rotateInDownRight">
-      <image class="icons13Pho" src="../../images/appeal/_icons--13-photo.png"></image>
+      <image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
     </view>
 
 
@@ -40,27 +38,31 @@
 
 
     <swiper-item wx:for="{{3}}">
-      <view class="postView">
+      <view class="post-view">
 
-        <scroll-view class="postScroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
+        <scroll-view class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
 
 
 
           <!-- 靠左边的 -->
-          <view class="postListLeft">
+          <view class="post-list-left">
             <!-- 单个帖子 -->
-            <view open-type="getUserInfo" class="postItem animated slideInLeft" bindtap="gotoDetails">
+            <view wx:for="{{leftAppealList}}" data-id="{{item.appealId}}" open-type="getUserInfo" class="post-item animated slideInLeft" bindtap="gotoDetails">
               <!-- 个人信息 -->
-              <view class="itemUserInfo">
-                <image src="../../images/appeal/oval.png"></image>
+              <view class="item-user-info">
+                <image src="{{item.wjUser.headPortrait}}"></image>
+
                 <!-- 个人昵称 -->
-                <view class="itemNickName">
-                  <text>Joel Jacobs</text>
+                <view class="item-nickname-time-father">
+                  <view class="item-nick-name">
+                    <text>{{item.wjUser.nickName}}</text>
+                  </view>
+
+                  <view class="time">
+                    <text>{{item.createTime}}</text>
+                  </view>
                 </view>
 
-                <view class="time">
-                  <text>2 hours ago</text>
-                </view>
 
               </view>
 
@@ -70,31 +72,31 @@
               </view>
 
               <!-- 帖子类型 && 帖子内容 -->
-              <view class="postContent">
+              <view class="post-content">
                 <!-- 类型 -->
-                <view class="postType">
+                <view class="post-type">
                   <text>#relax，#travel</text>
                 </view>
 
-                <view class="postDetails">
-                  <text>Bryce Canyon A Stunning US Travel Destination</text>
+                <view class="post-details">
+                  <text>{{item.title}}</text>
                 </view>
 
               </view>
 
               <!-- 喜欢&评论 容器 -->
-              <view class="likeAndComment">
+              <view class="like-and-comment">
                 <view class="like">
                   <image src="../../images/appeal/_icons--8-like.png"></image>
-                  <view class="likeCount">
-                    <text>1120</text>
+                  <view class="like-count">
+                    <text>{{item.endorseCount}}</text>
                   </view>
                 </view>
 
                 <view class="comment">
                   <image src="../../images/appeal/_icons--8-like-copy.png"></image>
-                  <view class="CommentCount">
-                    <text>1120</text>
+                  <view class="comment-count">
+                    <text>{{item.commentCount}}</text>
                   </view>
                 </view>
               </view>
@@ -106,19 +108,22 @@
           </view>
 
           <!-- 靠右边的 -->
-          <view class="postListRight">
+          <view class="post-list-right">
             <!-- 单个帖子 -->
-            <view class="postItem animated slideInRight" bindtap="gotoDetails">
+            <view wx:for="{{rightAppealList}}" class="post-item animated slideInRight" bindtap="gotoDetails">
               <!-- 个人信息 -->
-              <view class="itemUserInfo">
-                <image src="../../images/appeal/oval.png"></image>
+              <view class="item-user-info">
+                <image src="{{item.wjUser.headPortrait}}"></image>
                 <!-- 个人昵称 -->
-                <view class="itemNickName">
-                  <text>Joel Jacobs</text>
-                </view>
+                <view class="item-nickname-time-father">
 
-                <view class="time">
-                  <text>2 hours ago</text>
+                  <view class="item-nick-name">
+                    <text>{{item.wjUser.nickName}}</text>
+                  </view>
+
+                  <view class="time">
+                    <text>{{item.createTime}}</text>
+                  </view>
                 </view>
 
               </view>
@@ -127,31 +132,31 @@
               <!-- <view class="rectangle">
 
               <!-- 帖子类型 && 帖子内容 -->
-              <view class="postContent">
+              <view class="post-content">
                 <!-- 类型 -->
-                <view class="postType">
+                <view class="post-type">
                   <text>#relax，#travel</text>
                 </view>
 
-                <view class="postDetails">
-                  <text>Bryce Canyon A Stunning US Travel Destination</text>
+                <view class="post-details">
+                  <text>{{item.title}}</text>
                 </view>
 
               </view>
 
               <!-- 喜欢&评论 容器 -->
-              <view class="likeAndComment">
+              <view class="like-and-comment">
                 <view class="like">
                   <image src="../../images/appeal/_icons--8-like.png"></image>
-                  <view class="likeCount">
-                    <text>1120</text>
+                  <view class="like-count">
+                    <text>{{item.endorseCount}}</text>
                   </view>
                 </view>
 
                 <view class="comment">
                   <image src="../../images/appeal/_icons--8-like-copy.png"></image>
-                  <view class="CommentCount">
-                    <text>1120</text>
+                  <view class="comment-count">
+                    <text>{{item.commentCount}}</text>
                   </view>
                 </view>
               </view>

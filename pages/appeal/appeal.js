@@ -1,6 +1,7 @@
 // pages/test.js
 const app = getApp()
 const ajax = require('../../utils/ajax.js')
+const util = require('../../utils/util.js')
 
 Page({
 
@@ -25,19 +26,51 @@ Page({
       }
 
     ],
-    current: 0
+    current: 0,
+    leftAppealList: [], // 左侧诉求集合
+    rightAppealList: [] // 右侧诉求集合
+  },
+  pageData:{
+    pageNO: 1,
+    pageSize: 10
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    let that = this
+    let left = this.data.leftAppealList
+    let right = this.data.rightAppealList
+
     let params = {
-      page: 1,
-      pageSize: 10
+      pageNO: this.pageData.pageNO,
+      pageSize: this.pageData.pageSize
     }
     ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e){
-      console.log(e)
+
+      let appealList = e.data.result
+
+      appealList.forEach((item, index) => {
+
+        if(index % 2 == 0){
+          item.createTime = util.format(new Date(item.createTime))
+          left.push(item)
+        }else{
+          item.createTime = util.format(new Date(item.createTime))
+          right.push(item)
+        }
+
+
+      })
+      
+      that.setData({
+        leftAppealList: left,
+        rightAppealList: right
+      })
+      
+
     }, 'json')
   },
 
@@ -64,12 +97,12 @@ Page({
 
 
   // 进入诉求详情
-  gotoDetails() { 
+  gotoDetails(e) { 
 
-
+    let id = e.currentTarget.dataset.id
 
     wx.navigateTo({
-      url: '/pages/appealDetails/apealDetails'
+      url: '/pages/appealDetails/apealDetails?appealId=' + id
     })
 
   },
