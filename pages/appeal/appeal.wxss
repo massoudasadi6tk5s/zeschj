@@ -24,7 +24,8 @@ page{
 }
 
 .search-fiel{
-  position: relative;
+  display: flex;
+  align-items: center;
 
   width: 80%;
   height: 72rpx;
@@ -34,31 +35,30 @@ page{
 }
 
 .search-icon{
+  margin-left: 20rpx;
   width: 48rpx;
   height: 48rpx;
-  margin-top: 15rpx;
-  margin-left: 25rpx;
 
 }
 
 .search{
-  position: absolute;
-  width: 93rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+  width: 450rpx;
   height: 40rpx;
-
-  left: 80rpx;
-  top: 15rpx;
 
 
   color: #4e586e;
   font-family: "Avenir-Book";
   font-size: 15px;
   font-weight: 400;
-  line-height: 20px;
-  letter-spacing: -0.24px;
 }
 
 .oval{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 35rpx;
   top: 0rpx;
@@ -72,8 +72,6 @@ page{
 .icons-13-pho{
   width: 48rpx;
   height: 48rpx;
-
-  margin: 10rpx 10rpx;
 }
 
 
@@ -81,7 +79,7 @@ page{
 
 /*  start 滑动标签 */
 .nav-wrap {
-  /* margin-left: 25rpx; */
+
 }
 
 .nav {
@@ -229,7 +227,6 @@ scroll-view{
   display: flex;
   align-items: center;
   width: 302rpx;
-  height: 40rpx;
 
   color: #f54b64;
   font-family: "Avenir-Book";

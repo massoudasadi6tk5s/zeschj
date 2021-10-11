@@ -10,8 +10,8 @@
   </view>
   <!-- 第二行发现部分 -->
   <view class="view-all">
-    <text class="text1">Discover</text>
-    <text class="text2">View all</text>
+    <text class="text1">动态</text>
+    <text class="text2">查看所有</text>
   </view>
   <!-- 动态展示部分 -->
   <view class="dynamic-content">

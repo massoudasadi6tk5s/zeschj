@@ -24,7 +24,8 @@ const API = {
 
   // start 诉求相关接口
 
-  listPageAppeal: `${host}/${moduleAppeal}/listPageAppeal` // 按条件分页查询 诉求
+  listPageAppeal: `${host}/${moduleAppeal}/listPageAppeal`, // 按条件分页查询 诉求
+  getByIdAppeal: `${host}/${moduleAppeal}/getByIdAppeal` // 根据诉求id，查询
 
   // end 诉求相关接口
 

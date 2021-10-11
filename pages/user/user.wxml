@@ -1,4 +1,4 @@
-<import src="../../template/return/return.wxml"/>
+
 
 <template is="return"></template>
 

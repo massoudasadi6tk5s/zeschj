@@ -9,7 +9,7 @@
     <view class="search-fiel animated rotateInDownRight">
       <image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
       <view class="search">
-        <text>搜索</text>
+        <input placeholder="搜索" maxlength="20"></input>
       </view>
 
     </view>
@@ -68,14 +68,14 @@
 
               <!-- 帖子照片 || 可能没有-->
               <view class="rectangle">
-                <image src="../../images/appeal/rectangle-copy-12.png"></image>
+                <image mode="aspectFit" src="{{item.appealMaterial[0].url}}"></image>
               </view>
 
               <!-- 帖子类型 && 帖子内容 -->
               <view class="post-content">
                 <!-- 类型 -->
-                <view class="post-type">
-                  <text>#relax，#travel</text>
+                <view class="post-type" >
+                  <text wx:for="{{item.appealTag}}">#{{item.tagName}}</text>
                 </view>
 
                 <view class="post-details">
@@ -135,7 +135,7 @@
               <view class="post-content">
                 <!-- 类型 -->
                 <view class="post-type">
-                  <text>#relax，#travel</text>
+                  <text wx:for="{{item.appealTag}}">#{{item.tagName}}</text>
                 </view>
 
                 <view class="post-details">

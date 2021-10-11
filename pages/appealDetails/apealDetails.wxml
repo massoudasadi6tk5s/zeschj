@@ -4,19 +4,19 @@
 
 
 <view class="extra2 ">
-  <image class="rectangleC8" src="../../images/appealDetails/rectangle-copy-8.png"></image>
+  <image class="rectangleC8" mode="aspectFill" src="{{appealList.appealMaterial[0].url}}"></image>
   <image class="rectangleC9" src="../../images/appealDetails/rectangle-copy-9.png"></image>
 
   <!-- 标题 & 内容 & 头像 & 点赞评论 容器 -->
   <view class="groupFather">
     <!-- 标题 -->
     <view class="title">
-      <text>Cheap Romantic Vacations</text>
+      <text>{{appealList.title}}</text>
     </view>
 
     <!-- 内容 -->
     <view class="content">
-      <text>Since the introduction of Virtual Game, it has been achieving great heights so far as its popularity and technological advancement are concerned. The history of video game is as interesting as a fairy.</text>
+      <text>{{appealList.content}}</text>
     </view>
 
     <!-- 头像 & 点赞评论 容器 -->
@@ -36,13 +36,13 @@
         <!-- 点赞 -->
         <view class="likeFather">
           <image src="../../images/appealDetails/_icons--8-like.png"></image>
-          <text>1008</text>
+          <text>{{appealList.endorseCount}}</text>
         </view>
 
         <!-- 评论 -->
         <view class="commentFather">
           <image src="../../images/appealDetails/_icons--8-like-copy.png"></image>
-          <text>1008</text>
+          <text>{{appealList.commentCount}}</text>
         </view>
       </view>
 
