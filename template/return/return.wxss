@@ -2,8 +2,8 @@
   position: fixed;
   left: 50rpx;
   top: 100rpx;
-  border-top: 1px solid gray;
-  border-left: 1px solid gray;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
   transform:rotate(-45deg);
   width: 30rpx;
   height: 30rpx;

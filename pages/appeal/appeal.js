@@ -41,10 +41,12 @@ Page({
   onLoad: function(options) {
 
     let that = this
+    let userInfo = wx.getStorageSync('userInfo')
     let left = this.data.leftAppealList
     let right = this.data.rightAppealList
 
     let params = {
+      userId: userInfo.userId,
       pageNO: this.pageData.pageNO,
       pageSize: this.pageData.pageSize
     }
@@ -95,6 +97,51 @@ Page({
     })
   },
 
+  // 为诉求点赞
+  appealEndorse(e){
+
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let appealId = e.currentTarget.dataset.id
+    let direction = e.currentTarget.dataset.direction
+
+    let params = {
+      appealId: appealId,
+      userId: userInfo.userId,
+      createBy: userInfo.userId
+    }
+
+    ajax.HTTP.post(ajax.API.appealToEndorse, params, (e)=>{
+      
+      // 改变值
+      if (direction == "left"){
+        let leftList = that.data.leftAppealList
+        leftList.forEach((item, index)=>{
+          if (item.appealId == appealId){
+            leftList[index].isEndorse = true
+            leftList[index].endorseCount = leftList[index].endorseCount+1
+          }
+        })
+        that.setData({
+          leftAppealList: leftList
+        })
+      }else{
+
+        let rightList = that.data.rightAppealList
+        rightList.forEach((item, index) => {
+          if (item.appealId == appealId) {
+            rightList[index].isEndorse = true
+            rightList[index].endorseCount = rightList[index].endorseCount+1
+          }
+        })
+        that.setData({
+          rightAppealList: rightList
+        })
+      }
+
+    }, 'json')
+
+  },
 
   // 进入诉求详情
   gotoDetails(e) { 

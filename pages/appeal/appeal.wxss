@@ -267,14 +267,12 @@ scroll-view{
 }
 
 .like-and-comment image{
-  width: 48rpx;
-  height: 48rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 
 .like-count{
-
-  width: 68rpx;
-
+  margin-left: 16rpx;
   color: #ffffff;
   font-family: "Avenir-Book";
   font-size: 15px;
@@ -290,6 +288,7 @@ scroll-view{
 }
 
 .comment-count{
+  margin-left: 16rpx;
   color: #ffffff;
   font-family: "Avenir-Book";
   font-size: 15px;
