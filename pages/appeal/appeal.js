@@ -143,6 +143,52 @@ Page({
 
   },
 
+// 取消点赞
+  cancelEndorse(e){
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let appealId = e.currentTarget.dataset.id
+    let direction = e.currentTarget.dataset.direction
+
+    let params = {
+      appealId: appealId,
+      userId: userInfo.userId,
+    }
+
+    ajax.HTTP.delete(ajax.API.cancelEndorse, params, (e)=>{
+      console.log(e)
+
+      // 改变值
+      if (direction == "left") {
+        let leftList = that.data.leftAppealList
+        leftList.forEach((item, index) => {
+          if (item.appealId == appealId) {
+            leftList[index].isEndorse = false
+            leftList[index].endorseCount = leftList[index].endorseCount - 1
+          }
+        })
+        that.setData({
+          leftAppealList: leftList
+        })
+      } else {
+
+        let rightList = that.data.rightAppealList
+        rightList.forEach((item, index) => {
+          if (item.appealId == appealId) {
+            rightList[index].isEndorse = false
+            rightList[index].endorseCount = rightList[index].endorseCount - 1
+          }
+        })
+        that.setData({
+          rightAppealList: rightList
+        })
+      }
+
+    }, 'json')
+    
+
+  },
+
   // 进入诉求详情
   gotoDetails(e) { 
 

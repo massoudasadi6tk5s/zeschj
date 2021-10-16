@@ -36,7 +36,8 @@ const API = {
 
   // start 诉求点赞相关接口
 
-  appealToEndorse: `${host}/${moduleAppealEndorse}/appealToEndorse` // 为诉求点赞
+  appealToEndorse: `${host}/${moduleAppealEndorse}/appealToEndorse`, // 为诉求点赞
+  cancelEndorse: `${host}/${moduleAppealEndorse}/cancelEndorse` // 取消点赞
 
   // end  诉求点赞相关接口
 
