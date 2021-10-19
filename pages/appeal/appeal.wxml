@@ -14,7 +14,7 @@
 
     </view>
 
-    <view class="oval animated rotateInDownRight">
+    <view class="oval animated rotateInDownRight" bindtap="goToRelease">
       <image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
     </view>
 

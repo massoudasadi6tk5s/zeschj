@@ -1,0 +1,15 @@
+<import src="../../template/return/return.wxml"/>
+
+<template is="return"></template>
+
+<view class="appeal-release-father">
+
+  <!-- 标题 -->
+  <!-- 内容 -->
+  <!-- 图片 -->
+  <!-- 标签 -->
+  <!-- 具体地址  可选择 隐藏部分地址，只显示一部分地址出来 -->
+  <!-- 此诉求限制的人数 -->
+
+
+</view>

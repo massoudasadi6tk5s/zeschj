@@ -1,0 +1,11 @@
+@import "../../template/return/return.wxss";
+
+page{
+  background: #242a37;
+  height: 100%;
+}
+
+.appeal-release-father{
+  height: 100%;
+  width: 100%;
+}

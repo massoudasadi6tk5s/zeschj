@@ -200,6 +200,15 @@ Page({
 
   },
 
+  // 进入发布诉求页面
+  goToRelease(e){
+
+    wx.navigateTo({
+      url: '/pages/appealRelease/appealRelease',
+    })
+
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -2,12 +2,11 @@
   "pages": [
     "pages/appeal/appeal",
     "pages/dynamicPage/dynamicPage",
-    
     "pages/appealDetails/apealDetails",
     "pages/user/user",
     "pages/welcome/welcome",
-    "pages/message/message"
-    
+    "pages/message/message",
+    "pages/appealRelease/appealRelease"
   ],
   "window": {
     "navigationBarBackgroundColor": "#242A37",
