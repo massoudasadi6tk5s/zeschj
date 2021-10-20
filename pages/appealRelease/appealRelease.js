@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    imageArray: [], // 图片
+    defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg'
   },
 
   /**
@@ -19,6 +20,42 @@ Page({
     wx.navigateBack({
       delta: 2
     })
+  },
+
+  // 选择图片
+  selectImg(){
+
+    let that = this
+    let imgArray = this.data.imageArray
+
+    if(imgArray.length>4){
+      wx.showToast({
+        title: '图片够多啦',
+        icon: 'none'
+      })
+      return
+    }
+
+    wx.chooseImage({
+      count: 4,
+      success: (res)=>{
+        let tempFilePaths = res.tempFilePaths
+
+        if (imgArray.length + tempFilePaths.length >4){
+          wx.showToast({
+            title: '图片太多啦',
+            icon: 'none'
+          })
+          return
+        }
+
+        that.setData({
+          imageArray: imgArray.concat(tempFilePaths)
+        })
+
+      },
+    })
+
   },
 
   /**

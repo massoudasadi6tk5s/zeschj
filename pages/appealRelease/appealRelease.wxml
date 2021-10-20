@@ -1,15 +1,42 @@
-<import src="../../template/return/return.wxml"/>
+<import src="../../template/return/return.wxml" />
 
 <template is="return"></template>
 
-<view class="appeal-release-father">
+<view class="appeal-release-father animated fadeInUp">
 
-  <!-- 标题 -->
-  <!-- 内容 -->
-  <!-- 图片 -->
-  <!-- 标签 -->
-  <!-- 具体地址  可选择 隐藏部分地址，只显示一部分地址出来 -->
-  <!-- 此诉求限制的人数 -->
+  <!-- 背景图片 -->
+  <image class="bg-img" mode="aspectFill" src="{{imageArray[0] || defaultImg}}"></image>
+
+  <!-- 主体区域 -->
+  <view class="subject-area-father">
+
+    <!-- 图片 -->
+    <view class="select-images-father">
+      <!-- 存储图片样张 -->
+      <view class="storage-images-father">
+        <view class="img-father" wx:for="{{imageArray}}" style="left:{{index*80}}rpx;">
+          <image mode='aspectFit'  class="animated rollIn" src="{{item}}"></image>
+        </view>
+      </view>
+
+      <!-- 上传图片按钮/图标 -->
+      <view class="upload-icon" bindtap="selectImg">
+        <image src="/images/appealRelease/icon_add.png"></image>
+      </view>
+
+    </view>
+
+    <!-- 标题 -->
+
+    <!-- 内容 -->
+
+    <!-- 标签 -->
+    <!-- 具体地址  可选择 隐藏部分地址，只显示一部分地址出来 -->
+    <!-- 此诉求限制的人数 -->
+
+  </view>
+
+
 
 
 </view>
