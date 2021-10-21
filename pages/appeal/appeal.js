@@ -1,6 +1,7 @@
 // pages/test.js
 const app = getApp()
 const ajax = require('../../utils/ajax.js')
+const util = require('../../utils/util.js')
 
 Page({
 
@@ -25,19 +26,53 @@ Page({
       }
 
     ],
-    current: 0
+    current: 0,
+    leftAppealList: [], // 左侧诉求集合
+    rightAppealList: [] // 右侧诉求集合
+  },
+  pageData:{
+    pageNO: 1,
+    pageSize: 10
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let left = this.data.leftAppealList
+    let right = this.data.rightAppealList
+
     let params = {
-      page: 1,
-      pageSize: 10
+      userId: userInfo.userId,
+      pageNO: this.pageData.pageNO,
+      pageSize: this.pageData.pageSize
     }
     ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e){
-      console.log(e)
+
+      let appealList = e.data.result
+
+      appealList.forEach((item, index) => {
+
+        if(index % 2 == 0){
+          item.createTime = util.format(new Date(item.createTime))
+          left.push(item)
+        }else{
+          item.createTime = util.format(new Date(item.createTime))
+          right.push(item)
+        }
+
+
+      })
+      
+      that.setData({
+        leftAppealList: left,
+        rightAppealList: right
+      })
+      
+
     }, 'json')
   },
 
@@ -62,14 +97,114 @@ Page({
     })
   },
 
+  // 为诉求点赞
+  appealEndorse(e){
+
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let appealId = e.currentTarget.dataset.id
+    let direction = e.currentTarget.dataset.direction
+
+    let params = {
+      appealId: appealId,
+      userId: userInfo.userId,
+      createBy: userInfo.userId
+    }
+
+    ajax.HTTP.post(ajax.API.appealToEndorse, params, (e)=>{
+      
+      // 改变值
+      if (direction == "left"){
+        let leftList = that.data.leftAppealList
+        leftList.forEach((item, index)=>{
+          if (item.appealId == appealId){
+            leftList[index].isEndorse = true
+            leftList[index].endorseCount = leftList[index].endorseCount+1
+          }
+        })
+        that.setData({
+          leftAppealList: leftList
+        })
+      }else{
+
+        let rightList = that.data.rightAppealList
+        rightList.forEach((item, index) => {
+          if (item.appealId == appealId) {
+            rightList[index].isEndorse = true
+            rightList[index].endorseCount = rightList[index].endorseCount+1
+          }
+        })
+        that.setData({
+          rightAppealList: rightList
+        })
+      }
+
+    }, 'json')
+
+  },
+
+// 取消点赞
+  cancelEndorse(e){
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let appealId = e.currentTarget.dataset.id
+    let direction = e.currentTarget.dataset.direction
+
+    let params = {
+      appealId: appealId,
+      userId: userInfo.userId,
+    }
+
+    ajax.HTTP.delete(ajax.API.cancelEndorse, params, (e)=>{
+      console.log(e)
+
+      // 改变值
+      if (direction == "left") {
+        let leftList = that.data.leftAppealList
+        leftList.forEach((item, index) => {
+          if (item.appealId == appealId) {
+            leftList[index].isEndorse = false
+            leftList[index].endorseCount = leftList[index].endorseCount - 1
+          }
+        })
+        that.setData({
+          leftAppealList: leftList
+        })
+      } else {
+
+        let rightList = that.data.rightAppealList
+        rightList.forEach((item, index) => {
+          if (item.appealId == appealId) {
+            rightList[index].isEndorse = false
+            rightList[index].endorseCount = rightList[index].endorseCount - 1
+          }
+        })
+        that.setData({
+          rightAppealList: rightList
+        })
+      }
+
+    }, 'json')
+    
+
+  },
 
   // 进入诉求详情
-  gotoDetails() { 
+  gotoDetails(e) { 
 
-
+    let id = e.currentTarget.dataset.id
 
     wx.navigateTo({
-      url: '/pages/appealDetails/apealDetails'
+      url: '/pages/appealDetails/apealDetails?appealId=' + id
+    })
+
+  },
+
+  // 进入发布诉求页面
+  goToRelease(e){
+
+    wx.navigateTo({
+      url: '/pages/appealRelease/appealRelease',
     })
 
   },

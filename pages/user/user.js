@@ -63,14 +63,6 @@ Page({
   },
 
 
-  // 返回到首页
-  return(e){
-    console.log('返回首页')
-    wx.switchTab({
-      url: '/pages/appeal/appeal'
-    })
-  },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,0 +1,45 @@
+<import src="../../template/return/return.wxml" />
+
+<template is="return"></template>
+
+<view class="appeal-release-father">
+
+  <!-- 背景图片 -->
+  <image wx:if="{{imageArray.length==0}}" class="bg-img animated pulse" mode="aspectFill" src="{{defaultImg}}" style="height:100%;width:100%;"></image>
+
+  <image wx:if="{{imageArray.length!=0 && index == imgIndex}}" wx:for="{{imageArray}}" class="bg-img animated pulse" mode="{{imgMode}}" src="{{item}}" style="height:100%;width:100%;"></image>
+
+
+  <!-- 主体区域 -->
+  <view class="subject-area-father">
+
+    <!-- 图片 -->
+    <view class="select-images-father">
+      <!-- 存储图片样张 -->
+      <view class="storage-images-father">
+        <view class="img-father" wx:for="{{imageArray}}" style="left:{{index*80}}rpx;">
+          <image mode='aspectFit'  class="animated rollIn" src="{{item}}" data-index="{{index}}" bindtap="clickImg"></image>
+        </view>
+      </view>
+
+      <!-- 上传图片按钮/图标 -->
+      <view class="upload-icon" bindtap="selectImg">
+        <image src="/images/appealRelease/icon_add.png"></image>
+      </view>
+
+    </view>
+
+    <!-- 标题 -->
+
+    <!-- 内容 -->
+
+    <!-- 标签 -->
+    <!-- 具体地址  可选择 隐藏部分地址，只显示一部分地址出来 -->
+    <!-- 此诉求限制的人数 -->
+
+  </view>
+
+
+
+
+</view>

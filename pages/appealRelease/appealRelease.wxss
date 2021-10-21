@@ -1,0 +1,66 @@
+@import "../../template/return/return.wxss";
+
+page{
+  background: #242a37;
+  height: 100%;
+}
+
+.appeal-release-father{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.appeal-release-father .bg-img{
+  height: 100%;
+  width: 100%;
+}
+
+/* 主体区域 */
+.subject-area-father{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+}
+
+.subject-area-father .select-images-father{
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 40%;
+  width: 100%;
+}
+
+.select-images-father .storage-images-father {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 190rpx;
+  margin-left: 40rpx;
+}
+
+.storage-images-father .img-father{
+  position: absolute;
+  transform: rotate(8deg);
+}
+
+.img-father image{
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 10rpx;
+}
+
+.upload-icon{
+  position: absolute;
+  right: 80rpx;
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.upload-icon image{
+  height: 60rpx;
+  width: 60rpx;
+}

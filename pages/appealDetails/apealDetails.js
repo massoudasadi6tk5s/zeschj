@@ -1,17 +1,31 @@
 // pages/appealDetails/apealDetails.js
+const ajax = require('../../utils/ajax.js')
+const util = require('../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    appealList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
+    let appealId = options.appealId
+    // 查询诉求
+    ajax.HTTP.get(ajax.API.getByIdAppeal + "/" + appealId, null, (e)=>{
+
+      that.setData({
+        appealList: e.data.result
+      })
+
+    }, 'json')
+    
 
   },
 
