@@ -6,7 +6,14 @@ Page({
    */
   data: {
     imageArray: [], // 图片
-    defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg'
+    imgIndex: 0,
+    defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg',
+    imgMode: 'aspectFill'
+  },
+  pageData:{
+    imageModeArray: ["scaleToFill", "aspectFit", "aspectFill", "widthFix", "heightFix",
+      "top", "bottom", "center", "left", "right", "top left", "top right", "bottom left", "bottom right"
+    ] // 图片展示的方式
   },
 
   /**
@@ -49,11 +56,57 @@ Page({
           return
         }
 
+        let totle = imgArray.length + tempFilePaths.length - 1 
+
         that.setData({
-          imageArray: imgArray.concat(tempFilePaths)
+          imageArray: imgArray.concat(tempFilePaths),
+          imgIndex: totle
         })
 
       },
+    })
+
+  },
+
+  // 点击图片 切换背景图片
+  clickImg(e){
+    let that = this
+    let index = e.currentTarget.dataset.index
+    let imgIndex = this.data.imgIndex
+
+    let imageArray = this.data.imageArray
+
+    if(imgIndex == index){
+      let imageModeArray = this.pageData.imageModeArray
+      
+      for (let i = 0; i < imageModeArray.length; i++) {
+        if (imageModeArray[i] == 'bottom right') {
+          that.setData({
+            imageArray: []
+          })
+          that.setData({
+            imageArray: imageArray,
+            imgMode: imageModeArray[0]
+          })
+          break;
+        } else if (that.data.imgMode == imageModeArray[i]) {
+          that.setData({
+            imageArray: []
+          })
+          that.setData({
+            imageArray: imageArray,
+            imgMode: imageModeArray[i + 1]
+          })
+          break;
+        }
+      }
+
+      
+
+    }
+
+    this.setData({
+      imgIndex: index
     })
 
   },
