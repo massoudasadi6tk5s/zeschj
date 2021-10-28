@@ -78,11 +78,7 @@ page{
 
 /*  start 滑动标签 */
 .nav-wrap {
-<<<<<<< HEAD
-
-=======
-  padding:0 25rpx;
->>>>>>> lele
+  padding:0 25rpx;  
 }
 
 .nav {
@@ -130,10 +126,6 @@ swiper-item{
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> lele
 .post-scroll{
   position: relative;
 }

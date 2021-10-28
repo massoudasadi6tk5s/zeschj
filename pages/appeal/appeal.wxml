@@ -1,14 +1,6 @@
 <view class="main">
-<<<<<<< HEAD
 
 
-=======
-
-
-
-	<!-- 搜索的容器 -->
-	<view class="navbar">
->>>>>>> lele
 
 		<!-- 搜索框 -->
 		<view class="search-fiel animated rotateInDownRight">
@@ -17,35 +9,21 @@
 				<input placeholder="搜索" maxlength="20"></input>
 			</view>
 
-<<<<<<< HEAD
     <!-- 搜索框 -->
     <view class="search-fiel animated rotateInDownRight">
       <image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
       <view class="search">
         <input placeholder="搜索" maxlength="20"></input>
       </view>
-=======
-		</view>
->>>>>>> lele
 
 		<view class="oval animated rotateInDownRight" bindtap="goToRelease">
 			<image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
 		</view>
 	</view>
 
-<<<<<<< HEAD
     <view class="oval animated rotateInDownRight" bindtap="goToRelease">
       <image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
     </view>
-=======
-	<!-- 首页导航 -->
-	<view class="nav-wrap">
-		<!-- 我需要左右滚动 -->
-		<scroll-view class="nav" scroll-x>
-			<view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}} animated bounceInRight" style="animation-delay:{{index/10}}s;" wx:for="{{navList}}" wx:key="{{index}}">
-				{{item.text}}
-			</view>
->>>>>>> lele
 
 		</scroll-view>
 	</view>
@@ -61,26 +39,10 @@
 
 
 
-<<<<<<< HEAD
     <swiper-item wx:for="{{3}}">
       <view class="post-view">
 
         <scroll-view class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
-=======
-					<!-- 靠左边的 -->
-					<view class="post-list-left">
-						<!-- 单个帖子 -->
-						<view wx:for="{{leftAppealList}}" data-id="{{item.appealId}}" open-type="getUserInfo" class="post-item animated slideInLeft" bindtap="gotoDetails">
-							<!-- 个人信息 -->
-							<view class="item-user-info">
-								<image src="{{item.wjUser.headPortrait}}"></image>
-
-								<!-- 个人昵称 -->
-								<view class="item-nickname-time-father">
-									<view class="item-nick-name">
-										<text>{{item.wjUser.nickName}}</text>
-									</view>
->>>>>>> lele
 
 									<view class="time">
 										<text>{{item.createTime}}</text>
@@ -88,7 +50,6 @@
 								</view>
 
 
-<<<<<<< HEAD
           <!-- 靠左边的 -->
           <view class="post-list-left">
             <!-- 单个帖子 -->
@@ -186,89 +147,9 @@
                 <view class="post-details">
                   <text>{{item.title}}</text>
                 </view>
-=======
-							</view>
-
-							<!-- 帖子照片 || 可能没有-->
-							<view class="rectangle">
-								<image mode="aspectFit" src="{{item.appealMaterial[0].url}}"></image>
-							</view>
-
-							<!-- 帖子类型 && 帖子内容 -->
-							<view class="post-content">
-								<!-- 类型 -->
-								<view class="post-type">
-									<text wx:for="{{item.appealTag}}">#{{item.tagName}}</text>
-								</view>
-
-								<view class="post-details">
-									<text>{{item.title}}</text>
-								</view>
 
 							</view>
 
-							<!-- 喜欢&评论 容器 -->
-							<view class="like-and-comment">
-								<view class="like">
-									<image src="../../images/appeal/like{{item.isEndorse ? '-active':''}}.png" data-direction="left" data-id="{{item.appealId}}" catchtap="{{ item.isEndorse ? 'cancelEndorse':'appealEndorse'}}"></image>
-									<view class="like-count">
-										<text>{{item.endorseCount}}</text>
-									</view>
-								</view>
-
-								<view class="comment">
-									<image src="../../images/appeal/_icons--8-like-copy.png"></image>
-									<view class="comment-count">
-										<text>{{item.commentCount}}</text>
-									</view>
-								</view>
-							</view>
-
-
-						</view>
-
-
-					</view>
-
-					<!-- 靠右边的 -->
-					<view class="post-list-right">
-						<!-- 单个帖子 -->
-						<view wx:for="{{rightAppealList}}" class="post-item animated slideInRight" bindtap="gotoDetails">
-							<!-- 个人信息 -->
-							<view class="item-user-info">
-								<image src="{{item.wjUser.headPortrait}}"></image>
-								<!-- 个人昵称 -->
-								<view class="item-nickname-time-father">
-
-									<view class="item-nick-name">
-										<text>{{item.wjUser.nickName}}</text>
-									</view>
-
-									<view class="time">
-										<text>{{item.createTime}}</text>
-									</view>
-								</view>
-
-							</view>
-
-							<!-- 帖子照片 || 可能没有-->
-							<!-- <view class="rectangle">
-
-              <!-- 帖子类型 && 帖子内容 -->
-							<view class="post-content">
-								<!-- 类型 -->
-								<view class="post-type">
-									<text wx:for="{{item.appealTag}}">#{{item.tagName}}</text>
-								</view>
-
-								<view class="post-details">
-									<text>{{item.title}}</text>
-								</view>
->>>>>>> lele
-
-							</view>
-
-<<<<<<< HEAD
               <!-- 喜欢&评论 容器 -->
               <view class="like-and-comment">
                 <view class="like">
@@ -285,24 +166,6 @@
                   </view>
                 </view>
               </view>
-=======
-							<!-- 喜欢&评论 容器 -->
-							<view class="like-and-comment">
-								<view class="like">
-									<image src="../../images/appeal/like{{item.isEndorse ? '-active':''}}.png" data-direction="right" data-id="{{item.appealId}}" catchtap="{{ item.isEndorse ? 'cancelEndorse':'appealEndorse'}}"></image>
-									<view class="like-count">
-										<text>{{item.endorseCount}}</text>
-									</view>
-								</view>
-
-								<view class="comment">
-									<image src="../../images/appeal/_icons--8-like-copy.png"></image>
-									<view class="comment-count">
-										<text>{{item.commentCount}}</text>
-									</view>
-								</view>
-							</view>
->>>>>>> lele
 
 
 						</view>
