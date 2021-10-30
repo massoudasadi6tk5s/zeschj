@@ -2,12 +2,8 @@
 
 
 
-		<!-- 搜索框 -->
-		<view class="search-fiel animated rotateInDownRight">
-			<image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
-			<view class="search">
-				<input placeholder="搜索" maxlength="20"></input>
-			</view>
+  <!-- 搜索的容器 -->
+  <view class="navbar">
 
     <!-- 搜索框 -->
     <view class="search-fiel animated rotateInDownRight">
@@ -16,27 +12,29 @@
         <input placeholder="搜索" maxlength="20"></input>
       </view>
 
-		<view class="oval animated rotateInDownRight" bindtap="goToRelease">
-			<image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
-		</view>
-	</view>
+    </view>
 
-    <view class="oval animated rotateInDownRight" bindtap="goToRelease">
+    <view class="oval animated rotateInDownRight">
       <image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
     </view>
 
-		</scroll-view>
-	</view>
-
-	<!-- 帖子 || 诉求 -->
-	<swiper style="height:100%;" current="{{current}}" circular="true" easing-function="easeInOutCubic" bindchange="swiperCurrent">
 
 
-		<swiper-item wx:for="{{3}}">
-			<view class="post-view">
+  </view>
 
-				<scroll-view class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
+  <!-- 首页导航 -->
+  <view class="nav-wrap">
+    <!-- 我需要左右滚动 -->
+    <scroll-view class="nav" scroll-x>
+      <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}} animated bounceInRight" style="animation-delay:{{index/10}}s;" wx:for="{{navList}}" wx:key="{{index}}">
+        {{item.text}}
+      </view>
 
+    </scroll-view>
+  </view>
+
+  <!-- 帖子 || 诉求 -->
+  <swiper style="height:100%;" current="{{current}}" circular="true" easing-function="easeInOutCubic" bindchange="swiperCurrent">
 
 
     <swiper-item wx:for="{{3}}">
@@ -44,10 +42,6 @@
 
         <scroll-view class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
 
-									<view class="time">
-										<text>{{item.createTime}}</text>
-									</view>
-								</view>
 
 
           <!-- 靠左边的 -->
@@ -148,7 +142,7 @@
                   <text>{{item.title}}</text>
                 </view>
 
-							</view>
+              </view>
 
               <!-- 喜欢&评论 容器 -->
               <view class="like-and-comment">
@@ -168,24 +162,24 @@
               </view>
 
 
-						</view>
-					</view>
+            </view>
+          </view>
 
 
 
 
 
 
-				</scroll-view>
+        </scroll-view>
 
-			</view>
-		</swiper-item>
-
-
+      </view>
+    </swiper-item>
 
 
 
-	</swiper>
+
+
+  </swiper>
 
 
 
