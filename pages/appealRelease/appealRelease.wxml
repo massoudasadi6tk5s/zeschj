@@ -2,10 +2,13 @@
 
 <template is="return"></template>
 
-<view class="appeal-release-father animated fadeInUp">
+<view class="appeal-release-father">
 
   <!-- 背景图片 -->
-  <image class="bg-img" mode="aspectFill" src="{{imageArray[0] || defaultImg}}"></image>
+  <image wx:if="{{imageArray.length==0}}" class="bg-img animated pulse" mode="aspectFill" src="{{defaultImg}}" style="height:100%;width:100%;"></image>
+
+  <image wx:if="{{imageArray.length!=0 && index == imgIndex}}" wx:for="{{imageArray}}" class="bg-img animated pulse" mode="{{imgMode}}" src="{{item}}" style="height:100%;width:100%;"></image>
+
 
   <!-- 主体区域 -->
   <view class="subject-area-father">
@@ -15,7 +18,7 @@
       <!-- 存储图片样张 -->
       <view class="storage-images-father">
         <view class="img-father" wx:for="{{imageArray}}" style="left:{{index*80}}rpx;">
-          <image mode='aspectFit'  class="animated rollIn" src="{{item}}"></image>
+          <image mode='aspectFit'  class="animated rollIn" src="{{item}}" data-index="{{index}}" bindtap="clickImg"></image>
         </view>
       </view>
 

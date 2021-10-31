@@ -6,21 +6,17 @@
 
 <!-- 主标题 -->
 <view class="main_healding animated fadeInRight ">
-  <text>微 距 </text>
-  <view>
-    <text>拉近 你我 距离</text>
-  </view>
+	<view>微 距</view>
+	<view>拉近 你我 距离</view>
 </view>
 
 <!-- 副标题 -->
 <view class="subheading animated fadeInRight ">
-  <text>由汇溪团队合力搭建而成，凭借着一个想法，说干就干的行动派，打造出属于自己的一个东西。</text>
+	<text>由汇溪团队合力搭建而成，凭借着一个想法，说干就干的行动派，打造出属于自己的一个东西。</text>
 </view>
 
 
 <!-- 授权按钮 -->
 <button open-type="getUserInfo" class="authorization animated fadeInRight " bindgetuserinfo="bindgetuserinfo">
-  <view>
-    <text> 支 持 </text>
-  </view>
+	支 持
 </button>
