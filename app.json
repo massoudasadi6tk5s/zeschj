@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/welcome/welcome",
-    "pages/appealRelease/appealRelease",
     "pages/appeal/appeal",
+    "pages/welcome/welcome",
     "pages/appealRelease/appealRelease",
     "pages/dynamicPage/dynamicPage",
     "pages/appealDetails/apealDetails",

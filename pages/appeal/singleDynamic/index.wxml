@@ -1,0 +1,48 @@
+<!--pages/appeal/singleDynamic/index.wxml-->
+<view class="post-list-left">
+  <!-- 单个帖子 -->
+  <view wx:for="{{data}}" data-id="{{item.appealId}}" wx:key="{{index}}"  class="post-item animated slideInLeft" bindtap="gotoDetails">
+    <!-- 个人信息 -->
+    <view class="item-user-info">
+      <image src="{{item.wjUser.headPortrait}}"></image>
+      <!-- 个人昵称 -->
+      <view class="item-nickname-time-father">
+        <view class="item-nick-name">
+          <text>{{item.wjUser.nickName}}</text>
+        </view>
+        <view class="time">
+          <text>{{item.createTime}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 帖子照片 || 可能没有-->
+    <view class="rectangle">
+      <image mode="aspectFit" src="{{item.appealMaterial[0].url}}" wx:if="{{item.appealMaterial[0].url}}"></image>
+    </view>
+    <!-- 帖子类型 && 帖子内容 -->
+    <view class="post-content">
+      <!-- 类型 -->
+      <view class="post-type">
+        <text wx:for="{{item.appealTag}}">#{{item.tagName}}</text>
+      </view>
+      <view class="post-details">
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+    <!-- 喜欢&评论 容器 -->
+    <view class="like-and-comment">
+      <view class="like">
+        <image src="../../../images/appeal/like{{item.isEndorse ? '-active':''}}.png" data-direction="left" data-id="{{item.appealId}}" catchtap="{{ item.isEndorse ? 'cancelEndorse':'appealEndorse'}}"></image>
+        <view class="like-count">
+          <text>{{item.endorseCount}}</text>
+        </view>
+      </view>
+      <view class="comment">
+        <image src="../../../images/appeal/_icons--8-like-copy.png"></image>
+        <view class="comment-count">
+          <text>{{item.commentCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

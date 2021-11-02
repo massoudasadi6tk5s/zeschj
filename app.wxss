@@ -2,7 +2,9 @@
 @import "lib/style/animate.wxss";
 page{
   font-family: Helvetica Neue, Helvetica, sans-serif;
-  --them-color:#F78361;
+  --orange-color:#F78361;
+  --deep-pink:#f54b64;
+  --gray-color4:#f1f1f1;
 }
 view{
   box-sizing: border-box;

@@ -1,0 +1,163 @@
+/* pages/appeal/singleDynamic/index.wxss */
+.post-list-left{
+
+  width: 340rpx;
+  height: 100%;
+  /* background-color: pink; */
+  margin: 20rpx 20rpx 20rpx 20rpx;
+}
+
+.post-list-right{
+  position: absolute;
+  right: 20rpx;
+  top: 0rpx;
+  
+
+  width: 340rpx;
+  height: 100%;
+}
+
+
+
+.post-item{
+  width: 340rpx;
+  max-height: 712rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: rgba(0,0,0,0.5) 0px 3px 20px ;
+  border-radius: 16px;
+}
+
+.item-user-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 340rpx;
+  height: 120rpx;
+}
+
+.item-user-info image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+
+}
+
+/* 个人昵称与分布时间的 父容器 */
+.item-nickname-time-father{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-nick-name{
+  
+  width: 180rpx;
+  color: #ffffff;
+  font-family: "Avenir-Medium";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  
+}
+
+.time{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 150rpx;
+  color: #4e586e;
+  font-family: "Avenir-Book";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.08px;
+}
+
+
+.rectangle image{
+  width: 340rpx;
+  height: 278rpx;
+}
+
+.post-content{
+  width: 302rpx;
+  margin: 0rpx auto;
+}
+
+.post-type{
+  display: flex;
+  align-items: center;
+  width: 302rpx;
+
+  color: #f54b64;
+  font-family: "Avenir-Book";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+}
+
+.post-details{
+  width: 302rpx;
+
+  color: #ffffff;
+  font-family: "Avenir-Book";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+/* 喜欢&评论 容器 */
+.like-and-comment{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 70rpx;
+}
+
+.like{
+  display: flex;
+  align-items: center;
+  width: 130rpx;
+}
+
+.like-and-comment image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.like-count{
+  margin-left: 16rpx;
+  color: #ffffff;
+  font-family: "Avenir-Book";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+}
+
+.comment{
+  display: flex;
+  align-items: center;
+  width: 130rpx;
+}
+
+.comment-count{
+  margin-left: 16rpx;
+  color: #ffffff;
+  font-family: "Avenir-Book";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+}
