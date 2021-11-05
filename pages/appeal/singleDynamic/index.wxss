@@ -1,21 +1,5 @@
 /* pages/appeal/singleDynamic/index.wxss */
-.post-list-left{
 
-  width: 340rpx;
-  height: 100%;
-  /* background-color: pink; */
-  margin: 20rpx 20rpx 20rpx 20rpx;
-}
-
-.post-list-right{
-  position: absolute;
-  right: 20rpx;
-  top: 0rpx;
-  
-
-  width: 340rpx;
-  height: 100%;
-}
 
 
 
