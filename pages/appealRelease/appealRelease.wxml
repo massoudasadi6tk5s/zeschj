@@ -30,6 +30,10 @@
     </view>
 
     <!-- 标题 -->
+    <view class="appeal-title-father">
+      <view class="title-word">标题</view>
+      <input class="title-input" placeholder="请输入...（最多20字）" maxlength="20"></input>
+    </view>
 
     <!-- 内容 -->
 

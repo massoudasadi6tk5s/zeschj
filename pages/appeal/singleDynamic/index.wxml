@@ -32,7 +32,7 @@
     <!-- 喜欢&评论 容器 -->
     <view class="like-and-comment">
       <view class="like">
-        <image src="../../../images/appeal/like{{item.isEndorse ? '-active':''}}.png" data-direction="left" data-id="{{item.appealId}}" catchtap="{{ item.isEndorse ? 'cancelEndorse':'appealEndorse'}}"></image>
+        <image src="../../../images/appeal/like{{item.isEndorse ? '-active':''}}.png" data-id="{{item.appealId}}" catchtap="{{ item.isEndorse ? 'cancelEndorse':'appealEndorse'}}"></image>
         <view class="like-count">
           <text>{{item.endorseCount}}</text>
         </view>

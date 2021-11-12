@@ -8,7 +8,7 @@ Page({
     imageArray: [], // 图片
     imgIndex: 0,
     defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg',
-    imgMode: 'aspectFill'
+    imgMode: 'aspectFit'
   },
   pageData:{
     imageModeArray: ["scaleToFill", "aspectFit", "aspectFill", "widthFix", "heightFix",
