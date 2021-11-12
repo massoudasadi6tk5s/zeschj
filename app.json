@@ -1,14 +1,12 @@
 {
   "pages": [
-    "pages/appealRelease/appealRelease",
     "pages/appeal/appeal",
+    "pages/welcome/welcome",
+    "pages/appealRelease/appealRelease",
     "pages/dynamicPage/dynamicPage",
     "pages/appealDetails/apealDetails",
     "pages/user/user",
-    "pages/welcome/welcome",
     "pages/message/message"
-    
-    
   ],
   "window": {
     "navigationBarBackgroundColor": "#242A37",

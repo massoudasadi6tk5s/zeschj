@@ -31,7 +31,7 @@ page {
   /* 字体调整 */
   color: #fff;
   font-family: "Avenir-Black";
-  font-size: 100rpx;
+  font-size: 40px;
   font-weight: 400;
   line-height: 100rpx;
   letter-spacing: -0.7040002px;
@@ -61,22 +61,20 @@ page {
 
 .authorization {
   position: absolute;
-  left: 40rpx;
+  left: 60rpx;
   top: 1050rpx;
-
-
   /* 盒子样式调整 */
-  width: 315px;
-  height: 44px;
+  width: 630rpx;
+  height: 88rpx;
   border-radius: 22px;
   background: linear-gradient(220deg, #F78361, #F54B64);
 
     /* 字体调整 */
   color: #ffffff;
   font-family: "Avenir-Heavy";
-  font-size: 50rpx;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 19px;
+  line-height: 88rpx;
   text-align: center;
   letter-spacing: -0.3617648px;
 
