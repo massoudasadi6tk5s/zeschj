@@ -1,4 +1,7 @@
-// pages/appealRelease/appealRelease.js
+const ajax = require('../../utils/ajax.js')
+const util = require('../../utils/util.js')
+
+
 Page({
 
   /**
@@ -8,7 +11,9 @@ Page({
     imageArray: [], // 图片
     imgIndex: 0,
     defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg',
-    imgMode: 'aspectFit'
+    imgMode: 'aspectFit',
+    title: '',
+    content: ''
   },
   pageData:{
     imageModeArray: ["scaleToFill", "aspectFit", "aspectFill", "widthFix", "heightFix",
@@ -108,6 +113,50 @@ Page({
     this.setData({
       imgIndex: index
     })
+
+  },
+
+  // 记录输入的标题
+  inputTitle(e){
+
+    console.log(e.detail.value)
+    this.setData({
+      title: e.detail.value
+    })
+
+  },
+
+  // 记录输入的内容
+  inputContent(e){
+
+    this.setData({
+      content: e.detail.value
+    })
+
+  },
+
+
+  // 保存诉求
+  saveAppeal(){
+
+    let userInfo = wx.getStorageSync('userInfo')
+
+    let params = {
+      userId: userInfo.userId,
+      title: this.data.title,
+      content: this.data.content
+    }
+
+    ajax.HTTP.post(ajax.API.addAppeal, params, function (e) {
+
+      console.log(e)
+      if(e.data.code == 200){
+        wx.showToast({
+          title: '发送成功',
+        })
+      }
+
+    }, 'json')
 
   },
 

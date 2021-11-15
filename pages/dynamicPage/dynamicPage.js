@@ -1,11 +1,14 @@
-// pages/dynamicPage/dynamicPage.js
+const app = getApp()
+const ajax = require('../../utils/ajax.js')
+const util = require('../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    dynamicList: {}
   },
 
   /**
@@ -19,6 +22,32 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+    let that = this
+
+    let params = {
+      wjDynamic: null,
+      pageQuery:{
+        pageSize: 10,
+        pageNo: 1
+      }
+    }
+
+    ajax.HTTP.post(ajax.API.queryPageWjDynamic, params, (e) => {
+
+      let dynamicL = e.data.result
+      if(e.data.code == 200){
+
+        dynamicL.forEach((item, index)=>{
+          item.wjDynamic.createTime = util.format(new Date(item.wjDynamic.createTime))
+        })
+
+        that.setData({
+          dynamicList: dynamicL
+        })
+      }
+
+    }, 'json')
 
   },
 

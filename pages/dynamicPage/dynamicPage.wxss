@@ -45,7 +45,6 @@ page {
   height: 70rpx;
 }
 
-/*  */
 
 .dynamic-page .view-all {
   display: flex;
@@ -82,6 +81,7 @@ page {
   width: 90rpx;
   height: 90rpx;
   margin-right: 20rpx;
+  border-radius: 50rpx;
 }
 
 .dynamic-page .dynamic-content .user-header .right-text {

@@ -14,28 +14,28 @@
     <text class="text2">查看所有</text>
   </view>
   <!-- 动态展示部分 -->
-  <view class="dynamic-content">
+  <view class="dynamic-content" wx:for="{{dynamicList}}">
     <view class="user-header">
-      <image src="../../images/user/me.png" class="avatar"></image>
+      <image src="{{item.wjUser.headPortrait}}" class="avatar"></image>
       <view class="right-text">
-        <view class="name">小风尘</view>
-        <view class="time">2 hours ago</view>
+        <view class="name">{{item.wjUser.nickName}}</view>
+        <view class="time">{{item.wjDynamic.createTime}}</view>
       </view>
     </view>
     <view class="info">
-      第一次发视频
+      {{item.wjDynamic.content}}
     </view>
     <view class="image-box">
-      <image src="../../images/user/rectangle-copy-12.png" mode="aspectFill"></image>
+      <image src="{{item.wjDynamic.url}}" mode="aspectFill"></image>
     </view>
     <view class="evaluation">
       <view class="heart">
         <image src="../../images/appeal/like.png"></image>
-        <text>66</text>
+        <text>{{iten.wjDynamic.endorseCount}}</text>
       </view>
       <view class="heart copy">
         <image src="../../images/appeal/_icons--8-like-copy.png"></image>
-        <text>66</text>
+        <text>{{item.wjDynamic.commentCount}}</text>
       </view>
       <view class="avatar-more">
         <image src="../../images/user/me.png" class="avatar1"></image>

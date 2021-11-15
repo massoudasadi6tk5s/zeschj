@@ -32,13 +32,13 @@
     <!-- 标题 -->
     <view class="appeal-title-father">
       <view class="title-word">标题</view>
-      <input class="title-input" placeholder="请输入...（最多20字）" maxlength="20"></input>
+      <input class="title-input" bindinput="inputTitle" placeholder="请输入...（最多20字）" maxlength="20"></input>
     </view>
 
     <!-- 内容 -->
     <view class="appeal-content-father">
       <view class="content-word">内容</view>
-      <textarea class="content-textarea" maxlength="200" placeholder="请输入你的奇葩诉求"></textarea>
+      <textarea class="content-textarea" bindinput="inputContent" maxlength="200" placeholder="请输入你的奇葩诉求"></textarea>
     </view>
 
     <!-- 位置 -->
@@ -51,7 +51,7 @@
     <!-- 此诉求限制的人数 -->
 
     <!-- 发送诉求按钮 -->
-    <view class="send-btn animated fadeInRight">
+    <view class="send-btn animated fadeInRight" bindtap="saveAppeal">
       <image src="/images/appealRelease/icon_copyto.png"></image>
     </view>
 

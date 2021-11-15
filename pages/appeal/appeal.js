@@ -57,10 +57,10 @@ Page({
       appealList.forEach((item, index) => {
 
         if(index % 2 == 0){
-          item.createTime = util.format(new Date(item.createTime))
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
           left.push(item)
         }else{
-          item.createTime = util.format(new Date(item.createTime))
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
           right.push(item)
         }
 
