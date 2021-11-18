@@ -31,7 +31,7 @@
     <view class="evaluation">
       <view class="heart">
         <image src="../../images/appeal/like.png"></image>
-        <text>{{iten.wjDynamic.endorseCount}}</text>
+        <text>{{item.wjDynamic.endorseCount}}</text>
       </view>
       <view class="heart copy">
         <image src="../../images/appeal/_icons--8-like-copy.png"></image>

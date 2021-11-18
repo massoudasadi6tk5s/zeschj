@@ -65,6 +65,7 @@ page {
 }
 
 .dynamic-page .dynamic-content {
+  margin: 20rpx auto 20rpx auto;
   min-height: 200rpx;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 20px;
   padding: 20rpx 30rpx;
