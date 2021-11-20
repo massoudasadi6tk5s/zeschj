@@ -45,9 +45,9 @@ Component({
 
         let dataList = that.data.data
         dataList.forEach((item, index) => {
-          if (item.appealId == appealId) {
+          if (item.wjAppeal.appealId == appealId) {
             dataList[index].isEndorse = true
-            dataList[index].endorseCount = dataList[index].endorseCount + 1
+            dataList[index].wjAppeal.endorseCount = dataList[index].wjAppeal.endorseCount + 1
           }
         })
         that.setData({
@@ -76,9 +76,9 @@ Component({
         // 改变值
         let dataList = that.data.data
         dataList.forEach((item, index) => {
-          if (item.appealId == appealId) {
+          if (item.wjAppeal.appealId == appealId) {
             dataList[index].isEndorse = false
-            dataList[index].endorseCount = dataList[index].endorseCount - 1
+            dataList[index].wjAppeal.endorseCount = dataList[index].wjAppeal.endorseCount - 1
           }
         })
         that.setData({

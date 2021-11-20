@@ -30,7 +30,7 @@
     </view>
     <view class="evaluation">
       <view class="heart">
-        <image src="../../images/appeal/like.png"></image>
+        <image src="../../images/appeal/like{{item.isEndorse ? '-active':''}}.png" bindtap="{{item.isEndorse ? 'cancelEndorse' : 'addDynamicEndorse'}}" data-id="{{item.wjDynamic.dynamicId}}"></image>
         <text>{{item.wjDynamic.endorseCount}}</text>
       </view>
       <view class="heart copy">

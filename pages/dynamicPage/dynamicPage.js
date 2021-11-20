@@ -9,7 +9,7 @@ Page({
    */
   data: {
     dynamicList: {}
-  },
+  }, 
 
   /**
    * 生命周期函数--监听页面加载
@@ -24,9 +24,11 @@ Page({
   onReady: function () {
 
     let that = this
+    let userInfo = wx.getStorageSync('userInfo')
 
     let params = {
       wjDynamic: null,
+      wjUser: userInfo,
       pageQuery:{
         pageSize: 10,
         pageNo: 1
@@ -45,6 +47,81 @@ Page({
         that.setData({
           dynamicList: dynamicL
         })
+      }
+
+    }, 'json')
+
+  },
+
+  // 动态点赞
+  addDynamicEndorse(e){
+
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let id = e.currentTarget.dataset.id
+
+    let params = {
+      dynamicId: id,
+      userId: userInfo.userId
+    }
+
+    ajax.HTTP.post(ajax.API.addDynamicEndorse, params, (e) => {
+
+      let dynamicList = that.data.dynamicList
+
+      if(e.data.code == 200){
+
+        dynamicList.forEach((item, index)=>{
+
+          if(item.wjDynamic.dynamicId == id){
+            dynamicList[index].isEndorse = true
+            dynamicList[index].wjDynamic.endorseCount = dynamicList[index].wjDynamic.endorseCount+1
+          }
+
+        })
+
+        that.setData({
+          dynamicList: dynamicList
+        })
+
+      }
+
+    }, 'json')
+
+  },
+
+  // 取消点赞
+  cancelEndorse(e){
+
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let id = e.currentTarget.dataset.id
+
+    let params = {
+      dynamicId: id,
+      userId: userInfo.userId
+    }
+
+
+    ajax.HTTP.delete(ajax.API.cancelEndorse, params, (e) => {
+
+      let dynamicList = that.data.dynamicList
+
+      if(e.data.code == 200){
+
+        dynamicList.forEach((item, index)=>{
+
+          if(item.wjDynamic.dynamicId == id){
+            dynamicList[index].isEndorse = false
+            dynamicList[index].wjDynamic.endorseCount = dynamicList[index].wjDynamic.endorseCount-1
+          }
+
+        })
+
+        that.setData({
+          dynamicList: dynamicList
+        })
+
       }
 
     }, 'json')

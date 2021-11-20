@@ -1,11 +1,12 @@
 //所有的url接口
-const host = 'https://www.weiju.fun/weiju'
-// const host = 'http://localhost:8080/weiju'
+// const host = 'https://www.weiju.fun/weiju'
+const host = 'http://localhost:8080/weiju'
 // 模块
 const moduleUser = "wjUser";
 const moduleAppeal = "wjAppeal";
 const moduleAppealEndorse = "wjAppealEndorse";
 const moduleDynamic = "wjDynamic";
+const moduleDynamicEndorse = "wjDynamicEndorse"
 const moduleTest = "test";
 // 具体请求（接口）
 const API = {
@@ -40,7 +41,9 @@ const API = {
 
   // start 动态相关接口
 
-  queryPageWjDynamic: `${host}/${moduleDynamic}/queryPageWjDynamic` // 分页查询动态
+  queryPageWjDynamic: `${host}/${moduleDynamic}/queryPageWjDynamic`, // 分页查询动态
+  addDynamicEndorse: `${host}/${moduleDynamicEndorse}/addDynamicEndorse`, // 动态点赞
+  cancelEndorse: `${host}/${moduleDynamicEndorse}/cancelEndorse` // 取消动态点赞
 
   // end 动态相关接口
 
