@@ -13,6 +13,7 @@ const API = {
   
   // start 通用接口
 
+  chatSocket: `${host}`, // webSocket 连接 后面接上 userId
   testOne: `${host}/${moduleTest}/testOne`,  // 测试查询所有的
 
   // end 通用接口

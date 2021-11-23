@@ -1,4 +1,9 @@
 // pages/message/message.js
+
+const app = getApp()
+const ajax = require('../../utils/ajax.js')
+const util = require('../../utils/util.js')
+
 Page({
 
   /**
@@ -6,6 +11,9 @@ Page({
    */
   data: {
 
+  },
+  pageData: {
+    WebSocket: null
   },
 
   /**
@@ -26,6 +34,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    let socketUrl = ajax.API.chatSocket
+    socketUrl = socketUrl.replace("https","wss").replace("http","ws");
+
+    this.pageData.WebSocket =  wx.connectSocket({
+      url: socketUrl,
+      header:{
+        'content-type': 'application/json'
+      },
+      success: (e)=>{
+        console.log('成功')
+      },
+      fail: (e)=>{
+        console.log(e)
+      }
+    })
 
   },
 
