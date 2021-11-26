@@ -35,7 +35,7 @@ Page({
    */
   onShow: function () {
 
-    let socketUrl = ajax.API.chatSocket
+    let socketUrl = ajax.API.chatSocket + "/9527"
     socketUrl = socketUrl.replace("https","wss").replace("http","ws");
 
     this.pageData.WebSocket =  wx.connectSocket({
@@ -51,7 +51,27 @@ Page({
       }
     })
 
+    this.pageData.WebSocket.onMessage(this.cbOnMsg)
+
   },
+
+  // 发送消息
+  sendMsg(){
+
+    let msg = {a: 'Hello', b: 'World',toUserId: '9527'}
+
+    this.pageData.WebSocket.send({
+      data: JSON.stringify(msg)
+    })
+  },
+
+  // 接收消息
+  cbOnMsg(e){
+
+    console.log(e)
+
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏

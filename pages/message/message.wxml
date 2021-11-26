@@ -1,0 +1,1 @@
+<view bindtap="sendMsg">发送信息</view>
