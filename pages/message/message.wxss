@@ -5,3 +5,142 @@ page{
   height: 100%;
 } 
 
+.msg-content{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.msg-word-father{
+  display: flex;
+  align-items: flex-end;
+  height: 300rpx;
+  width: 100%;
+}
+
+.msg-word{
+  margin-left: 30rpx;
+  color: #ffffff;
+  font-family: "Avenir-Heavy";
+  font-size: 34px;
+  font-weight: 400;
+  
+}
+
+/* 分割线 */
+.cut-off-rule{
+  margin-top: 30rpx;
+  opacity: 0.5;
+  width: 100%;
+  height: 2px;
+  border: solid 1px;
+}
+
+.chat-list-father{
+  margin-top: 30rpx;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+  width: 100%;
+}
+
+.chat-img-father{
+  position: relative;
+  border-radius: 50%;
+}
+
+.chat-img-father image{
+  height: 120rpx;
+  width: 120rpx;
+}
+
+.chat-img-father .msg-number{
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36rpx;
+  height: 36rpx;
+  border: solid 1px #ffffff;
+  background: linear-gradient(225deg, #FF8960, #FF62A5);
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: "SFUIText-Regular";
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.chat-detail-father{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+
+}
+
+.username-time{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+
+}
+
+.username-time .username{
+  width: 200rpx;
+  height: 44rpx;
+  color: #ffffff;
+  font-family: "Avenir-Heavy";
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.username-time .time{
+  position: absolute;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130rpx;
+  height: 44rpx;
+  color: #4e586e;
+  font-family: "Avenir-Book";
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.user-msg{
+  margin-top: 12rpx;
+  width: 500rpx;
+  height: 44rpx;
+  color: #ffffff;
+  font-family: "Avenir-Book";
+  font-size: 17px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.detail-cut-off-rule{
+  position: absolute;
+  bottom: 0;
+  opacity: 0.5;
+  width: 100%;
+  height: 2px;
+  border: solid 1px;
+}
