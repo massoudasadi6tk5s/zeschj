@@ -53,6 +53,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
+<<<<<<< Updated upstream
 			"list": [
 				{
 					"id": -1,
@@ -68,6 +69,9 @@
 					"scene": null
 				}
 			]
+=======
+			"list": []
+>>>>>>> Stashed changes
 		}
 	}
 }
