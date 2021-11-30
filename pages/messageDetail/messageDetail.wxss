@@ -1,0 +1,120 @@
+/* pages/messageDetail/messageDetail.wxss */
+page {
+  background-color: #242A37;
+  width: 100%;
+  height: 100%;
+}
+
+.msg-detail-content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.nickname-head-father {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 190rpx;
+  font-size: 20px;
+  box-shadow: 0px 0px 0.5px;
+  color: var(--orange-color);
+  font-family: "Avenir-Heavy";
+  font-weight: 600;
+
+}
+
+.chat-detail-father{
+  height: 80vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 自己发送的消息 */
+.chat-detail-father .me-send-father{
+  display: flex;
+  justify-content: flex-end;
+  margin: 40rpx auto;
+}
+
+.me-send-msg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  max-width: 600rpx;
+  background: linear-gradient(220deg, #F78361, #F54B64);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.me-msg-word{
+  margin: 20rpx;
+  color: #ffffff;
+  font-family: "Avenir-Medium";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* 别人发送的消息 */
+.other-send-father{
+  display: flex;
+  justify-content: flex-start;
+  margin: 40rpx auto;
+}
+
+.other-send-msg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+  max-width: 600rpx;
+  background: #f1f2f4;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.other-msg-word{
+  margin: 20rpx;
+  color: #242a37;
+  font-family: "Avenir-Medium";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.send-msg-input{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 10vh;
+  background: #20242f;
+}
+
+.msg-input-father{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 620rpx;
+  height: 70rpx;
+  border-radius: 17px;
+  background: #485164;
+}
+
+.msg-input-father input{
+  width: 600rpx;
+}
+
+.input-icon{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.input-icon image{
+  width: 60rpx;
+  height: 60rpx;
+}

@@ -72,6 +72,15 @@ Page({
 
   },
 
+  // 去消息 对话页面
+  gotoMsgDetail(e){
+
+    wx.navigateTo({
+      url: '../messageDetail/messageDetail',
+    })
+
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏

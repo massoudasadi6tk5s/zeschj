@@ -59,7 +59,7 @@
     </view>
 
     <view class="iconsPlane ">
-      <image src="../../images/appealDetails/_icons--plane.png"></image>
+      <image src="/images/appealDetails/_icons--plane.png"></image>
     </view>
 
   </view>
