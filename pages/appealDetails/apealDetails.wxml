@@ -11,12 +11,12 @@
   <view class="groupFather">
     <!-- 标题 -->
     <view class="title">
-      <text>{{appealList.title}}</text>
+      <text>{{appealList.wjAppeal.title}}</text>
     </view>
 
     <!-- 内容 -->
     <view class="content">
-      <text>{{appealList.content}}</text>
+      <text>{{appealList.wjAppeal.content}}</text>
     </view>
 
     <!-- 头像 & 点赞评论 容器 -->
@@ -36,13 +36,13 @@
         <!-- 点赞 -->
         <view class="likeFather">
           <image src="../../images/appealDetails/_icons--8-like.png"></image>
-          <text>{{appealList.endorseCount}}</text>
+          <text>{{appealList.wjAppeal.endorseCount}}</text>
         </view>
 
         <!-- 评论 -->
         <view class="commentFather">
           <image src="../../images/appealDetails/_icons--8-like-copy.png"></image>
-          <text>{{appealList.commentCount}}</text>
+          <text>{{appealList.wjAppeal.commentCount}}</text>
         </view>
       </view>
 
@@ -59,7 +59,7 @@
     </view>
 
     <view class="iconsPlane ">
-      <image src="../../images/appealDetails/_icons--plane.png"></image>
+      <image src="/images/appealDetails/_icons--plane.png"></image>
     </view>
 
   </view>

@@ -30,7 +30,7 @@ Page({
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [] // 右侧诉求集合
   },
-  pageData:{
+  pageData: {
     pageNO: 1,
     pageSize: 10
   },
@@ -38,7 +38,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
     let that = this
     let userInfo = wx.getStorageSync('userInfo')
@@ -46,32 +46,35 @@ Page({
     let right = this.data.rightAppealList
 
     let params = {
-      userId: userInfo.userId,
-      pageNO: this.pageData.pageNO,
-      pageSize: this.pageData.pageSize
+      wjUser: userInfo,
+      pageQuery: {
+        pageNO: this.pageData.pageNO,
+        pageSize: this.pageData.pageSize
+      }
+
     }
-    ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e){
+    ajax.HTTP.post(ajax.API.listPageAppeal, params, function (e) {
 
       let appealList = e.data.result
 
       appealList.forEach((item, index) => {
 
-        if(index % 2 == 0){
-          item.createTime = util.format(new Date(item.createTime))
+        if (index % 2 == 0) {
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
           left.push(item)
-        }else{
-          item.createTime = util.format(new Date(item.createTime))
+        } else {
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
           right.push(item)
         }
 
 
       })
-      
+
       that.setData({
         leftAppealList: left,
         rightAppealList: right
       })
-      
+
 
     }, 'json')
   },
@@ -100,7 +103,7 @@ Page({
 
 
   // 进入发布诉求页面
-  goToRelease(e){
+  goToRelease(e) {
 
     wx.navigateTo({
       url: '/pages/appealRelease/appealRelease',
@@ -112,49 +115,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     console.log("到底了")
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

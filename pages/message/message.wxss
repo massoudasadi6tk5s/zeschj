@@ -5,95 +5,141 @@ page{
   height: 100%;
 } 
 
-.main{
-  width: 100%;
-  height: 100%;
-}
-
-.messageTitle{
-
-  margin-top: 180rpx;
-
-  height: 100rpx;
+.msg-content{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
   width: 100%;
 }
 
-.messageTitle view{
+.msg-word-father{
+  display: flex;
+  align-items: flex-end;
+  height: 200rpx;
+  width: 100%;
+}
 
-  margin: 20rpx 30rpx;
-
+.msg-word{
+  margin-left: 30rpx;
   color: #ffffff;
   font-family: "Avenir-Heavy";
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 41px;
-  letter-spacing: 0.41px;
+  font-size: 30px;
+  font-weight: 500;
+  
 }
 
-/* 下 分割线 */
-/* .bottonLineOne{
-  
-} */
-
-/* 朋友列表 容器 */
-.friendListFather{
+/* 分割线 */
+.cut-off-rule{
+  margin-top: 30rpx;
   opacity: 0.5;
   width: 100%;
-  border-bottom: solid 1px;
-  border-top: solid 1px;
-
-  margin-top: 20rpx;
+  height: 2px;
 }
 
-scroll-view{
+.chat-list-father{
+  margin-top: 30rpx;
   height: 100%;
-  white-space: nowrap;
-  margin: 25rpx 0;
+  width: 100%;
+  padding:0 20rpx;
+  box-sizing: border-box;
 }
 
-.friend{
-
-  display: inline-block;
-
-
-  height: 166rpx;
-  width: 120rpx;
-
-  margin: 0 20rpx;
-
-  /* background: greenyellow; */
+.chat-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding:20rpx 0;
+  border-bottom:1px solid gray;
 }
 
-.friendHeadPhoto{
+.chat-img-father{
   position: relative;
+  border-radius: 50%;
+  border-bottom:1px splid #efefef;
 }
 
-.friendHeadPhoto image{
-  width: 120rpx;
-  height: 120rpx;
+.chat-img-father image{
+  height: 110rpx;
+  width: 110rpx;
 }
 
-.oval2Copy{
+.chat-img-father .msg-number{
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36rpx;
+  height: 36rpx;
+  border: solid 1px #ffffff;
+  background: linear-gradient(225deg, #FF8960, #FF62A5);
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: "SFUIText-Regular";
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.chat-detail-father{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  padding-left:30rpx;
+  font-size: 15px;
+}
+
+.username-time{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.username-time .username{
+  width: 200rpx;
+  height: 44rpx;
+  color: var(--orange-color);
+  font-family: "Avenir-Heavy";
+  font-weight: 600;
+}
+
+.username-time .time{
+  position: absolute;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130rpx;
+  height: 44rpx;
+  color: #4e586e;
+  font-family: "Avenir-Book";
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.user-msg{
+  margin-top: 12rpx;
+  width: 500rpx;
+  height: 44rpx;
+  color: #ffffff;
+  font-family: "Avenir-Book";
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.detail-cut-off-rule{
   position: absolute;
   bottom: 0;
-  right: 0;
-
-  width: 12px;
-  height: 12px;
-  border-radius: 50px; 
-  border: solid #ffffff;
-  background: #7ed321;
-  
+  opacity: 0.5;
+  width: 100%;
+  height: 2px;
+  border: solid 1px;
 }
-
-
-.friendName{
-  color: #ffffff;
-  font-family: "Avenir-Heavy";
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 13px;
-  text-align: center;
-  letter-spacing: 0.07px;
-}
-
