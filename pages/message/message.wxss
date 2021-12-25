@@ -101,7 +101,7 @@ page{
 }
 
 .username-time .username{
-  width: 200rpx;
+  width: 400rpx;
   height: 44rpx;
   color: var(--orange-color);
   font-family: "Avenir-Heavy";

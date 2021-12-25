@@ -1,4 +1,6 @@
 /* pages/messageDetail/messageDetail.wxss */
+@import "../../template/return/return.wxss";
+
 page {
   background-color: #242A37;
   width: 100%;
@@ -73,7 +75,7 @@ page {
   margin-left: 20rpx;
   max-width: 600rpx;
   background: #f1f2f4;
-  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
