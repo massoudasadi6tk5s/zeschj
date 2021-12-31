@@ -11,8 +11,8 @@ Page({
    */
   data: {
     msg: null,
-    msgList: []
-
+    msgList: [],
+    currentChatId: "" //当前滚动位置的id
   },
   pageData: {
     chatId: null, // 聊天室id
@@ -23,7 +23,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
     let that = this
 
@@ -57,14 +57,14 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
     this.connectSocket()
     this.queryPageWjChatRecord()
@@ -98,49 +98,43 @@ Page({
 
   // 发送消息
   sendMsg() {
-
+    let msg, param, msgList
     if (!this.data.msg) {
-      wx.showToast({
-        title: '不可为空',
+      return wx.showToast({
+        title: '不可为空哦~',
         icon: "none"
       })
-      return
     }
-
-    let msg = {
-      chatId: this.pageData.chatId,
-      msg: this.data.msg,
-      toUserId: this.pageData.dialogueUserId
-    }
-
-    let msgList = this.data.msgList
-    let param = {
+    //展示到页面
+    msgList = this.data.msgList
+    param = {
       isMe: true,
       content: this.data.msg
     }
     msgList.push(param)
-
+    //发送到服务器
+    msg = {
+      chatId: this.pageData.chatId,
+      msg: this.data.msg,
+      toUserId: this.pageData.dialogueUserId
+    }
     this.pageData.WebSocket.send({
       data: JSON.stringify(msg)
     })
     this.setData({
       msgList: msgList,
-      msg: null
+      msg: null,
+      currentChatId: "chat_" + (msgList.length - 1)
     })
   },
 
   // 接收消息
   cbOnMsg(e) {
-
-    console.log(e)
-
     let that = this
     let userInfo = wx.getStorageSync('userInfo')
-
     if (e.data == '连接成功') {
       return
     }
-
     let msgObj = JSON.parse(e.data)
     if (msgObj.chatId == this.pageData.chatId && msgObj.toUserId == userInfo.userId) {
 
@@ -204,19 +198,16 @@ Page({
       let result = e.data.result
 
       result.forEach((item, index) => {
-
         item.isMe = false
-
         if (item.userId == userInfo.userId) {
           item.isMe = true
         }
 
       })
-
       that.setData({
-        msgList: result.reverse()
+        msgList: result.reverse(),
+        currentChatId: "chat_" + (result.length - 1)
       })
-
     })
 
   },
@@ -225,35 +216,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

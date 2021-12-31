@@ -6,9 +6,9 @@
   <view class="nickname-head-father">
     一叶知秋
   </view>
-  <scroll-view class="chat-detail-father" scroll-y="{{true}}">
+  <scroll-view class="chat-detail-father" scroll-y="{{true}}" scroll-into-view="{{currentChatId}}">
     <!-- me 自己发送的消息  other 别人发的 -->
-    <view class="{{item.isMe?'me':'other'}}-send-father" wx:for="{{msgList}}" wx:key="{{index}}">
+    <view class="{{item.isMe?'me':'other'}}-send-father" wx:for="{{msgList}}" wx:key="{{index}}" id="chat_{{index}}">
       <view class="{{item.isMe?'me':'other'}}-send-msg">
         <view class="{{item.isMe?'me':'other'}}-msg-word">{{item.content}}</view>
       </view>
