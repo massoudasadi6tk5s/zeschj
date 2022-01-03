@@ -5,6 +5,7 @@ page{
   --orange-color:#F78361;
   --deep-pink:#f54b64;
   --gray-color4:#f1f1f1;
+  --them-color:#242a37;
 }
 view{
   box-sizing: border-box;

@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/appeal/appeal",
     "pages/welcome/welcome",
     "pages/appealRelease/appealRelease",
@@ -45,6 +44,9 @@
         "text": "我的"
       }
     ]
+  },
+  "usingComponents": {
+    "custom-header":"./template/customNavHeader/customNavHeader"
   },
   "sitemapLocation": "sitemap.json"
 }

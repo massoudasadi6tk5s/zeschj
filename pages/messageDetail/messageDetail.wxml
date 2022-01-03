@@ -1,11 +1,10 @@
 <!-- <import src="../../template/return/return.wxml"/>
 
 <template is="return"></template> -->
-
 <view class="msg-detail-content">
-  <view class="nickname-head-father">
-    一叶知秋
-  </view>
+  <custom-header isBack>
+    <view slot="content" class="nickname-head-father">一叶知秋</view>
+  </custom-header>
   <scroll-view class="chat-detail-father" scroll-y="{{true}}" scroll-into-view="{{currentChatId}}">
     <!-- me 自己发送的消息  other 别人发的 -->
     <view class="{{item.isMe?'me':'other'}}-send-father" wx:for="{{msgList}}" wx:key="{{index}}" id="chat_{{index}}">
