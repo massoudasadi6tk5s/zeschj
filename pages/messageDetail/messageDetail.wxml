@@ -1,18 +1,22 @@
 <!-- <import src="../../template/return/return.wxml"/>
 
 <template is="return"></template> -->
+
 <view class="msg-detail-content">
   <custom-header isBack>
     <view slot="content" class="nickname-head-father">一叶知秋</view>
   </custom-header>
-  <scroll-view class="chat-detail-father" scroll-y="{{true}}" scroll-into-view="{{currentChatId}}">
-    <!-- me 自己发送的消息  other 别人发的 -->
-    <view class="{{item.isMe?'me':'other'}}-send-father" wx:for="{{msgList}}" wx:key="{{index}}" id="chat_{{index}}">
-      <view class="{{item.isMe?'me':'other'}}-send-msg">
-        <view class="{{item.isMe?'me':'other'}}-msg-word">{{item.content}}</view>
+  <view style="display:flex;flex:1">
+    <scroll-view class="chat-detail-father" scroll-y="{{true}}" scroll-into-view="{{currentChatId}}">
+      <!-- me 自己发送的消息  other 别人发的 -->
+      <view class="{{item.isMe?'me':'other'}}-send-father" wx:for="{{msgList}}" wx:key="{{index}}" id="chat_{{index}}">
+        <view class="{{item.isMe?'me':'other'}}-send-msg">
+          <view class="{{item.isMe?'me':'other'}}-msg-word">{{item.content}}</view>
+        </view>
       </view>
-    </view>
-  </scroll-view>
+    </scroll-view>
+  </view>
+
   <!-- 发送消息 -->
   <view class="send-msg-input">
     <view class="msg-input-father">
@@ -21,6 +25,5 @@
     <view class="input-icon" bindtap="sendMsg">
       <image src="/images/appealDetails/_icons--plane.png"></image>
     </view>
-
   </view>
 </view>

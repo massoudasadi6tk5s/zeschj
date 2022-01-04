@@ -11,6 +11,7 @@ App({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight; //手机状态栏高度
         let capsule = wx.getMenuButtonBoundingClientRect(); //胶囊位置坐标信息
+        console.log(capsule)
         if (capsule) {
           this.globalData.Custom = capsule; //
           this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;

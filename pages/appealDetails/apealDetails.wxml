@@ -1,7 +1,9 @@
-<import src="../../template/return/return.wxml"/>
+<!-- <import src="../../template/return/return.wxml"/>
 
-<template is="return"></template>
-
+<template is="return"></template> -->
+<custom-header isBack>
+  <view slot="content">详情</view>
+</custom-header>
 
 <view class="extra2 ">
   <image class="rectangleC8" mode="aspectFill" src="{{appealList.appealMaterial[0].url}}"></image>

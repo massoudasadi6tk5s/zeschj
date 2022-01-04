@@ -29,7 +29,7 @@ Page({
 
     let userInfo = wx.getStorageSync('userInfo')
 
-    this.pageData.chatId = options.chatId
+    this.pageData.chatId = options.chatId //"182ee44b1b5bc8df1d7ac6b4651f2e44"
 
     // 查询到聊天人的信息
     ajax.HTTP.get(ajax.API.queryChatUser + "/" + options.chatId, null, (e) => {

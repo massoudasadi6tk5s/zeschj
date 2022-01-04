@@ -7,6 +7,9 @@
       <!-- <slot name="backText"></slot> -->
       <text bindtap="goBack">返回</text>
     </view>
+    <!-- 主体内容 -->
+    <slot name="header"></slot>
+    <!--  -->
     <view class="content" style="top:{{StatusBar}}px">
       <slot name="content"></slot>
     </view>
