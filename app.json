@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/my/myProfile/myProfile",
     "pages/appeal/appeal",
     "pages/welcome/welcome",
     "pages/appealRelease/appealRelease",
@@ -38,7 +39,7 @@
         "text": "消息"
       },
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/my/myProfile/myProfile",
         "iconPath": "images/user.png",
         "selectedIconPath": "images/user-active.png",
         "text": "我的"
@@ -46,7 +47,7 @@
     ]
   },
   "usingComponents": {
-    "custom-header":"./template/customNavHeader/customNavHeader"
+    "custom-header": "./template/customNavHeader/customNavHeader"
   },
   "sitemapLocation": "sitemap.json"
 }

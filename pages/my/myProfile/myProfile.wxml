@@ -1,0 +1,41 @@
+<view class="main">
+
+  <!-- 头像及个人基本信息 -->
+  <view class="head-portrait-detail">
+
+    <!-- 头像 -->
+    <view class="head-portrait">
+      <image src="{{userInfo.headPortrait}}"></image>
+    </view>
+
+    <!-- 个人信息 -->
+    <view class="my-detail">
+      <view class="nickname">{{userInfo.nickName}}</view>
+      <view class="signature">{{userInfo.signature}}</view>
+    </view>
+
+  </view>
+
+  <!-- 个人数据 -->
+  <view class="my-data-father">
+
+    <view class="d-flex">
+      <view class="data-number">129</view>
+      <view class="data-word">诉求</view>
+    </view>
+
+    <view class="d-flex">
+      <view class="data-number">1023</view>
+      <view class="data-word">动态</view>
+    </view>
+
+    <view class="d-flex">
+      <view class="data-number">21937</view>
+      <view class="data-word">点赞</view>
+    </view>
+
+
+
+  </view>
+  
+</view>

@@ -1,21 +1,11 @@
-// pages/user/user.js
+// pages/my/myProfile/myProfile.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:{
-      headPortrait: '../../images/user/me.png',
-      nickName: '小小微距',
-      signature: '拉近你我距离',
-      introduce: '不论性别与否，男性朋友、女性朋友、男朋友或女朋友等，多么希望有一个人来看望自己啊。',
-      photos: ['../../images/user/rectangle-copy-12.png', '../../images/user/rectangle-copy-14.png', 
-        '../../images/user/rectangle-copy-15.png'
-      ]
 
-      
-    }
   },
 
   /**
@@ -23,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
 
-    let userInfo = wx.getStorageSync("userInfo")
+    var userInfo = wx.getStorageSync("userInfo")
     if(!userInfo){
 
       wx.navigateTo({
@@ -38,7 +28,6 @@ Page({
       userInfo: userInfo
     })
 
-
   },
 
   /**
@@ -52,16 +41,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userInfo = wx.getStorageSync("userInfo")
-    if (!userInfo) {
-      return
-    }
 
-    this.setData({
-      userInfo: userInfo
-    })
   },
-
 
   /**
    * 生命周期函数--监听页面隐藏
