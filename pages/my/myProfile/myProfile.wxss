@@ -2,11 +2,11 @@ page{
   background: var(--them-color);
 }
 
-.main{
+/* .main{
   display: flex;
   flex-direction: column;
   width: 100%;
-}
+} */
 
 /* 头像及个人基本信息 */
 .head-portrait-detail{
@@ -75,4 +75,28 @@ page{
   font-family: "Avenir-Book";
   font-size: 15px;
   font-weight: 400;
+}
+
+
+.tab-father{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20rpx;
+  width: 100%;
+  height: 84rpx;
+  background: #1e2432;
+}
+
+.tab-item,.tab-item image{
+  height: 48rpx;
+  width: 48rpx;
+}
+
+.my-swiper{
+  width: 100%;
+}
+
+.my-appeal-item{
+  
 }

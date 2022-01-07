@@ -1,41 +1,77 @@
-<view class="main">
+<!-- 头像及个人基本信息 -->
+<view class="head-portrait-detail">
 
-  <!-- 头像及个人基本信息 -->
-  <view class="head-portrait-detail">
+	<!-- 头像 -->
+	<view class="head-portrait">
+		<image src="{{userInfo.headPortrait}}"></image>
+	</view>
 
-    <!-- 头像 -->
-    <view class="head-portrait">
-      <image src="{{userInfo.headPortrait}}"></image>
-    </view>
+	<!-- 个人信息 -->
+	<view class="my-detail">
+		<view class="nickname">{{userInfo.nickName}}</view>
+		<view class="signature">{{userInfo.signature}}</view>
+	</view>
 
-    <!-- 个人信息 -->
-    <view class="my-detail">
-      <view class="nickname">{{userInfo.nickName}}</view>
-      <view class="signature">{{userInfo.signature}}</view>
-    </view>
-
-  </view>
-
-  <!-- 个人数据 -->
-  <view class="my-data-father">
-
-    <view class="d-flex">
-      <view class="data-number">129</view>
-      <view class="data-word">诉求</view>
-    </view>
-
-    <view class="d-flex">
-      <view class="data-number">1023</view>
-      <view class="data-word">动态</view>
-    </view>
-
-    <view class="d-flex">
-      <view class="data-number">21937</view>
-      <view class="data-word">点赞</view>
-    </view>
-
-
-
-  </view>
-  
 </view>
+
+<!-- 个人数据 -->
+<view class="my-data-father">
+
+	<view class="d-flex">
+		<view class="data-number">129</view>
+		<view class="data-word">诉求</view>
+	</view>
+
+	<view class="d-flex">
+		<view class="data-number">1023</view>
+		<view class="data-word">动态</view>
+	</view>
+
+	<view class="d-flex">
+		<view class="data-number">21937</view>
+		<view class="data-word">点赞</view>
+	</view>
+
+
+
+</view>
+
+<!-- 一些小按钮 -->
+<view class="tab-father">
+
+	<view class="tab-item">
+		<image src="/images/my/icon_copyto.png"></image>
+	</view>
+	<!-- 自己发的动态 -->
+	<view class="tab-item">
+		<image src="/images/my/icon_send.png"></image>
+	</view>
+	<!-- 自己的浏览记录 -->
+	<view class="tab-item">
+		<image src="/images/my/icon_shakehands.png"></image>
+	</view>
+	<!-- 自己的设置 -->
+	<view class="tab-item">
+		<image src="/images/my/icon_setting.png"></image>
+	</view>
+</view>
+
+<!-- 相关功能的界面 -->
+<swiper class="my-swiper">
+	<swiper-item>
+		<!-- 相关功能的界面 -->
+		<scroll-view class="post-scroll" scroll-y="true" enable-back-to-top="true">
+			<!-- 靠左边的 -->
+			<view class="post-list-left">
+				<!-- 单个帖子 -->
+				<single-dynamic data="{{leftAppealList}}"></single-dynamic>
+			</view>
+			<!-- 靠右边的 -->
+			<view class="post-list-right">
+				<!-- 单个帖子 -->
+				<single-dynamic data="{{rightAppealList}}"></single-dynamic>
+			</view>
+		</scroll-view>
+	</swiper-item>
+
+</swiper>

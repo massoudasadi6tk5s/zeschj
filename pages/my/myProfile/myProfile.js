@@ -1,11 +1,20 @@
 // pages/my/myProfile/myProfile.js
+const app = getApp()
+const ajax = require('../../../utils/ajax.js')
+const util = require('../../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    leftAppealList: [], // 左侧诉求集合
+    rightAppealList: [] // 右侧诉求集合
+  },
+  pageData: {
+    pageNO: 1,
+    pageSize: 10
   },
 
   /**
@@ -27,6 +36,45 @@ Page({
     this.setData({
       userInfo: userInfo
     })
+
+
+    let that = this
+    let left = this.data.leftAppealList
+    let right = this.data.rightAppealList
+
+    let params = {
+      wjUser: userInfo,
+      pageQuery: {
+        pageNO: this.pageData.pageNO,
+        pageSize: this.pageData.pageSize
+      }
+
+    }
+    ajax.HTTP.post(ajax.API.listPageAppeal, params, function (e) {
+
+      let appealList = e.data.result
+
+      appealList.forEach((item, index) => {
+
+        if (index % 2 == 0) {
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
+          left.push(item)
+        } else {
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
+          right.push(item)
+        }
+
+
+      })
+
+      that.setData({
+        leftAppealList: left,
+        rightAppealList: right
+      })
+
+
+    }, 'json')
+
 
   },
 
