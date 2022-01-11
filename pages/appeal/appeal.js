@@ -78,7 +78,9 @@ Page({
 
     }, 'json')
   },
-
+  refresherEvent:function(e){
+    // console.log(e)
+  },
   // 滑动选择标签
   activeNav(e) {
     this.setData({

@@ -12,6 +12,7 @@ Page({
   data: {
     msg: null,
     msgList: [],
+    CustomBar: app.globalData.CustomBar,
     currentChatId: "" //当前滚动位置的id
   },
   pageData: {

@@ -13,7 +13,7 @@
 
       <view class="chat-img-father">
         <image src="/images/message/Oval-5-Copy.png"></image>
-        <view class="msg-number">3</view>
+        <!-- <view class="msg-number">3</view> -->
       </view>
 
       <view class="chat-detail-father">
@@ -26,7 +26,8 @@
 
         <!-- 用户信息 -->
         <view class="user-msg">
-          你好吗，这么神奇吗？那你能帮帮我吗？
+          <view class="msg">你好吗，这么神奇吗？那你能帮帮我吗？</view>
+          <view class="tag">5</view>
         </view>
 
         <!-- 分割线 -->
