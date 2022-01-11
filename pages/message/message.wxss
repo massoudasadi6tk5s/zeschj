@@ -1,106 +1,87 @@
 /* pages/message/message.wxss */
-page{
+
+page {
   background: var(--them-color);
   width: 100%;
   height: 100%;
-} 
+}
 
-.msg-content{
+.msg-content {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
 }
 
-.msg-word-father{
+.msg-word-father {
   display: flex;
   align-items: flex-end;
   height: 200rpx;
   width: 100%;
 }
 
-.msg-word{
+.msg-word {
   margin-left: 30rpx;
-  color: #ffffff;
+  color: #fff;
   font-family: "Avenir-Heavy";
   font-size: 30px;
   font-weight: 500;
-  
 }
 
 /* 分割线 */
-.cut-off-rule{
+
+.cut-off-rule {
   margin-top: 30rpx;
   opacity: 0.5;
   width: 100%;
   height: 2px;
 }
 
-.chat-list-father{
+.chat-list-father {
   margin-top: 30rpx;
   height: 100%;
   width: 100%;
-  padding:0 20rpx;
+  padding: 0 20rpx;
   box-sizing: border-box;
 }
 
-.chat-list{
+.chat-list {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  padding:20rpx 0;
-  border-bottom:1px solid gray;
+  padding: 20rpx 0;
 }
 
-.chat-img-father{
+.chat-img-father {
   position: relative;
   border-radius: 50%;
-  border-bottom:1px splid #efefef;
+  border-bottom: 1px splid #efefef;
 }
 
-.chat-img-father image{
+.chat-img-father image {
   height: 110rpx;
   width: 110rpx;
 }
 
-.chat-img-father .msg-number{
-
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36rpx;
-  height: 36rpx;
-  border: solid 1px #ffffff;
-  background: linear-gradient(225deg, #FF8960, #FF62A5);
-  border-radius: 50%;
-  color: #ffffff;
-  font-family: "SFUIText-Regular";
-  font-size: 13px;
-  font-weight: 400;
-}
-
-.chat-detail-father{
+.chat-detail-father {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  padding-left:30rpx;
+  padding-left: 30rpx;
   font-size: 15px;
 }
 
-.username-time{
+.username-time {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.username-time .username{
+.username-time .username {
   width: 400rpx;
   height: 44rpx;
   color: var(--orange-color);
@@ -108,7 +89,7 @@ page{
   font-weight: 600;
 }
 
-.username-time .time{
+.username-time .time {
   position: absolute;
   right: 20rpx;
   display: flex;
@@ -122,11 +103,17 @@ page{
   font-weight: 400;
 }
 
-.user-msg{
+.user-msg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-msg .msg {
   margin-top: 12rpx;
   width: 500rpx;
   height: 44rpx;
-  color: #ffffff;
+  color: #fff;
   font-family: "Avenir-Book";
   font-weight: 400;
   white-space: nowrap;
@@ -135,7 +122,24 @@ page{
   -o-text-overflow: ellipsis;
 }
 
-.detail-cut-off-rule{
+.tag {
+  padding:0 12rpx;
+  border: 1px solid #fff;
+  background: linear-gradient(225deg, #ff8960, #ff62a5);
+  border-radius: 5000px;
+  color: #fff;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  white-space: nowrap;
+  font-size: 10px;
+  height:32rpx;
+  vertical-align: middle;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.detail-cut-off-rule {
   position: absolute;
   bottom: 0;
   opacity: 0.5;
