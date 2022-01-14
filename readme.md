@@ -46,6 +46,15 @@
 
 ## 小程序原型图
 
+
+
+> https://lanhuapp.com/url/WfEvI   
+> 密码: CAkU
+>
+> 蓝湖有人员限制，只能分享这个链接。不能通过这个链接的页面访问标注信息，很可惜。
+
+
+
 > https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo%20Social%20UI%20Kit_Dark%20theme.pdf   （PDF）
 
 

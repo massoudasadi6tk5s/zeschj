@@ -1,7 +1,7 @@
-// pages/test.js
+// pages/my/myProfile/myProfile.js
 const app = getApp()
-const ajax = require('../../utils/ajax.js')
-const util = require('../../utils/util.js')
+const ajax = require('../../../utils/ajax.js')
+const util = require('../../../utils/util.js')
 
 Page({
 
@@ -9,24 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 被点击的导航菜单索引
-    currentIndexNav: 0,
-    // 导航
-    navList: [{
-        "text": "最热",
-        "id": 1
-      },
-      {
-        "text": "最新",
-        "id": 2
-      },
-      {
-        "text": "附近",
-        "id": 3
-      }
-
-    ],
-    current: 0,
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [] // 右侧诉求集合
   },
@@ -40,8 +22,23 @@ Page({
    */
   onLoad: function (options) {
 
+    var userInfo = wx.getStorageSync("userInfo")
+    if(!userInfo){
+
+      wx.navigateTo({
+        url: '/pages/welcome/welcome',
+      })
+
+      return
+
+    }
+
+    this.setData({
+      userInfo: userInfo
+    })
+
+
     let that = this
-    let userInfo = wx.getStorageSync('userInfo')
     let left = this.data.leftAppealList
     let right = this.data.rightAppealList
 
@@ -77,42 +74,9 @@ Page({
 
 
     }, 'json')
-  },
-  refresherEvent:function(e){
-    // console.log(e)
-  },
-  // 滑动选择标签
-  activeNav(e) {
-    this.setData({
-      currentIndexNav: e.target.dataset.index,
-      current: e.target.dataset.index
-    })
-  },
 
-  // 帖子下滑触底
-  postSole(e) {
 
   },
-
-  swiperCurrent(e) {
-    console.log(e.detail.current)
-
-    this.setData({
-      currentIndexNav: e.detail.current
-    })
-  },
-
-
-
-  // 进入发布诉求页面
-  goToRelease(e) {
-
-    wx.navigateTo({
-      url: '/pages/appealRelease/appealRelease',
-    })
-
-  },
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -153,7 +117,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("到底了")
+
   },
 
   /**

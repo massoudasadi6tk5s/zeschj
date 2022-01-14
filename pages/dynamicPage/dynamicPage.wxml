@@ -1,4 +1,5 @@
 <!--pages/dynamicPage/dynamicPage.wxml-->
+
 <view class="dynamic-page">
   <!-- 头部搜索部分 -->
   <view class="header-box">

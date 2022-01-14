@@ -1,6 +1,5 @@
-<view class="main">
-  <!-- 搜索的容器 -->
-  <view class="navbar">
+<custom-header>
+  <view class="navbar" slot="header">
     <!-- 搜索框 -->
     <view class="search-fiel animated rotateInDownRight">
       <image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
@@ -12,7 +11,8 @@
       <image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
     </view>
   </view>
-  <!-- 首页导航 -->
+</custom-header>
+<view class="main">
   <scroll-view scroll-x>
     <view class="nav">
       <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}} animated bounceInRight" style="animation-delay:{{index/10}}s;" wx:for="{{navList}}" wx:key="{{index}}">
@@ -21,22 +21,16 @@
     </view>
   </scroll-view>
   <!-- 帖子 || 诉求 -->
-  <swiper style="height:100%;" current="{{current}}" circular="true" easing-function="easeInOutCubic" bindchange="swiperCurrent">
-    <swiper-item wx:for="{{3}}" wx:key="{{index}}">
-      <view class="post-view">
-        <scroll-view class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
-          <!-- 靠左边的 -->
-          <view class="post-list-left">
-            <!-- 单个帖子 -->
-            <single-dynamic data="{{leftAppealList}}"></single-dynamic>
-          </view>
-          <!-- 靠右边的 -->
-          <view class="post-list-right">
-            <!-- 单个帖子 -->
-            <single-dynamic data="{{rightAppealList}}"></single-dynamic>
-          </view>
-        </scroll-view>
-      </view>
-    </swiper-item>
-  </swiper>
+  <scroll-view bindrefresherpulling="refresherEvent" class="post-scroll" refresher-default-style="white" refresher-enabled scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
+    <!-- 靠左边的 -->
+    <view class="post-list-left">
+      <!-- 单个帖子 -->
+      <single-dynamic data="{{leftAppealList}}"></single-dynamic>
+    </view>
+    <!-- 靠右边的 -->
+    <view class="post-list-right">
+      <!-- 单个帖子 -->
+      <single-dynamic data="{{rightAppealList}}"></single-dynamic>
+    </view>
+  </scroll-view>
 </view>

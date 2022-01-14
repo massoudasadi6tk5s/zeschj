@@ -23,7 +23,7 @@ Page({
    */
   onLoad: function (options) {
 
-    var userInfo = wx.getStorageSync("userInfo")
+    let userInfo = wx.getStorageSync("userInfo")
     if(!userInfo){
 
       wx.navigateTo({

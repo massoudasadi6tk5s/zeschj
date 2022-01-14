@@ -10,16 +10,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    chatList: []
   },
-  pageData: {
-    WebSocket: null
-  },
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (options) { 
+
+
 
   },
 
@@ -27,7 +27,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
+    
   },
 
   /**
@@ -35,49 +36,46 @@ Page({
    */
   onShow: function () {
 
-    let socketUrl = ajax.API.chatSocket + "/9527"
-    socketUrl = socketUrl.replace("https","wss").replace("http","ws");
-
-    this.pageData.WebSocket =  wx.connectSocket({
-      url: socketUrl,
-      header:{
-        'content-type': 'application/json'
-      },
-      success: (e)=>{
-        console.log('成功')
-      },
-      fail: (e)=>{
-        console.log(e)
-      }
-    })
-
-    this.pageData.WebSocket.onMessage(this.cbOnMsg)
+    this.queryAllChat()
 
   },
 
-  // 发送消息
-  sendMsg(){
-
-    let msg = {a: 'Hello', b: 'World',toUserId: '9527'}
-
-    this.pageData.WebSocket.send({
-      data: JSON.stringify(msg)
-    })
-  },
-
-  // 接收消息
-  cbOnMsg(e){
-
-    console.log(e)
-
-  },
 
   // 去消息 对话页面
   gotoMsgDetail(e){
 
+    let chatId = e.currentTarget.dataset.chatId
+
     wx.navigateTo({
-      url: '../messageDetail/messageDetail',
+      url: '../messageDetail/messageDetail?chatId='+ chatId ,
     })
+
+  },
+
+  // 查询用户所有的 聊天室/聊天列表
+  queryAllChat(e){
+
+    let that = this
+
+    let userInfo = wx.getStorageSync('userInfo')
+
+    ajax.HTTP.get(ajax.API.queryAllChat + "/" + userInfo.userId, null, (e)=>{
+
+
+      let result = e.data.result
+
+      result.forEach((item, index)=>{
+
+        item.createTime = util.format(new Date(item.createTime))
+
+      })
+
+      that.setData({
+        chatList: result
+      })
+      
+
+    }, 'json')
 
   },
 

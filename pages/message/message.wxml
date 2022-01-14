@@ -9,24 +9,25 @@
   
   <!-- 聊天列表 -->
   <scroll-view class="chat-list-father" scroll-y="{{true}}">
-    <view class="chat-list" wx:for="{{3}}" wx:key="{{index}}" bindtap="gotoMsgDetail">
+    <view class="chat-list" wx:for="{{chatList}}" wx:key="{{index}}" data-chat-id="{{item.chatId}}" bindtap="gotoMsgDetail">
 
       <view class="chat-img-father">
         <image src="/images/message/Oval-5-Copy.png"></image>
-        <view class="msg-number">3</view>
+        <!-- <view class="msg-number">3</view> -->
       </view>
 
       <view class="chat-detail-father">
 
         <!-- 用户昵称、消息时间 -->
         <view class="username-time">
-          <view class="username">一叶知秋</view>
-          <view class="time">25分钟前</view>
+          <view class="username">{{item.title}}</view>
+          <view class="time">{{item.createTime}}</view>
         </view>
 
         <!-- 用户信息 -->
         <view class="user-msg">
-          你好吗，这么神奇吗？那你能帮帮我吗？
+          <view class="msg">你好吗，这么神奇吗？那你能帮帮我吗？</view>
+          <view class="tag">5</view>
         </view>
 
         <!-- 分割线 -->

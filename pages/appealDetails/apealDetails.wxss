@@ -2,7 +2,7 @@
 
 /* pages/appealDetails/apealDetails.wxss */
 page{
-  background: #242a37;
+  background: var(--them-color);
   height: 100%;
 }
 

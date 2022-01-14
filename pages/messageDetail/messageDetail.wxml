@@ -1,39 +1,28 @@
-<view class="msg-detail-content">
+<!-- <import src="../../template/return/return.wxml"/>
 
-  <view class="nickname-head-father">
-    一叶知秋
+<template is="return"></template> -->
+<custom-header isBack>
+  <view slot="content" class="nickname-head-father">一叶知秋</view>
+</custom-header>
+<scroll-view class="chat-detail-father" scroll-y="{{true}}" scroll-into-view="{{currentChatId}}" style="height:calc(100vh - {{CustomBar}}px - 90rpx)">
+  <view class="{{item.isMe?'me':'other'}}-send-father" wx:for="{{msgList}}" wx:key="{{index}}" id="chat_{{index}}">
+    <view class="{{item.isMe?'me':'other'}}-send-msg">
+      <view class="{{item.isMe?'me':'other'}}-msg-word">{{item.content}}</view>
+    </view>
   </view>
+</scroll-view>
 
-  <scroll-view class="chat-detail-father" scroll-y="{{true}}">
-    <!-- 自己发送的消息 -->
-    <view class="me-send-father" wx:for="{{3}}" wx:key="{{index}}">
-      <view class="me-send-msg">
-        <view class="me-msg-word">古人学问无遗力，少壮工夫老始成。纸上得来终觉浅，绝知此事要躬行。</view>
-      </view>
-    </view>
-
-    <!-- 别人发送的 -->
-    <view class="other-send-father" wx:for="{{9}}" wx:key="{{index}}">
-      <view class="other-send-msg">
-        <view class="other-msg-word">古人做学问是不遗余力的，往往要到老年才取得成就。从书本上得来的知识，毕竟是不够完善的。如果想要深入理解其中的道理，必须要亲自实践才行。</view>
-      </view>
-    </view>
-
-    
-
-  </scroll-view>
-
-
-  <!-- 发送消息 -->
-  <view class="send-msg-input">
-    <view class="msg-input-father">
-      <input type='text' placeholder="(σﾟ∀ﾟ)σ..:*☆哎哟不错哦" cursor-spacing="10" confirm-hold="true" confirm-type="send"></input>
-    </view>
-    
-    <view class="input-icon">
-      <image src="/images/appealDetails/_icons--plane.png"></image>
-    </view>
-
+<!-- <view class="msg-detail-content">
+  
+  
+  
+</view> -->
+<!-- 发送消息 -->
+<view class="send-msg-input">
+  <view class="msg-input-father">
+    <input type='text' placeholder="(σﾟ∀ﾟ)σ..:*☆哎哟不错哦" value="{{msg}}" bindinput="sendInput" cursor-spacing="10" confirm-hold="true" confirm-type="send" bindconfirm="sendMsg"></input>
   </view>
-
+  <view class="input-icon" bindtap="sendMsg">
+    <image src="/images/appealDetails/_icons--plane.png"></image>
+  </view>
 </view>
