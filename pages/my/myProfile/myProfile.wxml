@@ -57,21 +57,57 @@
 </view>
 
 <!-- 相关功能的界面 -->
-<swiper class="my-swiper">
-	<swiper-item>
-		<!-- 相关功能的界面 -->
-		<scroll-view class="post-scroll" scroll-y="true" enable-back-to-top="true">
-			<!-- 靠左边的 -->
-			<view class="post-list-left">
-				<!-- 单个帖子 -->
-				<single-dynamic data="{{leftAppealList}}"></single-dynamic>
+<!-- 需要手动计算高度  -->
+<swiper class="my-swiper" style="height:1000rpx;">
+
+	<swiper-item wx:for="{{4}}">
+		<view class="my-item">
+
+			<!-- 头像 & 名字 & 时间 -->
+			<view class="item-user-info">
+				<image class="item-head-portrait" src="{{userInfo.headPortrait}}"></image>
+				<!-- 个人昵称 -->
+				<view class="item-nickname-time-father">
+					<view class="item-nick-name">老腊肉不好吃</view>
+					<view class="time">一天前</view>
+				</view>
+
+				<image class="more-icon" src="/images/my/more-icon.png"></image>
+
+
+
 			</view>
-			<!-- 靠右边的 -->
-			<view class="post-list-right">
-				<!-- 单个帖子 -->
-				<single-dynamic data="{{rightAppealList}}"></single-dynamic>
+
+
+			<!-- 标签 -->
+			<view class="item-tag-father">
+				#测试标签，#测试标签
 			</view>
-		</scroll-view>
+
+			<!-- 内容 -->
+			<view class="item-content">
+				Since the introduction of Virtual Game, it has been achieving great heights so far as its
+				popularity and technological advancement are concerned.
+				The history of video game is as interesting as a fairy tale... Read more
+			</view>
+
+			<view class="evaluation">
+				<view class="heart">
+					<image src="/images/appeal/like.png"></image>
+					<text>2</text>
+				</view>
+				<view class="heart copy">
+					<image src="/images/appeal/_icons--8-like-copy.png"></image>
+					<text>12</text>
+				</view>
+				<view class="avatar-more">
+					<image src="/images/user/me.png" class="avatar1"></image>
+					<image src="/images/user/me.png" class="avatar2"></image>
+					<image src="/images/user/me.png" class="avatar3"></image>
+				</view>
+			</view>
+
+		</view>
 	</swiper-item>
 
 </swiper>
