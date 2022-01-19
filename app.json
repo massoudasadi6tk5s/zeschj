@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/my/editProfile/editProfile",
     "pages/my/myProfile/myProfile",
     "pages/appeal/appeal",
     "pages/welcome/welcome",

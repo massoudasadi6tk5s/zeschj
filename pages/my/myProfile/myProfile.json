@@ -1,6 +1,7 @@
 {
   "navigationStyle": "custom",
+  "disableScroll": true,
   "usingComponents": {
-    "single-dynamic":"/pages/appeal/singleDynamic/index"
+    
   }
 }

@@ -1,15 +1,8 @@
-page {
-  background: var(--them-color);
-}
 
-/* .main{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-} */
 
 /* 头像及个人基本信息 */
 .head-portrait-detail {
+  position: relative;
   display: flex;
   align-items: center;
   margin-top: 180rpx;
@@ -47,6 +40,15 @@ page {
   font-size: 13px;
   font-weight: 400;
 }
+
+.edit-icon{
+  position: absolute;
+  right: 40rpx;
+  bottom: 80rpx;
+  height: 50rpx;
+  width: 50rpx;
+}
+
 
 /* 个人数据 父容器 */
 

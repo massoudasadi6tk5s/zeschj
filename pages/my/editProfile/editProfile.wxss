@@ -1,0 +1,64 @@
+.edit-word-father {
+
+  margin-top: 212rpx;
+  margin-left: 30rpx;
+  color: #ffffff;
+  font-family: "Avenir-Heavy";
+  font-size: 34px;
+  font-weight: 400;
+
+}
+
+.head-portrait {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 40rpx;
+  width: 100%;
+  height: 400rpx;
+}
+
+.head-portrait image {
+
+  width: 328rpx;
+  height: 328rpx;
+  border-radius: 50%;
+}
+
+.edit-head-word {
+  color: #f54b64;
+  font-family: "Avenir-Book";
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.profile-form{
+  margin-top: 80rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  width: 100%;
+
+}
+
+.form-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+}
+
+.item-word{
+  color: #4e586e;
+  font-family: "Avenir-Book";
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.item-input{
+  color: #ffffff;
+  font-family: "Avenir-Medium";
+  font-size: 17px;
+  font-weight: 400;
+  text-align: right;
+}

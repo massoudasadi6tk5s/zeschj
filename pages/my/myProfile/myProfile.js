@@ -92,6 +92,13 @@ Page({
 
   },
 
+  // 去编辑页面
+  gotoEditProfile(){
+    wx.navigateTo({
+      url: '/pages/my/editProfile/editProfile',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
