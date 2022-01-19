@@ -43,7 +43,6 @@ page {
   display: flex;
   align-items: center;
   margin-left: 20rpx;
- 
   height: 40rpx;
   color: #4e586e;
   font-family: "Avenir-Book";
@@ -59,7 +58,7 @@ page {
   height: 64rpx;
   border-radius: 50rpx;
   background: linear-gradient(220deg, #f78361, #f54b64);
-  margin-left:20rpx;
+  margin-left: 20rpx;
 }
 
 .icons-13-pho {
@@ -82,7 +81,6 @@ page {
 .nav-item {
   display: block;
   padding: 10rpx 30rpx;
-
   color: gray;
   font-family: "Avenir-Heavy";
   font-size: 30rpx;
@@ -93,7 +91,7 @@ page {
 .active {
   color: #fff;
   background: linear-gradient(220deg, var(--orange-color), var(--deep-pink));
-  border-radius:200px;
+  border-radius: 200px;
 }
 
 /*  end 滑动标签 */
@@ -116,22 +114,45 @@ swiper-item {
 .post-scroll {
   position: relative;
   display: flex;
-  flex:1;
-  box-sizing:border-box;
-}
-.post-list-left{
-  width: 340rpx;
-  margin: 0 20rpx;
-  padding-top:30rpx;
+  flex: 1;
+  box-sizing: border-box;
 }
 
-.post-list-right{
+.post-list-left {
+  width: 340rpx;
+  margin: 0 20rpx;
+  padding-top: 30rpx;
+}
+
+.post-list-right {
   position: absolute;
   right: 20rpx;
   top: 0rpx;
   width: 340rpx;
-  padding-top:30rpx;
+  padding-top: 30rpx;
 }
 
+.loading-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-page image {
+  width: 120rpx;
+  height: 120rpx;
+  animation: 1s loading-ani infinite alternate;
+}
+
+@keyframes loading-ani {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.1;
+  }
+}
 
 /* end 对帖子的css */

@@ -21,7 +21,10 @@
     </view>
   </scroll-view>
   <!-- 帖子 || 诉求 -->
-  <scroll-view bindrefresherpulling="refresherEvent" class="post-scroll" refresher-default-style="white" refresher-enabled scroll-y="true" enable-back-to-top="true" bindscroll="postSole">
+  <view class="loading-page" wx:if="{{isLoading}}">
+    <image src="../../images/logo.png"></image>
+  </view>
+  <scroll-view  class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole" wx:if="{{!isLoading}}">
     <!-- 靠左边的 -->
     <view class="post-list-left">
       <!-- 单个帖子 -->

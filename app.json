@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/appeal/appeal",
     "pages/my/editProfile/editProfile",
     "pages/my/myProfile/myProfile",
-    "pages/appeal/appeal",
     "pages/welcome/welcome",
     "pages/appealRelease/appealRelease",
     "pages/dynamicPage/dynamicPage",

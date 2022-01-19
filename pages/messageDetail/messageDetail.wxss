@@ -3,6 +3,7 @@
 
 page {
   width: 100%;
+  background: var(--gray-color4);
 }
 
 .msg-detail-content {
@@ -62,7 +63,7 @@ page {
   justify-content: center;
   margin-left: 20rpx;
   max-width: 600rpx;
-  background: #f1f2f4;
+  background: #fff;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
