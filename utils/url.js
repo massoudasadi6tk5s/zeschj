@@ -1,6 +1,6 @@
 //所有的url接口
-const host = 'https://www.weiju.fun/weiju'
-// const host = 'http://192.168.3.2:8080/weiju'
+// const host = 'https://www.weiju.fun/weiju'
+const host = 'http://localhost:8080/weiju'
 // 模块
 const moduleUser = "wjUser";
 const moduleAppeal = "wjAppeal";
@@ -27,6 +27,7 @@ const API = {
   detectionUserAuthorization: `${host}/${moduleUser}/detectionUserAuthorization`, // 检测用户登录
   getUserCode: `${host}/${moduleUser}/getUserCode`, // 获取用户code, 后台换取 session_key。（获取后端对应的UUID）
   userAuthorization: `${host}/${moduleUser}/userAuthorization`, // 用户授权接口
+  getByIdUserData: `${host}/${moduleUser}/getByIdUserData`, // 根据用户id 查询用户信息 包括需要查询其他表的一些数据（点赞、动态...）
   // end 用户相关接口
 
   

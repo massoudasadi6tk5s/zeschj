@@ -1,4 +1,4 @@
-// pages/my/myProfile/myProfile.js
+
 const app = getApp()
 const ajax = require('../../../utils/ajax.js')
 const util = require('../../../utils/util.js')
@@ -9,8 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    leftAppealList: [], // 左侧诉求集合
-    rightAppealList: [] // 右侧诉求集合
+    userInfo:{}
   },
   pageData: {
     pageNO: 1,
@@ -22,7 +21,7 @@ Page({
    */
   onLoad: function (options) {
 
-    var userInfo = wx.getStorageSync("userInfo")
+    let userInfo = wx.getStorageSync("userInfo")
     if(!userInfo){
 
       wx.navigateTo({
@@ -38,42 +37,7 @@ Page({
     })
 
 
-    let that = this
-    let left = this.data.leftAppealList
-    let right = this.data.rightAppealList
 
-    let params = {
-      wjUser: userInfo,
-      pageQuery: {
-        pageNO: this.pageData.pageNO,
-        pageSize: this.pageData.pageSize
-      }
-
-    }
-    ajax.HTTP.post(ajax.API.listPageAppeal, params, function (e) {
-
-      let appealList = e.data.result
-
-      appealList.forEach((item, index) => {
-
-        if (index % 2 == 0) {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-          left.push(item)
-        } else {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-          right.push(item)
-        }
-
-
-      })
-
-      that.setData({
-        leftAppealList: left,
-        rightAppealList: right
-      })
-
-
-    }, 'json')
 
 
   },
@@ -90,6 +54,8 @@ Page({
    */
   onShow: function () {
 
+    this.loadMyData()
+
   },
 
   // 去编辑页面
@@ -97,6 +63,28 @@ Page({
     wx.navigateTo({
       url: '/pages/my/editProfile/editProfile',
     })
+  },
+
+  // 加载我的一些信息 (诉求、动态、点赞 次数)
+  loadMyData(){
+
+    let that = this
+    let userInfo = wx.getStorageSync("userInfo")
+
+    let params = {
+      userId: userInfo.userId
+    }
+
+    ajax.HTTP.post(ajax.API.getByIdUserData, params, (e)=>{
+
+      that.setData({
+        userInfo: e.data.result
+      })
+
+      wx.setStorageSync('userInfo', e.data.result)
+
+    })
+
   },
 
   /**
