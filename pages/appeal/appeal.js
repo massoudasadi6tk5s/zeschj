@@ -104,7 +104,7 @@ Page({
       }
     }
     ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e) {
-      let appealList = e.data.result
+      let appealList = e.data.result.records
       appealList.forEach((item, index) => {
         if (index % 2 == 0) {
           item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
