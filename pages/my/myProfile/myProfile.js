@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{}
+    userInfo:{},
+    myAppealList: [],
+    swiperHeight: 2400
   },
   pageData: {
     pageNO: 1,
@@ -37,7 +39,9 @@ Page({
     })
 
 
+    this.loadMyData()
 
+    this.loadMyAppeal()
 
 
   },
@@ -54,7 +58,7 @@ Page({
    */
   onShow: function () {
 
-    this.loadMyData()
+    
 
   },
 
@@ -83,6 +87,30 @@ Page({
 
       wx.setStorageSync('userInfo', e.data.result)
 
+    })
+
+  },
+  // 查询我的诉求
+  loadMyAppeal(){
+
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+
+    let params = {
+      wjUser: userInfo,
+      pageQuery: this.pageData
+
+    }
+
+    ajax.HTTP.post(ajax.API.listByUserIdMyAppeal, params, (e)=>{
+      let appealList = e.data.result.records
+      appealList.forEach((item, index) => {
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
+      })
+      that.setData({
+        myAppealList: appealList,
+        swiperHeight: 600 * appealList.length
+      })
     })
 
   },

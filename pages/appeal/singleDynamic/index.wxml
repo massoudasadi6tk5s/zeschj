@@ -32,13 +32,13 @@
     <!-- 喜欢&评论 容器 -->
     <view class="like-and-comment">
       <view class="like">
-        <image src="../../../images/appeal/like{{item.isEndorse ? '-active':''}}.png" data-id="{{item.wjAppeal.appealId}}" catchtap="{{ item.isEndorse ? 'cancelEndorse':'appealEndorse'}}"></image>
+        <image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png" data-id="{{item.wjAppeal.appealId}}" catchtap="{{ item.isEndorse ? 'cancelEndorse':'appealEndorse'}}"></image>
         <view class="like-count">
           <text>{{item.wjAppeal.endorseCount}}</text>
         </view>
       </view>
       <view class="comment">
-        <image src="../../../images/appeal/_icons--8-like-copy.png"></image>
+        <image src="/images/appeal/_icons--8-like-copy.png"></image>
         <view class="comment-count">
           <text>{{item.wjAppeal.commentCount}}</text>
         </view>

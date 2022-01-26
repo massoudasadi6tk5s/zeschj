@@ -61,20 +61,19 @@
 
 <!-- 相关功能的界面 -->
 <!-- 需要手动计算高度  -->
-<swiper class="my-swiper" style="height:1000rpx;">
+<swiper class="my-swiper" style="height:{{swiperHeight}}rpx;">
 
 	<swiper-item wx:for="{{4}}">
 
-		<scroll-view scroll-y style="height:100%;">
-			<view class="my-item" wx:for="{{10}}">
+			<view class="my-item" wx:for="{{myAppealList}}">
 
 				<!-- 头像 & 名字 & 时间 -->
 				<view class="item-user-info">
 					<image class="item-head-portrait" src="{{userInfo.headPortrait}}"></image>
 					<!-- 个人昵称 -->
 					<view class="item-nickname-time-father">
-						<view class="item-nick-name">老腊肉不好吃</view>
-						<view class="time">一天前</view>
+						<view class="item-nick-name">{{userInfo.nickName}}</view>
+						<view class="time">{{item.wjAppeal.createTime}}</view>
 					</view>
 
 					<image class="more-icon" src="/images/my/more-icon.png"></image>
@@ -85,25 +84,23 @@
 
 
 				<!-- 标签 -->
-				<view class="item-tag-father">
-					#测试标签，#测试标签
+				<view wx:if="{{item.appealTag.length!=0}}" class="item-tag-father">
+					<text wx:for="{{item.appealTag}}">#{{item.tagName}}</text>
 				</view>
 
 				<!-- 内容 -->
 				<view class="item-content">
-					Since the introduction of Virtual Game, it has been achieving great heights so far as its
-					popularity and technological advancement are concerned.
-					The history of video game is as interesting as a fairy tale... Read more
+					{{item.wjAppeal.content}}
 				</view>
 
 				<view class="evaluation">
 					<view class="heart">
-						<image src="/images/appeal/like.png"></image>
-						<text>2</text>
+						<image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png"></image>
+						<text>{{item.wjAppeal.endorseCount}}</text>
 					</view>
 					<view class="heart copy">
 						<image src="/images/appeal/_icons--8-like-copy.png"></image>
-						<text>12</text>
+						<text>{{item.wjAppeal.commentCount}}</text>
 					</view>
 					<view class="avatar-more">
 						<image src="/images/user/me.png" class="avatar1"></image>
@@ -113,9 +110,7 @@
 				</view>
 
 			</view>
-		</scroll-view>
-
-
+			
 	</swiper-item>
 
 </swiper>

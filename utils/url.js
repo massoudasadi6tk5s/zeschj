@@ -1,6 +1,6 @@
 //所有的url接口
-// const host = 'https://www.weiju.fun/weiju'
-const host = 'http://localhost:8080/weiju'
+const host = 'https://www.weiju.fun/weiju'
+// const host = 'http://192.168.3.2:8080/weiju'
 // 模块
 const moduleUser = "wjUser";
 const moduleAppeal = "wjAppeal";
@@ -40,6 +40,7 @@ const API = {
   getByIdAppeal: `${host}/${moduleAppeal}/getByIdAppeal`, // 根据诉求id，查询
   appealToEndorse: `${host}/${moduleAppealEndorse}/appealToEndorse`, // 为诉求点赞
   cancelEndorse: `${host}/${moduleAppealEndorse}/cancelEndorse`, // 取消点赞
+  listByUserIdMyAppeal: `${host}/${moduleAppeal}/listByUserIdMyAppeal`, // 查询自己的诉求记录
 
   // end 诉求相关接口
 
