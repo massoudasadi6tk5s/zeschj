@@ -196,7 +196,7 @@ Page({
 
       console.log(e)
       let userInfo = wx.getStorageSync('userInfo')
-      let result = e.data.result
+      let result = e.data.result.records
 
       result.forEach((item, index) => {
         item.isMe = false
