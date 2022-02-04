@@ -1,0 +1,15 @@
+<!--custom-tab-bar/index.wxml-->
+<cover-view class="tabbar-content">
+	<view class="tabbar-box box1">
+		<view class="tab-item" bindtap="tabClick" data-tab="index">首页</view>
+		<view class="tab-item" bindtap="tabClick" data-tab="dynamic">动态</view>
+	</view>
+	<view class="tab-push">
+		<view class="push-block">
+		</view>
+	</view>
+	<view class="tabbar-box box2">
+		<view class="tab-item" bindtap="tabClick" data-tab="message">消息</view>
+		<view class="tab-item" bindtap="tabClick" data-tab="my">我的</view>
+	</view>
+</cover-view>
