@@ -154,6 +154,7 @@ Page({
    */
   onPullDownRefresh: function () {
 
+
   },
 
   /**

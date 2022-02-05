@@ -1,0 +1,36 @@
+<!--index/index.wxml165-->
+<wei-appeal wx:if="{{tabName==='index'}}"></wei-appeal>
+<wei-dynamic wx:if="{{tabName==='dynamic'}}"></wei-dynamic>
+<wei-message wx:if="{{tabName==='message'}}"></wei-message>
+<wei-my wx:if="{{tabName==='my'}}"></wei-my>
+<view class="tabbar-content">
+  <view class="tabbar-box box1">
+    <view class="tab-item" bindtap="tabClick" data-tab="index">
+      <image src="../../images/tabbar_icon/zhuye.png" class="tab-icon" hidden="{{tabName==='index'}}"></image>
+      <image src="../../images/tabbar_icon/zhuye_active.png" class="tab-icon tab-active" hidden="{{tabName!=='index'}}"></image>
+      <text class="tab-text tab-active-text" hidden="{{tabName!=='index'}}">首页</text>
+    </view>
+    <view class="tab-item" bindtap="tabClick" data-tab="dynamic">
+      <image src="../../images/tabbar_icon/find.png" class="tab-icon" hidden="{{tabName==='dynamic'}}"></image>
+      <image src="../../images/tabbar_icon/find_active.png" class="tab-icon tab-active" hidden="{{tabName!=='dynamic'}}"></image>
+      <text class="tab-text tab-active-text" hidden="{{tabName!=='dynamic'}}">动态</text>
+    </view>
+  </view>
+  <view class="tab-push">
+    <view class="push-block">
+      <image src="../../images/tabbar_icon/add.png"></image>
+    </view>
+  </view>
+  <view class="tabbar-box box2">
+    <view class="tab-item" bindtap="tabClick" data-tab="message">
+      <image src="../../images/tabbar_icon/xiaoxi.png" class="tab-icon" hidden="{{tabName==='message'}}"></image>
+      <image src="../../images/tabbar_icon/xiaoxi_active.png" class="tab-icon tab-active" hidden="{{tabName!=='message'}}"></image>
+      <text class="tab-text tab-active-text" hidden="{{tabName!=='message'}}">消息</text>
+    </view>
+    <view class="tab-item" bindtap="tabClick" data-tab="my">
+      <image src="../../images/tabbar_icon/wode.png" class="tab-icon" hidden="{{tabName==='my'}}"></image>
+      <image src="../../images/tabbar_icon/wode_active.png" class="tab-icon tab-active" hidden="{{tabName!=='my'}}"></image>
+      <text class="tab-text tab-active-text" hidden="{{tabName!=='my'}}">我的</text>
+    </view>
+  </view>
+</view>

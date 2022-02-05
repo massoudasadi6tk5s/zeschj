@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/appeal/appeal",
+    "pages/index/index",
     "pages/my/editProfile/editProfile",
     "pages/my/myProfile/myProfile",
     "pages/welcome/welcome",
@@ -10,19 +10,14 @@
     "pages/user/user",
     "pages/message/message",
     "pages/messageDetail/messageDetail"
-    
   ],
   "window": {
     "navigationBarBackgroundColor": "#242A37",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "custom":true,
+    "custom": true,
     "list": [
-      {
-        "pagePath": "pages/appeal/appeal",
-        "text": "首页"
-      },
       {
         "pagePath": "pages/dynamicPage/dynamicPage",
         "text": "动态"

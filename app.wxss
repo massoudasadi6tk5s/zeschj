@@ -11,3 +11,8 @@ page{
 view{
   box-sizing: border-box;
 }
+.tabbar-height{
+  height:120rpx;
+  flex: 0 0 120rpx; 
+  background: rgba(0,0,0,0)
+}
