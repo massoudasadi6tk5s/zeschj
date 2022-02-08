@@ -99,19 +99,27 @@ Page({
     let params = {
       wjUser: userInfo,
       pageQuery: {
-        pageNO: this.pageData.pageNO,
-        pageSize: this.pageData.pageSize
+        pageNO: this.data.pageNO,
+        pageSize: this.data.pageSize
       }
     }
+    //115+图片的高度139(贪心算法)
     ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e) {
       let appealList = e.data.result.records
+      let waterfallNum = {
+        left: 0,
+        right: 0
+      }
       appealList.forEach((item, index) => {
-        if (index % 2 == 0) {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
+        item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
+        if (waterfallNum.left === waterfallNum.right || waterfallNum.left < waterfallNum.right) {
           left.push(item)
+          let num = item.appealMaterial.length > 0 ? 139 : 0
+          waterfallNum.left += 115 + num
         } else {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
           right.push(item)
+          let num = item.appealMaterial.length > 0 ? 139 : 0
+          waterfallNum.right += 115 + num
         }
       })
       that.setData({
