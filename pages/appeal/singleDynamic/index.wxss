@@ -80,6 +80,7 @@
   font-family: "Avenir-Book";
   font-size: 15px;
   font-weight: 400;
+  height: 20px;
   line-height: 20px;
   letter-spacing: -0.24px;
 }
@@ -91,6 +92,7 @@
   font-family: "Avenir-Book";
   font-size: 15px;
   font-weight: 400;
+  height: 20px;
   line-height: 20px;
   letter-spacing: -0.24px;
   white-space: nowrap;

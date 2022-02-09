@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/my/editProfile/editProfile",
+    "pages/appeal/appeal",
     "pages/my/myProfile/myProfile",
+    "pages/my/editProfile/editProfile",
     "pages/welcome/welcome",
     "pages/appealRelease/appealRelease",
     "pages/dynamicPage/dynamicPage",
@@ -16,17 +16,31 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "custom": true,
+    "color":"#ffffff",
+    "selectedColor": "#F78361",
+    "backgroundColor": "#242a37",
     "list": [
       {
+        "iconPath": "images/tabbar_icon/zhuye.png",
+        "selectedIconPath": "images/tabbar_icon/zhuye_active.png",
+        "pagePath": "pages/appeal/appeal",
+        "text": "首页"
+      },
+      {
+        "iconPath": "images/tabbar_icon/find.png",
+        "selectedIconPath": "images/tabbar_icon/find_active.png",
         "pagePath": "pages/dynamicPage/dynamicPage",
         "text": "动态"
       },
       {
+        "iconPath": "images/tabbar_icon/xiaoxi.png",
+        "selectedIconPath": "images/tabbar_icon/xiaoxi_active.png",
         "pagePath": "pages/message/message",
         "text": "消息"
       },
       {
+        "iconPath": "images/tabbar_icon/wode.png",
+        "selectedIconPath": "images/tabbar_icon/wode_active.png",
         "pagePath": "pages/my/myProfile/myProfile",
         "text": "我的"
       }

@@ -37,9 +37,8 @@ Page({
 
     ajax.HTTP.post(ajax.API.queryPageWjDynamic, params, (e) => {
 
-      let dynamicL = e.data.result
+      let dynamicL = e.data.result.records
       if(e.data.code == 200){
-
         dynamicL.forEach((item, index)=>{
           item.wjDynamic.createTime = util.format(new Date(item.wjDynamic.createTime))
         })
