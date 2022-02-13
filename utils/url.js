@@ -1,6 +1,6 @@
 //所有的url接口
-const host = 'https://www.weiju.fun/weiju'
-// const host = 'http://192.168.3.2:8080/weiju'
+// const host = 'https://www.weiju.fun/weiju'
+const host = 'http://192.168.3.2:8080/weiju'
 // 模块
 const moduleUser = "wjUser";
 const moduleAppeal = "wjAppeal";
@@ -17,8 +17,8 @@ const API = {
   
   // start 通用接口
 
+  userLogin: `${host}/login/userLogin`, // 登录、授权
   chatSocket: `${host}/chatSocket`, // webSocket 连接 后面接上 userId
-  testOne: `${host}/${moduleTest}/testOne`,  // 测试查询所有的
 
   // end 通用接口
 
