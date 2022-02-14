@@ -1,3 +1,4 @@
+
 // 封装所有的对外请求方法
 import API from "./url.js"
 const CONTENT_TYPE = {
@@ -30,7 +31,13 @@ function ajax(url, params, cb, action, contenttype) {
     },
     success: (res) => {
 
-      if(res.data.code!=200){
+      if(res.data.code!==200){
+
+        if(res.data.code === 99990401){
+          getApp().userLogin()
+          return
+        }
+
         wx.showToast({
           title: res.data.message,
           icon: 'none',

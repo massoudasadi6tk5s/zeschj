@@ -37,9 +37,8 @@ Page({
 
     ajax.HTTP.post(ajax.API.queryPageWjDynamic, params, (e) => {
 
-      let dynamicL = e.data.result
+      let dynamicL = e.data.result.records
       if(e.data.code == 200){
-
         dynamicL.forEach((item, index)=>{
           item.wjDynamic.createTime = util.format(new Date(item.wjDynamic.createTime))
         })
@@ -153,6 +152,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+
 
   },
 

@@ -1,7 +1,7 @@
 {
   "navigationStyle": "custom",
-  "enablePullDownRefresh": true,
+  "disableScroll": false,
   "usingComponents": {
-    "single-dynamic":"/pages/appeal/singleDynamic/index"
+    
   }
 }

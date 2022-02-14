@@ -1,11 +1,58 @@
 /* pages/dynamicPage/dynamicPage.wxss */
 
 page {
-  background: var(--them-color);
   width: 100%;
   height: 100%;
 }
+.navbar {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.search-fiel {
+  display: flex;
+  align-items: center;
+  height: 64rpx;
+  background-color: rgba(142, 142, 147, 0.12);
+  border-radius: 25px;
+}
+
+.search-icon {
+  margin-left: 20rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+  height: 40rpx;
+  color: #4e586e;
+  font-family: "Avenir-Book";
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.oval {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50rpx;
+  background: linear-gradient(220deg, #f78361, #f54b64);
+  margin-left: 20rpx;
+}
+
+.icons-13-pho {
+  width: 48rpx;
+  height: 48rpx;
+}
+/*  */
 .dynamic-page {
   padding: 10rpx 30rpx 0 30rpx;
   box-sizing: border-box;

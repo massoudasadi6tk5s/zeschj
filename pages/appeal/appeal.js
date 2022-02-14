@@ -11,6 +11,7 @@ Page({
   data: {
     // 被点击的导航菜单索引
     currentIndexNav: 0,
+    isLoading: true,
     // 导航
     navList: [{
         "text": "最热",
@@ -38,47 +39,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-    let that = this
-    let userInfo = wx.getStorageSync('userInfo')
-    let left = this.data.leftAppealList
-    let right = this.data.rightAppealList
-
-    let params = {
-      wjUser: userInfo,
-      pageQuery: {
-        pageNO: this.pageData.pageNO,
-        pageSize: this.pageData.pageSize
-      }
-
-    }
-    ajax.HTTP.post(ajax.API.listPageAppeal, params, function (e) {
-
-      let appealList = e.data.result
-
-      appealList.forEach((item, index) => {
-
-        if (index % 2 == 0) {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-          left.push(item)
-        } else {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-          right.push(item)
-        }
-
-
-      })
-
-      that.setData({
-        leftAppealList: left,
-        rightAppealList: right
-      })
-
-
-    }, 'json')
+  onLoad: function(options) {
+    this.getAppealList()
   },
-  refresherEvent:function(e){
+  refresherEvent: function(e) {
     // console.log(e)
   },
   // 滑动选择标签
@@ -117,49 +81,59 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
+  getAppealList: function() {
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+    let left = this.data.leftAppealList
+    let right = this.data.rightAppealList
+    let params = {
+      wjUser: userInfo,
+      pageQuery: {
+        pageNO: this.data.pageNO,
+        pageSize: this.data.pageSize
+      }
+    }
+    //115+图片的高度139(贪心算法)
+    ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e) {
+      let appealList = e.data.result.records
+      let waterfallNum = {
+        left: 0,
+        right: 0
+      }
+      appealList.forEach((item, index) => {
+        item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
+        if (waterfallNum.left === waterfallNum.right || waterfallNum.left < waterfallNum.right) {
+          left.push(item)
+          let num = item.appealMaterial.length > 0 ? 139 : 0
+          waterfallNum.left += 115 + num
+        } else {
+          right.push(item)
+          let num = item.appealMaterial.length > 0 ? 139 : 0
+          waterfallNum.right += 115 + num
+        }
+      })
+      that.setData({
+        leftAppealList: left,
+        rightAppealList: right,
+        isLoading: false
+      })
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+    }, 'json')
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     console.log("到底了")
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

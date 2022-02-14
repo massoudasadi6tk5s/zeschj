@@ -1,6 +1,6 @@
 //所有的url接口
-const host = 'https://www.weiju.fun/weiju'
-// const host = 'http://192.168.3.2:8080/weiju'
+// const host = 'https://www.weiju.fun/weiju'
+const host = 'http://192.168.3.2:8080/weiju'
 // 模块
 const moduleUser = "wjUser";
 const moduleAppeal = "wjAppeal";
@@ -17,8 +17,8 @@ const API = {
   
   // start 通用接口
 
+  userLogin: `${host}/login/userLogin`, // 登录、授权
   chatSocket: `${host}/chatSocket`, // webSocket 连接 后面接上 userId
-  testOne: `${host}/${moduleTest}/testOne`,  // 测试查询所有的
 
   // end 通用接口
 
@@ -27,6 +27,7 @@ const API = {
   detectionUserAuthorization: `${host}/${moduleUser}/detectionUserAuthorization`, // 检测用户登录
   getUserCode: `${host}/${moduleUser}/getUserCode`, // 获取用户code, 后台换取 session_key。（获取后端对应的UUID）
   userAuthorization: `${host}/${moduleUser}/userAuthorization`, // 用户授权接口
+  getByIdUserData: `${host}/${moduleUser}/getByIdUserData`, // 根据用户id 查询用户信息 包括需要查询其他表的一些数据（点赞、动态...）
   // end 用户相关接口
 
   
@@ -39,6 +40,7 @@ const API = {
   getByIdAppeal: `${host}/${moduleAppeal}/getByIdAppeal`, // 根据诉求id，查询
   appealToEndorse: `${host}/${moduleAppealEndorse}/appealToEndorse`, // 为诉求点赞
   cancelEndorse: `${host}/${moduleAppealEndorse}/cancelEndorse`, // 取消点赞
+  listByUserIdMyAppeal: `${host}/${moduleAppeal}/listByUserIdMyAppeal`, // 查询自己的诉求记录
 
   // end 诉求相关接口
 

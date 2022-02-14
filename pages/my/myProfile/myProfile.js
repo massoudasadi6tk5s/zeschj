@@ -1,4 +1,4 @@
-// pages/my/myProfile/myProfile.js
+
 const app = getApp()
 const ajax = require('../../../utils/ajax.js')
 const util = require('../../../utils/util.js')
@@ -9,8 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    leftAppealList: [], // 左侧诉求集合
-    rightAppealList: [] // 右侧诉求集合
+    userInfo:{},
+    myAppealList: [],
+    swiperHeight: 2400
   },
   pageData: {
     pageNO: 1,
@@ -22,7 +23,7 @@ Page({
    */
   onLoad: function (options) {
 
-    var userInfo = wx.getStorageSync("userInfo")
+    let userInfo = wx.getStorageSync("userInfo")
     if(!userInfo){
 
       wx.navigateTo({
@@ -38,42 +39,9 @@ Page({
     })
 
 
-    let that = this
-    let left = this.data.leftAppealList
-    let right = this.data.rightAppealList
+    this.loadMyData()
 
-    let params = {
-      wjUser: userInfo,
-      pageQuery: {
-        pageNO: this.pageData.pageNO,
-        pageSize: this.pageData.pageSize
-      }
-
-    }
-    ajax.HTTP.post(ajax.API.listPageAppeal, params, function (e) {
-
-      let appealList = e.data.result
-
-      appealList.forEach((item, index) => {
-
-        if (index % 2 == 0) {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-          left.push(item)
-        } else {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-          right.push(item)
-        }
-
-
-      })
-
-      that.setData({
-        leftAppealList: left,
-        rightAppealList: right
-      })
-
-
-    }, 'json')
+    this.loadMyAppeal()
 
 
   },
@@ -89,6 +57,61 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    
+
+  },
+
+  // 去编辑页面
+  gotoEditProfile(){
+    wx.navigateTo({
+      url: '/pages/my/editProfile/editProfile',
+    })
+  },
+
+  // 加载我的一些信息 (诉求、动态、点赞 次数)
+  loadMyData(){
+
+    let that = this
+    let userInfo = wx.getStorageSync("userInfo")
+
+    let params = {
+      userId: userInfo.userId
+    }
+
+    ajax.HTTP.post(ajax.API.getByIdUserData, params, (e)=>{
+
+      that.setData({
+        userInfo: e.data.result
+      })
+
+      wx.setStorageSync('userInfo', e.data.result)
+
+    })
+
+  },
+  // 查询我的诉求
+  loadMyAppeal(){
+
+    let that = this
+    let userInfo = wx.getStorageSync('userInfo')
+
+    let params = {
+      wjUser: userInfo,
+      pageQuery: this.pageData
+
+    }
+
+    ajax.HTTP.post(ajax.API.listByUserIdMyAppeal, params, (e)=>{
+      let appealList = e.data.result.records
+      appealList.forEach((item, index) => {
+          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
+      })
+      that.setData({
+        myAppealList: appealList,
+        swiperHeight: 600 * appealList.length
+      })
+    })
 
   },
 
