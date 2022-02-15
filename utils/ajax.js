@@ -1,5 +1,6 @@
 
-// 封装所有的对外请求方法
+// 封装所有的对外请求方法 
+// 网站备案
 import API from "./url.js"
 const CONTENT_TYPE = {
   FORM: 'application/x-www-form-urlencoded',
