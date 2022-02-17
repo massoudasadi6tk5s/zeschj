@@ -1,8 +1,9 @@
 // pages/message/message.js
 
 const app = getApp()
-const ajax = require('../../utils/ajax.js')
-const util = require('../../utils/util.js')
+
+import http from '../../utils/api.js';
+import util from '../../utils/util.js';
 
 Page({
 
@@ -12,12 +13,12 @@ Page({
   data: {
     chatList: []
   },
-  
+
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) { 
+  onLoad: function (options) {
 
 
 
@@ -27,8 +28,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
-    
+
+
   },
 
   /**
@@ -42,40 +43,45 @@ Page({
 
 
   // 去消息 对话页面
-  gotoMsgDetail(e){
+  gotoMsgDetail(e) {
 
     let chatId = e.currentTarget.dataset.chatId
 
     wx.navigateTo({
-      url: '../messageDetail/messageDetail?chatId='+ chatId ,
+      url: '../messageDetail/messageDetail?chatId=' + chatId,
     })
 
   },
 
   // 查询用户所有的 聊天室/聊天列表
-  queryAllChat(e){
+  queryAllChat(e) {
 
     let that = this
 
-    let userInfo = wx.getStorageSync('userInfo')
+    let data = {}
 
-    ajax.HTTP.get(ajax.API.queryAllChat + "/" + userInfo.userId, null, (e)=>{
+    http.chat({
+      data,
+      success: res => {
 
+        let result = res.result
 
-      let result = e.data.result
+        result.forEach((item, index) => {
 
-      result.forEach((item, index)=>{
+          item.createTime = util.format(new Date(item.createTime))
 
-        item.createTime = util.format(new Date(item.createTime))
+        })
 
-      })
+        that.setData({
+          chatList: result
+        })
 
-      that.setData({
-        chatList: result
-      })
-      
+      },
+      fail: err => {
 
-    }, 'json')
+      }
+    })
+
 
   },
 

@@ -4,15 +4,7 @@ import http from 'utils/api.js' // 引入api接口管理文件
 App({
   onLaunch: function() {
 
-    http.femaleNameApi({
-      data: {a: 123},
-      success: res => {
-        console.log(res)
-      },
-      fail: err => {
-        console.log(res)
-      }
-    })
+    this.userLogin()
 
     //获取手机的系统信息(状态栏高度)
     wx.getSystemInfo({
@@ -35,33 +27,42 @@ App({
 
   globalData: {
     // 腾讯地图key
-    MAPKEY: "5U5BZ-PB6AD-PMW4R-PBJ3M-5PDHK-7XBIM"
+    MAPKEY: "5U5BZ-PB6AD-PMW4R-PBJ3M-5PDHK-7XBIM",
+    host: 'http://192.168.3.2:8080/weiju',
+    chatSocket: 'http://192.168.3.2:8080/weiju/chatSocket'
   },
 
   // 用户授权登录 返回用户信息、token 并存储到 storage
-  // userLogin(){
+  userLogin(){
 
-  //   wx.login({
-  //     success(res) {
+    let token = wx.getStorageSync('token')
+
+    if(token){
+      return
+    }
+
+    wx.login({
+      success(res) {
+
+        http.userLogin({
+          data:{code: res.code},
+          success: res => {
+
+            wx.setStorageSync('wjUser', res.result.wjUser)
+            wx.setStorageSync('token', res.result.token)
+
+            console.log(res)
+          },
+          fail: err => {
+
+          }
+        })
 
 
-  //       ajax.HTTP.post(ajax.API.userLogin, {code: res.code}, (e)=>{
+      }
+    })
 
-  //         if(e.data.code == 200){
-    
-  //           let data = e.data.result
-  //           wx.setStorageSync('wjUser', data.wjUser)
-  //           wx.setStorageSync('token', data.token)
-    
-  //         }
-    
-  //       }, 'form')
-
-
-  //     }
-  //   })
-
-  // }
+  }
 
 
 })

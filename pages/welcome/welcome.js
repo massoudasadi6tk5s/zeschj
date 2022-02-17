@@ -1,5 +1,5 @@
 // pages/test.js
-const ajax = require('../../utils/ajax.js')
+
 const app = getApp();
 
 Page({

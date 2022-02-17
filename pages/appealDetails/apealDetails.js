@@ -1,6 +1,8 @@
 // pages/appealDetails/apealDetails.js
-const ajax = require('../../utils/ajax.js')
-const util = require('../../utils/util.js')
+
+import http from '../../utils/api.js';
+import util from '../../utils/util.js';
+
 
 Page({
 
@@ -16,15 +18,25 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    let appealId = options.appealId
+
+    let data = {
+      appealId: options.appealId
+    }
+
     // 查询诉求
-    ajax.HTTP.get(ajax.API.getByIdAppeal + "/" + appealId, null, (e)=>{
 
-      that.setData({
-        appealList: e.data.result
-      })
+    http.appeal({
+      data,
+      success: res => {
+        that.setData({
+          appealList: res.result
+        })
+      },
+      fail: err => {
 
-    }, 'json')
+      }
+    })
+
     
 
   },

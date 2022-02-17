@@ -1,24 +1,25 @@
 
 
 var HTTP = {}
-HTTP.get = function(url, params) {
-  http(url, 'GET', params)
+HTTP.get = function(url, params, contentType) {
+  http(url, 'GET', params, contentType)
 }
-HTTP.post = function(url, params) {
-  ajax(url, 'POST', params)
+HTTP.post = function(url, params, contentType) {
+  http(url, 'POST', params, contentType)
 }
-HTTP.delete = function(url, params) {
-  ajax(url, 'DELETE', params)
+HTTP.delete = function(url, params, contentType) {
+  http(url, 'DELETE', params, contentType)
 }
-HTTP.put = function(url, params) {
-  ajax(url, 'PUT', params)
+HTTP.put = function(url, params, contentType) {
+  http(url, 'PUT', params, contentType)
 }
 
-function http(url, type, params) {
+function http(url, type, params, contentType) {
 
-    let host = 'http://192.168.3.2:8080/weiju'
+    let app = getApp();
+    let host = app.globalData.host
 
-    let token = 'token' // 获取token
+    let token = wx.getStorageSync('token') // 获取token
 
     let data = {}
 
@@ -35,10 +36,26 @@ function http(url, type, params) {
       method: type, // 接口的请求类型
       data,
       header: {
-        'content-type': 'application/json;charset=UTF-8',
+        'content-type': contentType == 'form' ? 'application/x-www-form-urlencoded':'application/json;charset=UTF-8',
         'token': token
       },
       success(res) {
+
+        if(res.data.code!==200){
+
+          // if(res.data.code === 99990401){
+          //   getApp().userLogin()
+          //   return
+          // }
+  
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+          return
+        }
+
         params.success && params.success(res.data)
       },
       fail(err) {

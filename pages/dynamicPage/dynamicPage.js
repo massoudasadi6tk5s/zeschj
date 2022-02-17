@@ -1,6 +1,8 @@
 const app = getApp()
-const ajax = require('../../utils/ajax.js')
-const util = require('../../utils/util.js')
+
+import http from '../../utils/api.js';
+import util from '../../utils/util.js';
+
 
 Page({
 
@@ -9,7 +11,7 @@ Page({
    */
   data: {
     dynamicList: {}
-  }, 
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -24,57 +26,61 @@ Page({
   onReady: function () {
 
     let that = this
-    let userInfo = wx.getStorageSync('userInfo')
 
-    let params = {
-      wjDynamic: null,
-      wjUser: userInfo,
-      pageQuery:{
+    let data = {
+      createTime: false,
+      endorseCount: false,
+      pageQuery: {
         pageSize: 10,
         pageNo: 1
       }
     }
 
-    ajax.HTTP.post(ajax.API.queryPageWjDynamic, params, (e) => {
+    http.pageDynamic({
+      data,
+      success: res => {
 
-      let dynamicL = e.data.result.records
-      if(e.data.code == 200){
-        dynamicL.forEach((item, index)=>{
-          item.wjDynamic.createTime = util.format(new Date(item.wjDynamic.createTime))
+        let dynamic = res.result.records
+        dynamic.forEach((item, index) => {
+          item.createTime = util.format(new Date(item.createTime))
         })
 
         that.setData({
-          dynamicList: dynamicL
+          dynamicList: dynamic
         })
+
+
+      },
+      fail: err => {
+
       }
 
-    }, 'json')
+    })
+
 
   },
 
   // 动态点赞
-  addDynamicEndorse(e){
+  addDynamicEndorse(e) {
 
     let that = this
-    let userInfo = wx.getStorageSync('userInfo')
     let id = e.currentTarget.dataset.id
 
-    let params = {
+    let data = {
       dynamicId: id,
-      userId: userInfo.userId
     }
 
-    ajax.HTTP.post(ajax.API.addDynamicEndorse, params, (e) => {
+    http.dynamicEndorse({
+      data,
+      success: res => {
 
-      let dynamicList = that.data.dynamicList
+        let dynamicList = that.data.dynamicList
 
-      if(e.data.code == 200){
+        dynamicList.forEach((item, index) => {
 
-        dynamicList.forEach((item, index)=>{
-
-          if(item.wjDynamic.dynamicId == id){
+          if (item.dynamicId == id) {
             dynamicList[index].isEndorse = true
-            dynamicList[index].wjDynamic.endorseCount = dynamicList[index].wjDynamic.endorseCount+1
+            dynamicList[index].endorseCount = dynamicList[index].endorseCount + 1
           }
 
         })
@@ -83,36 +89,38 @@ Page({
           dynamicList: dynamicList
         })
 
+
+      },
+      fail: err => {
+
       }
 
-    }, 'json')
+    })
+
 
   },
 
   // 取消点赞
-  cancelEndorse(e){
+  cancelEndorse(e) {
 
     let that = this
-    let userInfo = wx.getStorageSync('userInfo')
     let id = e.currentTarget.dataset.id
 
-    let params = {
-      dynamicId: id,
-      userId: userInfo.userId
+    let data = {
+      dynamicId: id
     }
 
+    http.cancelEndorse({
+      data,
+      success: res => {
 
-    ajax.HTTP.delete(ajax.API.cancelEndorse, params, (e) => {
+        let dynamicList = that.data.dynamicList
 
-      let dynamicList = that.data.dynamicList
+        dynamicList.forEach((item, index) => {
 
-      if(e.data.code == 200){
-
-        dynamicList.forEach((item, index)=>{
-
-          if(item.wjDynamic.dynamicId == id){
+          if (item.dynamicId == id) {
             dynamicList[index].isEndorse = false
-            dynamicList[index].wjDynamic.endorseCount = dynamicList[index].wjDynamic.endorseCount-1
+            dynamicList[index].endorseCount = dynamicList[index].endorseCount - 1
           }
 
         })
@@ -121,9 +129,13 @@ Page({
           dynamicList: dynamicList
         })
 
-      }
 
-    }, 'json')
+
+      },
+      fail: err => {
+
+      }
+    })
 
   },
 

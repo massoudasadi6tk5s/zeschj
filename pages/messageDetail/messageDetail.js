@@ -1,8 +1,9 @@
 // pages/messageDetail/messageDetail.js
 
 const app = getApp()
-const ajax = require('../../utils/ajax.js')
-const util = require('../../utils/util.js')
+
+import http from '../../utils/api.js';
+import util from '../../utils/util.js';
 
 Page({
 
@@ -24,33 +25,36 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
     let that = this
+    let wjUser = wx.getStorageSync('wjUser')
 
-    let userInfo = wx.getStorageSync('userInfo')
+    let data = {
+      chatId: options.chatId
+    }
 
-    this.pageData.chatId = options.chatId //"182ee44b1b5bc8df1d7ac6b4651f2e44"
+    http.queryChatUser({
+      data,
+      success: res => {
 
-    // 查询到聊天人的信息
-    ajax.HTTP.get(ajax.API.queryChatUser + "/" + options.chatId, null, (e) => {
+        let result = res.result
 
-      let result = e.data.result
+        result.forEach((item, index) => {
 
-      result.forEach((item, index) => {
+          if (item.userId != wjUser.userId) {
+            that.pageData.dialogueUserId = item.userId
+          }
 
-        if (item.userId != userInfo.userId) {
-          that.pageData.dialogueUserId = item.userId
-          console.log(item.userId)
-        }
+        })
 
-      })
+      },
+      fail: err => {
 
-
-
-      console.log()
-
+      }
     })
+
+    this.pageData.chatId = options.chatId
 
 
   },
@@ -58,14 +62,14 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
     this.connectSocket()
     this.queryPageWjChatRecord()
@@ -75,15 +79,16 @@ Page({
   // 连接 websocket
   connectSocket(e) {
 
-    let userId = wx.getStorageSync('userInfo').userId
-
-    let socketUrl = ajax.API.chatSocket + "/" + userId
+    let app = getApp();
+    let token = wx.getStorageSync('token')
+    let socketUrl = app.globalData.chatSocket + "/" + token
     socketUrl = socketUrl.replace("https", "wss").replace("http", "ws");
 
     this.pageData.WebSocket = wx.connectSocket({
       url: socketUrl,
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token': token
       },
       success: (e) => {
         console.log('成功')
@@ -132,12 +137,12 @@ Page({
   // 接收消息
   cbOnMsg(e) {
     let that = this
-    let userInfo = wx.getStorageSync('userInfo')
+    let wjUser = wx.getStorageSync('wjUser')
     if (e.data == '连接成功') {
       return
     }
     let msgObj = JSON.parse(e.data)
-    if (msgObj.chatId == this.pageData.chatId && msgObj.toUserId == userInfo.userId) {
+    if (msgObj.chatId == this.pageData.chatId && msgObj.toUserId == wjUser.userId) {
 
       let msgList = that.data.msgList
 
@@ -182,33 +187,37 @@ Page({
 
     let that = this
 
-    let params = {
-      wjChatRecord: {
-        chatId: that.pageData.chatId
-      },
+    let data = {
+      chatId: that.pageData.chatId,
       pageQuery: {
         pageSize: 20,
         pageNo: 1
       }
     }
 
-    ajax.HTTP.post(ajax.API.queryPageWjChatRecord, params, (e) => {
+    http.pageChatRecord({
+      data,
+      success: res => {
 
-      console.log(e)
-      let userInfo = wx.getStorageSync('userInfo')
-      let result = e.data.result.records
+        let wjUser = wx.getStorageSync('wjUser')
+        let result = res.result.records
 
-      result.forEach((item, index) => {
-        item.isMe = false
-        if (item.userId == userInfo.userId) {
-          item.isMe = true
-        }
+        result.forEach((item, index) => {
+          item.isMe = false
+          if (item.userId == wjUser.userId) {
+            item.isMe = true
+          }
 
-      })
-      that.setData({
-        msgList: result.reverse(),
-        currentChatId: "chat_" + (result.length - 1)
-      })
+        })
+        that.setData({
+          msgList: result.reverse(),
+          currentChatId: "chat_" + (result.length - 1)
+        })
+
+      },
+      fail: err => {
+
+      }
     })
 
   },
@@ -217,35 +226,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })
