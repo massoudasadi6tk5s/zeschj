@@ -1,7 +1,8 @@
-
 const app = getApp()
-const ajax = require('../../../utils/ajax.js')
-const util = require('../../../utils/util.js')
+
+import http from '../../../utils/api.js';
+import util from '../../../utils/util.js';
+
 
 Page({
 
@@ -9,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{},
+    wjUser: {},
     myAppealList: [],
     swiperHeight: 2400
   },
@@ -23,8 +24,8 @@ Page({
    */
   onLoad: function (options) {
 
-    let userInfo = wx.getStorageSync("userInfo")
-    if(!userInfo){
+    let wjUser = wx.getStorageSync('wjUser')
+    if (!wjUser) {
 
       wx.navigateTo({
         url: '/pages/welcome/welcome',
@@ -35,7 +36,7 @@ Page({
     }
 
     this.setData({
-      userInfo: userInfo
+      wjUser: wjUser
     })
 
 
@@ -58,60 +59,69 @@ Page({
    */
   onShow: function () {
 
-    
+
 
   },
 
   // 去编辑页面
-  gotoEditProfile(){
+  gotoEditProfile() {
     wx.navigateTo({
       url: '/pages/my/editProfile/editProfile',
     })
   },
 
   // 加载我的一些信息 (诉求、动态、点赞 次数)
-  loadMyData(){
+  loadMyData() {
 
     let that = this
-    let userInfo = wx.getStorageSync("userInfo")
 
-    let params = {
-      userId: userInfo.userId
-    }
+    let data = {}
 
-    ajax.HTTP.post(ajax.API.getByIdUserData, params, (e)=>{
+    http.userData({
+      data,
+      success: res => {
 
-      that.setData({
-        userInfo: e.data.result
-      })
+        that.setData({
+          userInfo: res.result
+        })
 
-      wx.setStorageSync('userInfo', e.data.result)
+      },
+      fail: res => {
+
+      }
 
     })
+
 
   },
   // 查询我的诉求
-  loadMyAppeal(){
+  loadMyAppeal() {
 
     let that = this
-    let userInfo = wx.getStorageSync('userInfo')
 
-    let params = {
-      wjUser: userInfo,
+    let data = {
       pageQuery: this.pageData
-
     }
 
-    ajax.HTTP.post(ajax.API.listByUserIdMyAppeal, params, (e)=>{
-      let appealList = e.data.result.records
-      appealList.forEach((item, index) => {
-          item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-      })
-      that.setData({
-        myAppealList: appealList,
-        swiperHeight: 600 * appealList.length
-      })
+    http.myAppeal({
+      data,
+      success: res => {
+
+        let appealList = res.result.records
+        appealList.forEach((item, index) => {
+          item.createTime = util.format(new Date(item.createTime))
+        })
+        that.setData({
+          myAppealList: appealList,
+          swiperHeight: 600 * appealList.length
+        })
+
+      },
+      fail: res => {
+
+      }
     })
+
 
   },
 

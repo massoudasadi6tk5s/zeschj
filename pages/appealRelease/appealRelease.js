@@ -1,4 +1,4 @@
-const ajax = require('../../utils/ajax.js')
+
 const util = require('../../utils/util.js')
 
 

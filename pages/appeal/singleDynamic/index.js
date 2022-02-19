@@ -1,8 +1,7 @@
 // pages/appeal/singleDynamic/index.js
 
 const app = getApp()
-const ajax = require('../../../utils/ajax.js')
-const util = require('../../../utils/util.js')
+import http from '../../../utils/api.js';
 
 Component({
   /**
@@ -30,63 +29,69 @@ Component({
     appealEndorse(e) {
 
       let that = this
-      let userInfo = wx.getStorageSync('userInfo')
       let appealId = e.currentTarget.dataset.id
 
-      let params = {
+      let data = {
         appealId: appealId,
-        userId: userInfo.userId,
-        createBy: userInfo.userId
       }
 
-      ajax.HTTP.post(ajax.API.appealToEndorse, params, (e) => {
+      http.appealToEndorse({
+        data,
+        success: res => {
 
-        // 改变值
+          let dataList = that.data.data
+          dataList.forEach((item, index) => {
+            if (item.appealId == appealId) {
+              dataList[index].isEndorse = true
+              dataList[index].endorseCount = dataList[index].endorseCount + 1
+            }
+          })
+          that.setData({
+            data: dataList
+          })
 
-        let dataList = that.data.data
-        dataList.forEach((item, index) => {
-          if (item.wjAppeal.appealId == appealId) {
-            dataList[index].isEndorse = true
-            dataList[index].wjAppeal.endorseCount = dataList[index].wjAppeal.endorseCount + 1
-          }
-        })
-        that.setData({
-          data: dataList
-        })
+        },
+        fail: err => {
+
+        }
+      })
 
 
-      }, 'json')
 
     },
 
     // 取消点赞
     cancelEndorse(e) {
       let that = this
-      let userInfo = wx.getStorageSync('userInfo')
       let appealId = e.currentTarget.dataset.id
 
-      let params = {
-        appealId: appealId,
-        userId: userInfo.userId,
+      let data = {
+        appealId: appealId
       }
 
-      ajax.HTTP.delete(ajax.API.cancelEndorse, params, (e) => {
-        console.log(e)
+      http.cancelEndorse({
+        data,
+        success: res => {
+          console.log(res)
 
-        // 改变值
-        let dataList = that.data.data
-        dataList.forEach((item, index) => {
-          if (item.wjAppeal.appealId == appealId) {
-            dataList[index].isEndorse = false
-            dataList[index].wjAppeal.endorseCount = dataList[index].wjAppeal.endorseCount - 1
-          }
-        })
-        that.setData({
-          data: dataList
-        })
+          // 改变值
+          let dataList = that.data.data
+          dataList.forEach((item, index) => {
+            if (item.appealId == appealId) {
+              dataList[index].isEndorse = false
+              dataList[index].endorseCount = dataList[index].endorseCount - 1
+            }
+          })
+          that.setData({
+            data: dataList
+          })
 
+        },
+        fail: err => {
+          console.log(err)
+        }
+      })
 
-      }, 'json')
 
 
     },

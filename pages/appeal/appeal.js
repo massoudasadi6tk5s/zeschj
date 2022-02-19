@@ -1,7 +1,7 @@
 // pages/test.js
 const app = getApp()
-const ajax = require('../../utils/ajax.js')
-const util = require('../../utils/util.js')
+import http from '../../utils/api.js';
+import util from '../../utils/util.js';
 
 Page({
 
@@ -39,10 +39,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.getAppealList()
   },
-  refresherEvent: function(e) {
+  refresherEvent: function (e) {
     // console.log(e)
   },
   // 滑动选择标签
@@ -81,59 +81,72 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
-  getAppealList: function() {
+  getAppealList: function () {
     let that = this
-    let userInfo = wx.getStorageSync('userInfo')
     let left = this.data.leftAppealList
     let right = this.data.rightAppealList
-    let params = {
-      wjUser: userInfo,
+    let data = {
+      createTime: false,
+      endorseCount: false,
       pageQuery: {
         pageNO: this.data.pageNO,
         pageSize: this.data.pageSize
       }
     }
-    //115+图片的高度139(贪心算法)
-    ajax.HTTP.post(ajax.API.listPageAppeal, params, function(e) {
-      let appealList = e.data.result.records
-      let waterfallNum = {
-        left: 0,
-        right: 0
-      }
-      appealList.forEach((item, index) => {
-        item.wjAppeal.createTime = util.format(new Date(item.wjAppeal.createTime))
-        if (waterfallNum.left === waterfallNum.right || waterfallNum.left < waterfallNum.right) {
-          left.push(item)
-          let num = item.appealMaterial.length > 0 ? 139 : 0
-          waterfallNum.left += 115 + num
-        } else {
-          right.push(item)
-          let num = item.appealMaterial.length > 0 ? 139 : 0
-          waterfallNum.right += 115 + num
-        }
-      })
-      that.setData({
-        leftAppealList: left,
-        rightAppealList: right,
-        isLoading: false
-      })
 
-    }, 'json')
+
+    //115+图片的高度139(贪心算法)
+    http.pageAppeal({
+      data,
+      success: res => {
+
+        let appealList = res.result.records
+        let waterfallNum = {
+          left: 0,
+          right: 0
+        }
+        appealList.forEach((item, index) => {
+          item.createTime = util.format(new Date(item.createTime))
+          if (waterfallNum.left === waterfallNum.right || waterfallNum.left < waterfallNum.right) {
+            left.push(item)
+            let num = item.appealMaterial.length > 0 ? 139 : 0
+            waterfallNum.left += 115 + num
+          } else {
+            right.push(item)
+            let num = item.appealMaterial.length > 0 ? 139 : 0
+            waterfallNum.right += 115 + num
+          }
+        })
+        that.setData({
+          leftAppealList: left,
+          rightAppealList: right,
+          isLoading: false
+        })
+
+      },
+      fail: res => {
+
+      }
+    })
+
+
+
+
   },
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     console.log("到底了")
   }
 })
