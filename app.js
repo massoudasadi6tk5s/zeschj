@@ -28,8 +28,8 @@ App({
   globalData: {
     // 腾讯地图key
     MAPKEY: "5U5BZ-PB6AD-PMW4R-PBJ3M-5PDHK-7XBIM",
-    host: 'http://192.168.3.2:8080/weiju',
-    chatSocket: 'http://192.168.3.2:8080/weiju/chatSocket'
+    host: 'http://192.168.3.115:8080/weiju',
+    chatSocket: 'http://192.168.3.115:8080/weiju/chatSocket'
   },
 
   // 用户授权登录 返回用户信息、token 并存储到 storage
@@ -47,6 +47,8 @@ App({
         http.userLogin({
           data:{code: res.code},
           success: res => {
+
+            console.log(res)
 
             wx.setStorageSync('wjUser', res.result.wjUser)
             wx.setStorageSync('token', res.result.token)

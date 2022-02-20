@@ -41,12 +41,7 @@ function http(url, type, params, contentType) {
       },
       success(res) {
 
-        if(res.data.code!==200){
-
-          // if(res.data.code === 99990401){
-          //   getApp().userLogin()
-          //   return
-          // }
+        if(res.data.code!=='00000'){
   
           wx.showToast({
             title: res.data.message,
