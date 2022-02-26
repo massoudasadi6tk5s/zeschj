@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{
+    wjUser:{
       headPortrait: '../../images/user/me.png',
       nickName: '小小微距',
       signature: '拉近你我距离',
@@ -23,8 +23,8 @@ Page({
    */
   onLoad: function (options) {
 
-    let userInfo = wx.getStorageSync("userInfo")
-    if(!userInfo){
+    let wjUser = wx.getStorageSync("wjUser")
+    if(!wjUser){
 
       wx.navigateTo({
         url: '/pages/welcome/welcome',
@@ -35,7 +35,7 @@ Page({
     }
 
     this.setData({
-      userInfo: userInfo
+      wjUser: wjUser
     })
 
 
@@ -52,13 +52,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userInfo = wx.getStorageSync("userInfo")
-    if (!userInfo) {
+    let wjUser = wx.getStorageSync("wjUser")
+    if (!wjUser) {
       return
     }
 
     this.setData({
-      userInfo: userInfo
+      wjUser: wjUser
     })
   },
 

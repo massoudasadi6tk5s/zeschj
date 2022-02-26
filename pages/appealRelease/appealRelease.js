@@ -1,5 +1,6 @@
 
-const util = require('../../utils/util.js')
+import http from '../../utils/api.js';
+import util from '../../utils/util.js';
 
 
 Page({
@@ -139,24 +140,28 @@ Page({
   // 保存诉求
   saveAppeal(){
 
-    let userInfo = wx.getStorageSync('userInfo')
-
-    let params = {
-      userId: userInfo.userId,
+    let data = {
       title: this.data.title,
       content: this.data.content
     }
 
-    ajax.HTTP.post(ajax.API.addAppeal, params, function (e) {
+    http.addAppeal({
+      data,
+      success: res => {
 
-      console.log(e)
-      if(e.data.code == 200){
-        wx.showToast({
-          title: '发送成功',
-        })
+        if(res.code === 200){
+          wx.showToast({
+            title: '发送成功',
+          })
+        }
+
+      },
+      fail: err => {
+
       }
+    })
 
-    }, 'json')
+    
 
   },
 

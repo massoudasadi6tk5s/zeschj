@@ -1,55 +1,67 @@
-
-import {GET, POST, DELETE, PUT} from './http';
+import {
+  GET,
+  POST,
+  DELETE,
+  PUT
+} from './http';
 
 function userLogin(params) {
   POST('/login/userLogin', params, 'form')
 }
 
-function pageAppeal (params){
+function addAppeal(params) {
+  POST('/wjAppeal/appeal', params)
+}
+
+function pageAppeal(params) {
   POST('/wjAppeal/pageAppeal', params)
 }
 
-function myAppeal(params){
+function myAppeal(params) {
   POST('/wjAppeal/myAppeal', params)
 }
 
-function appealToEndorse(params){
-  POST('/wjAppealEndorse/appealToEndorse/'+params.data.appealId, params)
+function appealToEndorse(params) {
+  POST('/wjAppealEndorse/appealToEndorse/' + params.data.appealId, params)
 }
 
-function cancelEndorse(params){
-  DELETE('/wjAppealEndorse/cancelEndorse/'+params.data.appealId, params)
+function cancelEndorse(params) {
+  DELETE('/wjAppealEndorse/cancelEndorse/' + params.data.appealId, params)
 }
 
-function appeal(params){
-  GET('/wjAppeal/appeal/'+params.data.appealId, params)
+function appeal(params) {
+  GET('/wjAppeal/appeal/' + params.data.appealId, params)
 }
 
-function pageDynamic(params){
+function pageDynamic(params) {
   POST('/wjDynamic/pageDynamic', params)
 }
 
-function dynamicEndorse(params){
-  POST('/wjDynamicEndorse/dynamicEndorse/'+params.data.dynamicId, params)
+function dynamicEndorse(params) {
+  POST('/wjDynamicEndorse/dynamicEndorse/' + params.data.dynamicId, params)
 }
 
-function cancelEndorse(params){
-  DELETE('/wjDynamicEndorse/cancelEndorse/'+params.data.dynamicId, params)
+function cancelEndorse(params) {
+  DELETE('/wjDynamicEndorse/cancelEndorse/' + params.data.dynamicId, params)
 }
 
-function chat(params){
+function chat(params) {
   GET('/wjChat/chat', params)
 }
 
-function queryChatUser(params){
-  GET('/wjChatUser/queryChatUser/'+params.data.chatId, params)
+function queryChatUser(params) {
+  GET('/wjChatUser/queryChatUser/' + params.data.chatId, params)
 }
 
-function pageChatRecord(params){
+function pageChatRecord(params) {
   POST('/wjChatRecord/pageChatRecord', params)
 }
 
-function userData(params){
+function updateUser(params){
+  PUT('/wjUser/user', params)
+}
+
+function userData(params) {
   GET('/wjUser/userData', params)
 }
 
@@ -58,13 +70,13 @@ function userData(params){
 
 export default { // 暴露接口
 
-  
+
   userLogin, // 根据code 登录、授权
 
 
 
   // start 诉求
-  
+  addAppeal, // 添加诉求
   pageAppeal, //分页查询诉求
   myAppeal, // 查询我的诉求
   appealToEndorse, // 诉求点赞
@@ -97,7 +109,8 @@ export default { // 暴露接口
 
   // start 用户
 
-  userData,
+  updateUser, // 修改用户资料
+  userData, // 查询用户的一些基本信息，例：发送诉求数，动态数，点赞数...
 
   // end 用户
 

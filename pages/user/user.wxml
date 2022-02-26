@@ -20,17 +20,17 @@
     <view class="avatar ">
       <!-- 头像  -->
       <view class="mePhoto"> 
-        <image src="{{userInfo.headPortrait}}"></image>
+        <image src="{{wjUser.headPortrait}}"></image>
       </view>
 
       <!-- 名字 -->
       <view class="name">
-        <text>{{userInfo.nickName}}</text>
+        <text>{{wjUser.nickName}}</text>
       </view>
 
       <!-- 其他一些东西 -->
       <view class="jorgecutis ">
-        @{{userInfo.signature}}
+        @{{wjUser.signature}}
       </view>
       
     </view>
@@ -64,7 +64,7 @@
       <view class="aboutMe">关于我</view>
 
       <view class="aboutMeInfo">
-        {{userInfo.introduce}}
+        {{wjUser.introduce}}
       </view>
 
     </view>
@@ -74,9 +74,9 @@
       <view class="photoTitle">照片</view>
 
       <view class="photoInfo">
-        <!-- <image class="photoOne" src="{{userInfo.photos[0]}}"></image>
-        <image class="photoOne" src="{{userInfo.photos[1]}}"></image>
-        <image class="photoOne" src="{{userInfo.photos[2]}}"></image> -->
+        <!-- <image class="photoOne" src="{{wjUser.photos[0]}}"></image>
+        <image class="photoOne" src="{{wjUser.photos[1]}}"></image>
+        <image class="photoOne" src="{{wjUser.photos[2]}}"></image> -->
       </view>
 
     </view>

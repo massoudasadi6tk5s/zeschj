@@ -12,7 +12,8 @@ Page({
   data: {
     wjUser: {},
     myAppealList: [],
-    swiperHeight: 2400
+    swiperHeight: 2400,
+    swiperIndex: 3
   },
   pageData: {
     pageNO: 1,
@@ -63,11 +64,25 @@ Page({
 
   },
 
+
+
   // 去编辑页面
   gotoEditProfile() {
     wx.navigateTo({
       url: '/pages/my/editProfile/editProfile',
     })
+  },
+
+  // 切换 swiper
+  switchSwiper(e) {
+
+    let index = e.currentTarget.dataset.index
+
+    this.setData({
+      swiperIndex: index
+    })
+
+
   },
 
   // 加载我的一些信息 (诉求、动态、点赞 次数)
@@ -82,7 +97,7 @@ Page({
       success: res => {
 
         that.setData({
-          userInfo: res.result
+          wjUser: res.result
         })
 
       },

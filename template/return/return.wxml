@@ -1,5 +1,0 @@
-<template name="return">
-  <view class="return" bindtap="return">
-
-  </view>
-</template>

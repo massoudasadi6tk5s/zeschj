@@ -1,5 +1,4 @@
-/* pages/messageDetail/messageDetail.wxss */
-@import "../../template/return/return.wxss";
+
 
 page {
   width: 100%;

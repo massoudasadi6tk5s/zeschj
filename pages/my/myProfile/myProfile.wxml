@@ -1,19 +1,17 @@
+
 <!-- 头像及个人基本信息 -->
 <view class="head-portrait-detail">
 
 	<!-- 头像 -->
 	<view class="head-portrait">
-		<image src="{{userInfo.headPortrait}}"></image>
+		<image src="{{wjUser.headPortrait}}"></image>
 	</view>
 
 	<!-- 个人信息 -->
 	<view class="my-detail">
-		<view class="nickname">{{userInfo.nickName}}</view>
-		<view class="signature">{{userInfo.signature}}</view>
+		<view class="nickname">{{wjUser.nickName}}</view>
+		<view class="signature">{{wjUser.signature}}</view>
 	</view>
-
-	<!-- 编辑 图标 -->
-	<image class="edit-icon" bindtap="gotoEditProfile" src="/images/my/icon_journal_fill.png"></image>
 
 </view>
 
@@ -21,17 +19,17 @@
 <view class="my-data-father">
 
 	<view class="d-flex">
-		<view class="data-number">{{userInfo.appealCount || 0}}</view>
+		<view class="data-number">{{wjUser.appealCount || 0}}</view>
 		<view class="data-word">诉求</view>
 	</view>
 
 	<view class="d-flex">
-		<view class="data-number">{{userInfo.dynamicCount || 0}}</view>
+		<view class="data-number">{{wjUser.dynamicCount || 0}}</view>
 		<view class="data-word">动态</view>
 	</view>
 
 	<view class="d-flex">
-		<view class="data-number">{{userInfo.endorseCount || 0}}</view>
+		<view class="data-number">{{wjUser.endorseCount || 0}}</view>
 		<view class="data-word">点赞</view>
 	</view>
 
@@ -42,75 +40,199 @@
 <!-- 一些小按钮 -->
 <view class="tab-father">
 
-	<view class="tab-item">
+	<view class="tab-item" data-index="0" bindtap="switchSwiper">
 		<image src="/images/my/icon_copyto.png"></image>
 	</view>
 	<!-- 自己发的动态 -->
-	<view class="tab-item">
+	<view class="tab-item" data-index="1" bindtap="switchSwiper">
 		<image src="/images/my/icon_send.png"></image>
 	</view>
 	<!-- 自己的浏览记录 -->
-	<view class="tab-item">
+	<view class="tab-item" data-index="2" bindtap="switchSwiper">
 		<image src="/images/my/icon_shakehands.png"></image>
 	</view>
 	<!-- 自己的设置 -->
-	<view class="tab-item">
+	<view class="tab-item" data-index="3" bindtap="switchSwiper">
 		<image src="/images/my/icon_setting.png"></image>
 	</view>
 </view>
 
 <!-- 相关功能的界面 -->
 <!-- 需要手动计算高度  -->
-<swiper class="my-swiper" style="height:{{swiperHeight}}rpx;">
+<swiper class="my-swiper" style="height:{{swiperHeight}}rpx;" current="{{swiperIndex}}">
 
-	<swiper-item wx:for="{{4}}">
+	<swiper-item>
 
-			<view class="my-item" wx:for="{{myAppealList}}">
+		<view class="my-item" wx:for="{{myAppealList}}" wx:key="appealId">
 
-				<!-- 头像 & 名字 & 时间 -->
-				<view class="item-user-info">
-					<image class="item-head-portrait" src="{{item.headPortrait}}"></image>
-					<!-- 个人昵称 -->
-					<view class="item-nickname-time-father">
-						<view class="item-nick-name">{{item.nickName}}</view>
-						<view class="time">{{item.createTime}}</view>
-					</view>
-
-					<image class="more-icon" src="/images/my/more-icon.png"></image>
-
-
-
+			<!-- 头像 & 名字 & 时间 -->
+			<view class="item-user-info">
+				<image class="item-head-portrait" src="{{item.headPortrait}}"></image>
+				<!-- 个人昵称 -->
+				<view class="item-nickname-time-father">
+					<view class="item-nick-name">{{item.nickName}}</view>
+					<view class="time">{{item.createTime}}</view>
 				</view>
 
+				<image class="more-icon" src="/images/my/more-icon.png"></image>
 
-				<!-- 标签 -->
-				<view wx:if="{{item.appealTag.length!=0}}" class="item-tag-father">
-					<text wx:for="{{item.appealTag}}">#{{item.tagName}}</text>
-				</view>
 
-				<!-- 内容 -->
-				<view class="item-content">
-					{{item.content}}
-				</view>
-
-				<view class="evaluation">
-					<view class="heart">
-						<image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png"></image>
-						<text>{{item.endorseCount}}</text>
-					</view>
-					<view class="heart copy">
-						<image src="/images/appeal/_icons--8-like-copy.png"></image>
-						<text>{{item.commentCount}}</text>
-					</view>
-					<view class="avatar-more">
-						<image src="/images/user/me.png" class="avatar1"></image>
-						<image src="/images/user/me.png" class="avatar2"></image>
-						<image src="/images/user/me.png" class="avatar3"></image>
-					</view>
-				</view>
 
 			</view>
-			
+
+
+			<!-- 标签 -->
+			<view wx:if="{{item.appealTag.length!=0}}" class="item-tag-father">
+				<text wx:for="{{item.appealTag}}" wx:key="tagId">#{{item.tagName}}</text>
+			</view>
+
+			<!-- 内容 -->
+			<view class="item-content">
+				{{item.content}}
+			</view>
+
+			<view class="evaluation">
+				<view class="heart">
+					<image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png"></image>
+					<text>{{item.endorseCount}}</text>
+				</view>
+				<view class="heart copy">
+					<image src="/images/appeal/_icons--8-like-copy.png"></image>
+					<text>{{item.commentCount}}</text>
+				</view>
+				<view class="avatar-more">
+					<image src="/images/user/me.png" class="avatar1"></image>
+					<image src="/images/user/me.png" class="avatar2"></image>
+					<image src="/images/user/me.png" class="avatar3"></image>
+				</view>
+			</view>
+
+		</view>
+
+	</swiper-item>
+
+	<swiper-item>
+
+		<view class="my-item" wx:for="{{myAppealList}}" wx:key="appealId">
+
+			<!-- 头像 & 名字 & 时间 -->
+			<view class="item-user-info">
+				<image class="item-head-portrait" src="{{item.headPortrait}}"></image>
+				<!-- 个人昵称 -->
+				<view class="item-nickname-time-father">
+					<view class="item-nick-name">{{item.nickName}}</view>
+					<view class="time">{{item.createTime}}</view>
+				</view>
+
+				<image class="more-icon" src="/images/my/more-icon.png"></image>
+
+
+
+			</view>
+
+
+			<!-- 标签 -->
+			<view wx:if="{{item.appealTag.length!=0}}" class="item-tag-father">
+				<text wx:for="{{item.appealTag}}" wx:key="tagId">#{{item.tagName}}</text>
+			</view>
+
+			<!-- 内容 -->
+			<view class="item-content">
+				{{item.content}}
+			</view>
+
+			<view class="evaluation">
+				<view class="heart">
+					<image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png"></image>
+					<text>{{item.endorseCount}}</text>
+				</view>
+				<view class="heart copy">
+					<image src="/images/appeal/_icons--8-like-copy.png"></image>
+					<text>{{item.commentCount}}</text>
+				</view>
+				<view class="avatar-more">
+					<image src="/images/user/me.png" class="avatar1"></image>
+					<image src="/images/user/me.png" class="avatar2"></image>
+					<image src="/images/user/me.png" class="avatar3"></image>
+				</view>
+			</view>
+
+		</view>
+
+	</swiper-item>
+
+	<swiper-item>
+
+		<view class="my-item" wx:for="{{myAppealList}}" wx:key="appealId">
+
+			<!-- 头像 & 名字 & 时间 -->
+			<view class="item-user-info">
+				<image class="item-head-portrait" src="{{item.headPortrait}}"></image>
+				<!-- 个人昵称 -->
+				<view class="item-nickname-time-father">
+					<view class="item-nick-name">{{item.nickName}}</view>
+					<view class="time">{{item.createTime}}</view>
+				</view>
+
+				<image class="more-icon" src="/images/my/more-icon.png"></image>
+
+
+
+			</view>
+
+
+			<!-- 标签 -->
+			<view wx:if="{{item.appealTag.length!=0}}" class="item-tag-father">
+				<text wx:for="{{item.appealTag}}" wx:key="tagId">#{{item.tagName}}</text>
+			</view>
+
+			<!-- 内容 -->
+			<view class="item-content">
+				{{item.content}}
+			</view>
+
+			<view class="evaluation">
+				<view class="heart">
+					<image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png"></image>
+					<text>{{item.endorseCount}}</text>
+				</view>
+				<view class="heart copy">
+					<image src="/images/appeal/_icons--8-like-copy.png"></image>
+					<text>{{item.commentCount}}</text>
+				</view>
+				<view class="avatar-more">
+					<image src="/images/user/me.png" class="avatar1"></image>
+					<image src="/images/user/me.png" class="avatar2"></image>
+					<image src="/images/user/me.png" class="avatar3"></image>
+				</view>
+			</view>
+
+		</view>
+
+	</swiper-item>
+
+
+	<swiper-item>
+
+		<view class="my-setting-father">
+
+			<view class="setting-item" bindtap="gotoEditProfile">
+				<view class="setting-word">编辑资料</view>
+				<image src="/images/my/right.png"></image>
+			</view>
+
+			<view class="setting-item">
+				<view class="setting-word">语言</view>
+				<image src="/images/my/right.png"></image>
+			</view>
+
+			<view class="setting-item">
+				<view class="setting-word">个性化</view>
+				<image src="/images/my/right.png"></image>
+			</view>
+		
+		</view>
+
 	</swiper-item>
 
 </swiper>

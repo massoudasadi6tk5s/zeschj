@@ -174,6 +174,9 @@
 }
 
 .item-content {
+
+  margin: 20rpx auto;
+
   color: #ffffff;
   font-family: "Avenir-Book";
   font-size: 15px;
@@ -190,7 +193,6 @@
 
 
 .evaluation {
-  margin-top: 20rpx;
   display: flex;
   justify-content: flex-start;
   position: relative;
@@ -237,4 +239,28 @@
   position: absolute;
   right:60rpx;
   top:0;
+}
+
+
+.my-setting-father{
+}
+
+.setting-item{
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 40rpx auto;
+}
+
+.setting-item image{
+  position: absolute;
+  right: 30rpx;
+  height: 32rpx;
+  width: 32rpx;
+}
+
+.setting-word{
+  margin-left: 60rpx;
+  font-size: 20px;
+  color: #ffffff;
 }

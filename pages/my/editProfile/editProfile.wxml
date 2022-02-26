@@ -1,33 +1,37 @@
+<custom-header isBack>
+	<view slot="content"></view>
+</custom-header>
+
 <view class="edit-word-father">
 	编辑资料
 </view>
 
 <!-- 头像 -->
 <view class="head-portrait">
-	<image src="/images/user/me.png"></image>
+	<image src="{{headPortrait}}"></image>
 	<view class="edit-head-word">改变头像</view>
 </view>
 
 <!-- 个人资料部分 -->
-<view class="profile-form">
-	<view class="form-item">
-		<view class="item-word">用户昵称</view>
-		<input class="item-input" placeholder="修改你的用户名"></input>
+<form catchsubmit="updateUser" catchreset="formReset">
+	<view class="profile-form">
+		<view class="form-item">
+			<view class="item-word">用户昵称</view>
+			<input class="item-input" name="nickName" value="{{wjUser.nickName}}" placeholder="修改你的用户名"></input>
+		</view>
+
+		<view class="form-item">
+			<view class="item-word">电子邮箱</view>
+			<input class="item-input" name="email" value="{{wjUser.email}}" placeholder="修改你的电子邮箱"></input>
+		</view>
+
+		<view class="form-item">
+			<view class="item-word">性别</view>
+			<input class="item-input" name="sex" value="{{wjUser.sex}}" placeholder="修改你的性别"></input>
+		</view>
+
 	</view>
 
-	<view class="form-item">
-		<view class="item-word">电子邮箱</view>
-		<input class="item-input" placeholder="修改你的电子邮箱"></input>
-	</view>
+	<button class="done-btn" formType="submit">确定</button>
 
-  <view class="form-item">
-		<view class="item-word">手机号</view>
-		<input class="item-input" placeholder="修改你的手机号"></input>
-	</view>
-
-  <view class="form-item">
-		<view class="item-word">性别</view>
-		<input class="item-input" placeholder="修改你的性别"></input>
-	</view>
-
-</view>
+</form>

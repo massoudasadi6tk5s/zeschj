@@ -1,4 +1,6 @@
-// pages/my/editProfile/editProfile.js
+import http from '../../../utils/api.js';
+
+
 Page({
 
   /**
@@ -6,12 +8,21 @@ Page({
    */
   data: {
 
+    wjUser: {},
+    headPortrait: '/images/user/me.png'
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    let wjUser = wx.getStorageSync('wjUser')
+
+    this.setData({
+      wjUser: wjUser
+    })
 
   },
 
@@ -28,6 +39,31 @@ Page({
   onShow: function () {
 
   },
+
+  
+  // 修改用户资料
+  updateUser(e){
+
+    let data = e.detail.value
+
+    http.updateUser({
+      data,
+      success: res => {
+        
+        if(res.code === 200){
+
+          wx.setStorageSync('wjUser', res.result)
+
+        }
+        
+      },
+      fail: err => {}
+    })
+
+
+  },
+
+
 
   /**
    * 生命周期函数--监听页面隐藏

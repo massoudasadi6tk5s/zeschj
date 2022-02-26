@@ -1,6 +1,4 @@
-@import "../../template/return/return.wxss";
 
-/* pages/appealDetails/apealDetails.wxss */
 page{
   background: var(--them-color);
   height: 100%;

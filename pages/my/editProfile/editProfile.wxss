@@ -1,6 +1,6 @@
 .edit-word-father {
 
-  margin-top: 212rpx;
+  margin-top: 60rpx;
   margin-left: 30rpx;
   color: #ffffff;
   font-family: "Avenir-Heavy";
@@ -33,7 +33,7 @@
   font-weight: 400;
 }
 
-.profile-form{
+.profile-form {
   margin-top: 80rpx;
   padding-left: 30rpx;
   padding-right: 30rpx;
@@ -41,24 +41,44 @@
 
 }
 
-.form-item{
+.form-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50rpx;
 }
 
-.item-word{
+.item-word {
   color: #4e586e;
   font-family: "Avenir-Book";
   font-size: 17px;
   font-weight: 400;
 }
 
-.item-input{
+.item-input {
   color: #ffffff;
   font-family: "Avenir-Medium";
   font-size: 17px;
   font-weight: 400;
   text-align: right;
+}
+
+.done-btn {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 80rpx auto auto auto;
+
+  width: 630rpx;
+  height: 88rpx;
+  background: linear-gradient(219.625deg, rgba(247, 131, 97, 1) 0%, rgba(245, 75, 100, 1) 100%);
+  border-radius: 22px 21px 21px 22px;
+
+
+  font-size: 30rpx;
+  font-family: Avenir;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 1);
+
 }
