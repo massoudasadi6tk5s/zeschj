@@ -28,10 +28,10 @@ App({
   globalData: {
     // 腾讯地图key
     MAPKEY: "5U5BZ-PB6AD-PMW4R-PBJ3M-5PDHK-7XBIM",
-    host: 'http://192.168.3.2:8080/weiju',
-    chatSocket: 'http://192.168.3.2:8080/weiju/chatSocket'
-    // host: 'https://www.weiju.fun/weiju',
-    // chatSocket: 'https://weiju.fun/weiju/chatSocket'
+    // host: 'http://192.168.3.2:8080/weiju',
+    // chatSocket: 'http://192.168.3.2:8080/weiju/chatSocket'
+    host: 'https://www.weiju.fun/weiju',
+    chatSocket: 'https://weiju.fun/weiju/chatSocket'
   },
 
   // 用户授权登录 返回用户信息、token 并存储到 storage

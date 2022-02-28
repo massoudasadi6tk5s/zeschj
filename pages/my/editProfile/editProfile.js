@@ -54,6 +54,10 @@ Page({
 
           wx.setStorageSync('wjUser', res.result)
 
+          wx.showToast({
+            title: '修改成功',
+          })
+
         }
         
       },
