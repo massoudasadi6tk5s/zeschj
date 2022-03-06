@@ -3,6 +3,7 @@
 page {
   background: var(--them-color);
   height: 100%;
+  box-sizing: border-box;
 }
 
 .appeal-release-father {
@@ -27,13 +28,14 @@ page {
   left: 0;
   height: 100%;
   width: 100%;
+  background: rgba(0,0,0,0.5);
 }
 
 .subject-area-father .select-images-father {
   position: relative;
   display: flex;
   align-items: center;
-  margin-top: 40%;
+  margin-top: 100px;
   width: 100%;
 }
 
@@ -59,8 +61,13 @@ page {
 .upload-icon {
   position: absolute;
   right: 80rpx;
-  height: 60rpx;
-  width: 60rpx;
+  height: 100rpx;
+  width: 100rpx;
+  border:2px dashed var(--orange-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .upload-icon image {
@@ -116,7 +123,7 @@ page {
 
 .send-btn {
   position: absolute;
-  right: 100rpx;
+  right: 80rpx;
   bottom: 100rpx;
   display: flex;
   align-items: center;

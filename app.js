@@ -4,9 +4,7 @@ import http from 'utils/api.js' // 引入api接口管理文件
 App({
   
   onLaunch: function() {
-
     // this.userLogin()
-
     //获取手机的系统信息(状态栏高度)
     wx.getSystemInfo({
       success: e => {
@@ -21,9 +19,6 @@ App({
         }
       }
     })
-
-
-
   },
 
 
