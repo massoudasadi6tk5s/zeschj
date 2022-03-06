@@ -56,11 +56,13 @@
 }
 
 .item-input {
+  width: 500rpx;
   color: #ffffff;
   font-family: "Avenir-Medium";
   font-size: 17px;
   font-weight: 400;
   text-align: right;
+  
 }
 
 .done-btn {

@@ -43,10 +43,12 @@ function http(url, type, params, contentType) {
 
         if(res.data.code!==200){
 
-          // if(res.data.code === 99990401){
-          //   getApp().userLogin()
-          //   return
-          // }
+          if(res.data.code === 99990401){
+            wx.reLaunch({
+              url: '/pages/welcome/welcome'
+            })
+            return
+          }
   
           wx.showToast({
             title: res.data.message,

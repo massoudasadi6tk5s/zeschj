@@ -8,8 +8,9 @@
 
 <!-- 头像 -->
 <view class="head-portrait">
-	<image src="{{headPortrait}}"></image>
-	<view class="edit-head-word">改变头像</view>
+	<image wx:if="{{headPortrait.length==0}}" src="{{wjUser.headPortrait}}" bindtap="uploadHeadPortrait"></image>
+	<image wx:else src="{{headPortrait}}" bindtap="uploadHeadPortrait"></image>
+	<view class="edit-head-word" bindtap="uploadHeadPortrait">改变头像</view>
 </view>
 
 <!-- 个人资料部分 -->
