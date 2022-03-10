@@ -1,4 +1,3 @@
-
 import http from '../../utils/api.js';
 import util from '../../utils/util.js';
 
@@ -10,13 +9,12 @@ Page({
    */
   data: {
     imageArray: [], // 图片
-    imgIndex: 0,
     defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg',
     imgMode: 'aspectFit',
     title: '',
     content: ''
   },
-  pageData:{
+  pageData: {
     imageModeArray: ["scaleToFill", "aspectFit", "aspectFill", "widthFix", "heightFix",
       "top", "bottom", "center", "left", "right", "top left", "top right", "bottom left", "bottom right"
     ] // 图片展示的方式
@@ -29,44 +27,37 @@ Page({
 
   },
 
-  return(e) {
+  return (e) {
     wx.navigateBack({
       delta: 2
     })
   },
 
   // 选择图片
-  selectImg(){
-
+  selectImg() {
     let that = this
     let imgArray = this.data.imageArray
-
-    if(imgArray.length>4){
+    if (imgArray.length > 4) {
       wx.showToast({
         title: '图片够多啦',
         icon: 'none'
       })
       return
     }
-
     wx.chooseImage({
       count: 4,
-      success: (res)=>{
+      success: (res) => {
         let tempFilePaths = res.tempFilePaths
-
-        if (imgArray.length + tempFilePaths.length >4){
-          wx.showToast({
+        if (imgArray.length + tempFilePaths.length > 4) {
+          return wx.showToast({
             title: '图片太多啦',
             icon: 'none'
           })
-          return
         }
-
-        let totle = imgArray.length + tempFilePaths.length - 1 
-
+        let totle = imgArray.length + tempFilePaths.length - 1
         that.setData({
           imageArray: imgArray.concat(tempFilePaths),
-          imgIndex: totle
+          defaultImg:tempFilePaths
         })
 
       },
@@ -75,50 +66,16 @@ Page({
   },
 
   // 点击图片 切换背景图片
-  clickImg(e){
-    let that = this
+  clickImg(e) {
     let index = e.currentTarget.dataset.index
-    let imgIndex = this.data.imgIndex
-
     let imageArray = this.data.imageArray
-
-    if(imgIndex == index){
-      let imageModeArray = this.pageData.imageModeArray
-      
-      for (let i = 0; i < imageModeArray.length; i++) {
-        if (imageModeArray[i] == 'bottom right') {
-          that.setData({
-            imageArray: []
-          })
-          that.setData({
-            imageArray: imageArray,
-            imgMode: imageModeArray[0]
-          })
-          break;
-        } else if (that.data.imgMode == imageModeArray[i]) {
-          that.setData({
-            imageArray: []
-          })
-          that.setData({
-            imageArray: imageArray,
-            imgMode: imageModeArray[i + 1]
-          })
-          break;
-        }
-      }
-
-      
-
-    }
-
     this.setData({
-      imgIndex: index
+      defaultImg: imageArray[index]
     })
-
   },
 
   // 记录输入的标题
-  inputTitle(e){
+  inputTitle(e) {
 
     console.log(e.detail.value)
     this.setData({
@@ -128,7 +85,7 @@ Page({
   },
 
   // 记录输入的内容
-  inputContent(e){
+  inputContent(e) {
 
     this.setData({
       content: e.detail.value
@@ -138,7 +95,7 @@ Page({
 
 
   // 保存诉求
-  saveAppeal(){
+  saveAppeal() {
 
     let data = {
       title: this.data.title,
@@ -149,7 +106,7 @@ Page({
       data,
       success: res => {
 
-        if(res.code === 200){
+        if (res.code === 200) {
           wx.showToast({
             title: '发送成功',
           })
@@ -161,7 +118,7 @@ Page({
       }
     })
 
-    
+
 
   },
 

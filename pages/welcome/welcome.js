@@ -26,7 +26,10 @@ Page({
   bindgetuserinfo(){
 
     
-
+    getApp().userLogin()
+    wx.switchTab({
+      url: '/pages/appeal/appeal',
+    })
 
   },
 

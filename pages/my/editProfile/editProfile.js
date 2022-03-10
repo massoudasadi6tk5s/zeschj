@@ -1,5 +1,7 @@
 import http from '../../../utils/api.js';
 
+const app = getApp();
+
 
 Page({
 
@@ -9,7 +11,7 @@ Page({
   data: {
 
     wjUser: {},
-    headPortrait: '/images/user/me.png'
+    headPortrait: []
 
   },
 
@@ -40,29 +42,80 @@ Page({
 
   },
 
+  // 选择文件
+  uploadHeadPortrait(){
+
+    let that = this
+
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+
+        that.setData({
+          headPortrait: res.tempFilePaths
+        })
+
+      }
+    })
+
+  },
+
   
   // 修改用户资料
   updateUser(e){
 
+    let that = this
     let data = e.detail.value
+    let uploadImg = that.data.headPortrait[0]
 
-    http.updateUser({
-      data,
-      success: res => {
-        
-        if(res.code === 200){
+    wx.uploadFile({
+      url: app.globalData.host + '/wjUser/uploadMaterial', //仅为示例，非真实的接口地址
+      filePath: uploadImg,
+      name: 'file',
+      header: { 
+        'token': wx.getStorageSync("token"),  //如果需要token的话要传
+      },
+      success (res){
 
-          wx.setStorageSync('wjUser', res.result)
 
-          wx.showToast({
-            title: '修改成功',
+        let data = JSON.parse(res.data)
+
+        if(data.code == 200){
+
+          data.headPortrait = data.result
+
+          http.updateUser({
+            data,
+            success: res => {
+              
+              if(res.code === 200){
+      
+                wx.setStorageSync('wjUser', res.result)
+      
+                wx.showToast({
+                  title: '修改成功',
+                })
+      
+              }
+              
+            },
+            fail: err => {}
           })
 
         }
+
         
       },
-      fail: err => {}
+      fail(err){
+        console.log(err)
+      }
     })
+
+
+    
 
 
   },
