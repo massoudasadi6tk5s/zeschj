@@ -12,7 +12,7 @@
     </view>
   </view>
 </custom-header>
-<view class="main">
+<view class="main" style="height:calc(100vh - {{CustomBar}}px);">
   <scroll-view scroll-x>
     <view class="nav">
       <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}} animated bounceInRight" style="animation-delay:{{index/10}}s;" wx:for="{{navList}}" wx:key="{{index}}">

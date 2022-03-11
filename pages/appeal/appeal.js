@@ -27,6 +27,7 @@ Page({
       }
 
     ],
+    CustomBar:app.globalData.CustomBar,
     current: 0,
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [] // 右侧诉求集合

@@ -9,10 +9,6 @@ page {
 
 .main {
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  flex: 1;
 }
 
 /* 搜索 容器 */
@@ -73,9 +69,10 @@ page {
 }
 
 .nav {
-  padding: 20rpx 25rpx;
+  height:100rpx;
   display: flex;
   justify-content: flex-start;
+  padding:20rpx;
 }
 
 .nav-item {
@@ -113,8 +110,7 @@ swiper-item {
 
 .post-scroll {
   position: relative;
-  display: flex;
-  flex: 1;
+  height:calc(100% - 100rpx);
   box-sizing: border-box;
 }
 
