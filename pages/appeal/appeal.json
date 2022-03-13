@@ -1,6 +1,6 @@
 {
   "navigationStyle": "custom",
   "usingComponents":{
-    "single-dynamic":"./singleDynamic/index"
+    "single-appeal":"./singleAppeal/index"
   }
 }

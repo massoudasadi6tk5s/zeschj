@@ -1,4 +1,3 @@
-
 <!-- 头像及个人基本信息 -->
 <view class="head-portrait-detail">
 
@@ -113,51 +112,11 @@
 
 	<swiper-item>
 
-		<view class="my-item" wx:for="{{myAppealList}}" wx:key="appealId">
-
-			<!-- 头像 & 名字 & 时间 -->
-			<view class="item-user-info">
-				<image class="item-head-portrait" src="{{item.headPortrait}}"></image>
-				<!-- 个人昵称 -->
-				<view class="item-nickname-time-father">
-					<view class="item-nick-name">{{item.nickName}}</view>
-					<view class="time">{{item.createTime}}</view>
-				</view>
-
-				<image class="more-icon" src="/images/my/more-icon.png"></image>
-
-
-
-			</view>
-
-
-			<!-- 标签 -->
-			<view wx:if="{{item.appealTag.length!=0}}" class="item-tag-father">
-				<text wx:for="{{item.appealTag}}" wx:key="tagId">#{{item.tagName}}</text>
-			</view>
-
-			<!-- 内容 -->
-			<view class="item-content">
-				{{item.content}}
-			</view>
-
-			<view class="evaluation">
-				<view class="heart">
-					<image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png"></image>
-					<text>{{item.endorseCount}}</text>
-				</view>
-				<view class="heart copy">
-					<image src="/images/appeal/_icons--8-like-copy.png"></image>
-					<text>{{item.commentCount}}</text>
-				</view>
-				<view class="avatar-more">
-					<image src="/images/user/me.png" class="avatar1"></image>
-					<image src="/images/user/me.png" class="avatar2"></image>
-					<image src="/images/user/me.png" class="avatar3"></image>
-				</view>
-			</view>
-
+		<view class="dynamic-father">
+			<!-- 动态展示部分 -->
+			<dynamic-list dynamicList="{{dynamicList}}"></dynamic-list>
 		</view>
+
 
 	</swiper-item>
 
@@ -230,7 +189,7 @@
 				<view class="setting-word">个性化</view>
 				<image src="/images/my/right.png"></image>
 			</view>
-		
+
 		</view>
 
 	</swiper-item>

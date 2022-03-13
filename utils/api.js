@@ -39,6 +39,11 @@ function pageDynamic(params) {
   POST('/wjDynamic/pageDynamic', params)
 }
 
+function myDynamicm(params) {
+  POST('/wjDynamic/myDynamic', params)
+}
+
+
 function dynamicEndorse(params) {
   POST('/wjDynamicEndorse/dynamicEndorse/' + params.data.dynamicId, params)
 }
@@ -93,6 +98,7 @@ export default { // 暴露接口
 
   pageDynamic, // 分页查询动态
   dynamicEndorse, // 动态点赞
+  myDynamicm, // 我的诉求
 
   // end 动态
 

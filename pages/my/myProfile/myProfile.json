@@ -1,7 +1,7 @@
 {
   "navigationStyle": "custom",
   "disableScroll": false,
-  "usingComponents": {
-    
+  "usingComponents":{
+    "dynamic-list":"/pages/dynamicPage/dynamicList/index"
   }
 }

@@ -28,12 +28,12 @@
     <!-- 靠左边的 -->
     <view class="post-list-left">
       <!-- 单个帖子 -->
-      <single-dynamic data="{{leftAppealList}}"></single-dynamic>
+      <single-appeal data="{{leftAppealList}}"></single-appeal>
     </view>
     <!-- 靠右边的 -->
     <view class="post-list-right">
       <!-- 单个帖子 -->
-      <single-dynamic data="{{rightAppealList}}"></single-dynamic>
+      <single-appeal data="{{rightAppealList}}"></single-appeal>
     </view>
   </scroll-view>
 </view>

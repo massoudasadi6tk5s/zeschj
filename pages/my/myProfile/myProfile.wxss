@@ -264,3 +264,8 @@
   font-size: 20px;
   color: #ffffff;
 }
+
+.dynamic-father{
+  width: 95%;
+  margin: 0 auto;
+}

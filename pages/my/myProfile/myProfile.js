@@ -12,6 +12,7 @@ Page({
   data: {
     wjUser: {},
     myAppealList: [],
+    dynamicList: [],
     swiperHeight: 2400,
     swiperIndex: 3
   },
@@ -44,6 +45,7 @@ Page({
     this.loadMyData()
 
     this.loadMyAppeal()
+    this.loadMyDynamic()
 
 
   },
@@ -132,13 +134,44 @@ Page({
         })
 
       },
-      fail: res => {
+      fail: err => {
 
       }
     })
 
 
   },
+
+  // 查询我的动态
+  loadMyDynamic() {
+
+    let that = this
+
+    let data = {
+      pageQuery: this.pageData,
+      createTime: false,
+      endorseCount: false
+    }
+
+    http.myDynamicm({
+      data,
+      success: res => {
+
+        let dynamicList = res.result.records
+        dynamicList.forEach((item, index) => {
+          item.createTime = util.format(new Date(item.createTime))
+        })
+        that.setData({
+          dynamicList: dynamicList,
+        })
+
+      },
+      fail: err => {}
+    })
+
+
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏
