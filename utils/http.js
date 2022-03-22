@@ -43,7 +43,7 @@ function http(url, type, params, contentType) {
 
           if(res.data.code!=='00000'){
 
-          if(res.data.code === 'A301'){
+          if(res.data.code === 'A0301'){
             wx.reLaunch({
               url: '/pages/welcome/welcome'
             })
