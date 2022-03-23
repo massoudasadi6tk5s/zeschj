@@ -1,26 +1,56 @@
-
-page{
+page {
   background: var(--them-color);
   height: 100%;
 }
 
 
-.extra2{
+.extra2 {
   position: relative;
   width: 100%;
-  height: 100%;
 }
 
-.rectangleC8{
-  width: 100%;
-  height: 1208rpx;
-}
-
-.rectangleC9{
+.extra2 .img-box {
   position: absolute;
   top: 0;
   left: 0;
-  
+  right: 0;
+  bottom: 500rpx;
+}
+
+.extra2 .img-box::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* box-shadow: 0 0 50px 10px var(--them-color) inset; */
+  box-shadow: inset 0 30px 15px -10px  var(--them-color);
+  transform: rotate(180deg);
+  background: rgba(0,0,0,0.3);
+}
+
+.extra2 .img-box image {
+  height: 100%;
+  width: 100%;
+}
+.extra2  .show-icon{
+  position: absolute;
+  top:0;
+  left:60rpx;
+  z-index: 999;
+  width:50rpx;
+  height:50rpx;
+}
+
+.rectangleC8 {
+  width: 100%;
+}
+
+.rectangleC9 {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -28,33 +58,29 @@ page{
 
 
 /* 标题 & 内容 & 头像 & 点赞评论 容器 */
-.groupFather{
-  position: absolute;
-  bottom: 150rpx;
-  left: 0;
-
+.groupFather {
   width: 100%;
-  height: 840rpx;
   /* background: pink; */
+  overflow-y: scroll;
+  position: relative;
+  padding-bottom:80rpx;
 }
 
 .title {
-  width: 556rpx;
-  height: 300rpx;
+  width: 100%;
   color: #ffffff;
   font-family: Poppins;
   font-size: 40px;
   font-weight: 600;
-  line-height: 50px;
-  letter-spacing: 0.4823531px;
-
-  margin-left: 70rpx;
-
+  word-wrap: break-word;
+  padding:0 60rpx;
+  margin-top:300rpx;
   /* background: yellow; */
 }
 
-.content{
-  width: 630rpx;
+.content {
+  width: 100%;
+  word-wrap: break-word;
   height: 200rpx;
   color: #ffffff;
   font-family: "Avenir-Book";
@@ -63,31 +89,32 @@ page{
   line-height: 20px;
   letter-spacing: -0.24px;
 
-  margin-top: 60rpx;
-  margin-left: 70rpx;
+  margin-top: 76rpx;
+  padding:0 60rpx;
 
   /* background: pink; */
 }
 
 
 /* 头像 & 点赞评论 容器 */
-.photoFather{
-
+.photoFather {
   display: flex;
-
   position: absolute;
-  bottom: 40rpx;
-  left: 70rpx;
-
-  width: 637.34rpx;
-  height: 60rpx;
-
-
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  padding:10rpx;
+  align-items: center;
+  justify-content: space-between;
   /* background: yellow; */
 }
 
-
-.ovalCopy3{
+.oval-box{
+  display: flex;
+  justify-content: flex-start;
+}
+.ovalCopy3 {
   width: 56rpx;
   height: 56rpx;
   border-radius: 50px;
@@ -96,26 +123,24 @@ page{
   margin-left: 10rpx;
 }
 
-.ovalCopy3 image{
+.ovalCopy3 image {
   width: 56rpx;
   height: 56rpx;
-  
 }
 
 
 
-.likeCommentFather{
-  position: absolute;
-  top: 0;
-  right: 20rpx;
+.likeCommentFather {
   display: flex;
 }
 
-.likeFather{
+.likeFather {
 
   display: flex;
-  align-items: center; /*定义body的元素垂直居中*/
-  justify-content: center; /*定义body的里的元素水平居中*/
+  align-items: center;
+  /*定义body的元素垂直居中*/
+  justify-content: center;
+  /*定义body的里的元素水平居中*/
 
   color: #ffffff;
   font-family: "Avenir-Book";
@@ -125,27 +150,27 @@ page{
   letter-spacing: -0.24px;
 }
 
-.likeFather image{
+.likeFather image {
   width: 56rpx;
   height: 56rpx;
 }
 
 .commentFather {
   display: flex;
-  align-items: center; /*定义body的元素垂直居中*/
-  justify-content: center; /*定义body的里的元素水平居中*/
-
+  align-items: center;
+  /*定义body的元素垂直居中*/
+  justify-content: center;
+  /*定义body的里的元素水平居中*/
   color: #ffffff;
   font-family: "Avenir-Book";
   font-size: 15px;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.24px;
-
   margin-left: 20rpx;
 }
 
-.commentFather image{
+.commentFather image {
   width: 56rpx;
   height: 56rpx;
 }
@@ -153,52 +178,49 @@ page{
 
 
 /* 填写评论 容器 */
-.addacommenFather{
-
+.addacommenFather {
   display: flex;
-
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
   width: 100%;
-  height: 150rpx;
-
+  height: 100rpx;
   background: #20242f;
+  align-items: center;
 }
 
-.commentInput{
+.commentInput {
   width: 618rpx;
   height: 68rpx;
   border-radius: 17px;
   background: #485164;
-
-  margin-top: 20rpx;
   margin-left: 30rpx;
 
   display: flex;
-  align-items: center; /*定义body的元素垂直居中*/
+  align-items: center;
+  /*定义body的元素垂直居中*/
   /* justify-content: center; 定义body的里的元素水平居中 */
 
 }
 
-.commentInput input{
+.commentInput input {
   margin-left: 20rpx;
+  color: var(--white);
 }
 
-.iconsPlane{
+.commentInput .input-placeholder {
+  color: var(--white);
+}
+
+.iconsPlane {
   height: 68rpx;
-
-  margin-top: 20rpx;
   margin-left: 20rpx;
-
   display: flex;
-  align-items: center; /*定义body的元素垂直居中*/
-  justify-content: center; /*定义body的里的元素水平居中*/
-  
+  align-items: center;
+  /*定义body的元素垂直居中*/
+  justify-content: center;
+  /*定义body的里的元素水平居中*/
+
 }
 
-.iconsPlane image{
+.iconsPlane image {
   width: 56rpx;
   height: 56rpx;
 }

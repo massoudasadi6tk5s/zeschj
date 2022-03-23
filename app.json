@@ -47,7 +47,8 @@
     ]
   },
   "usingComponents": {
-    "custom-header": "./template/customNavHeader/customNavHeader"
+    "custom-header": "./template/customNavHeader/customNavHeader",
+    "screen-header":"./template/allScreenHeader/allScreenHeader"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -110,7 +110,7 @@ Page({
     http.pageAppeal({
       data,
       success: res => {
-
+        console.log("dasdsa")
         let appealList = res.result.records
         let waterfallNum = {
           left: 0,
