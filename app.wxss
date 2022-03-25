@@ -1,7 +1,7 @@
 /**app.wxss**/
 @import "lib/style/animate.wxss";
 page{
-  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-family: Helvetica Neue, Helvetica, sans-serif,Avenir;
   background: var(--them-color);
   --orange-color:#F78361;
   --deep-pink:#f54b64;

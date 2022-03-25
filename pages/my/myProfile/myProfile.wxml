@@ -180,8 +180,10 @@
 				<image src="/images/my/right.png"></image>
 			</view>
 
-			<view class="setting-item">
-				<view class="setting-word">语言</view>
+			<!-- 设置反馈按钮组件 透明 -->
+			<view class="setting-item" style="position: relative;">
+				<view class="setting-word">反馈</view>
+				<button open-type="feedback" class="feedback-btn"></button>
 				<image src="/images/my/right.png"></image>
 			</view>
 

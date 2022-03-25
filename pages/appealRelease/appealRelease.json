@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "screen-header":"../../template/allScreenHeader/allScreenHeader"
+    
   },
   "navigationStyle": "custom"
 }

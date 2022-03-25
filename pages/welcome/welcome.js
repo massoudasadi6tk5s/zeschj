@@ -27,10 +27,12 @@ Page({
 
     
     getApp().userLogin()
-    wx.switchTab({
-      url: '/pages/appeal/appeal',
-    })
-
+    setTimeout(()=>{
+      wx.switchTab({
+        url: '/pages/appeal/appeal',
+      })
+  
+    }, 1500)
   },
 
 

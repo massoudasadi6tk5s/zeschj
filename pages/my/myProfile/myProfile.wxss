@@ -265,6 +265,13 @@
   color: #ffffff;
 }
 
+.feedback-btn{
+  position: absolute;
+  height: 80rpx;
+  width: 100%;
+  opacity: 0;
+}
+
 .dynamic-father{
   width: 95%;
   margin: 0 auto;
