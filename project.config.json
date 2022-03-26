@@ -6,9 +6,7 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
-		"enhance": false,
 		"postcss": true,
-		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -25,6 +23,8 @@
 		},
 		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false,
+		"enhance": false,
+		"preloadBackgroundData": false,
 		"useIsolateContext": true
 	},
 	"compileType": "miniprogram",

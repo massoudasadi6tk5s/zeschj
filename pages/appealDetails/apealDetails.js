@@ -12,6 +12,7 @@ Page({
   data: {
     appealList: [],
     CustomBar: app.globalData.CustomBar,
+    previewImgStatus:false
   },
 
   /**
@@ -63,9 +64,12 @@ Page({
 
   },
   previewImg:function(){
-    wx.previewImage({
-      current: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg', // 当前显示图片的http链接
-      urls: ['https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg'] // 需要预览的图片http链接列表
+    // wx.previewImage({
+    //   current: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg', // 当前显示图片的http链接
+    //   urls: ['https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg'] // 需要预览的图片http链接列表
+    // })
+    this.setData({
+      previewImgStatus:true
     })
   }
 })

@@ -1,0 +1,54 @@
+/* components/appealDetail/previewImg/index.wxss */
+.wei-preview-img{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background: rgba(0,0,0,0);
+  z-index: 9998;
+  transition: all 0.3s linear;
+  pointer-events: none;
+}
+.wei-preview-active{
+  background: rgba(0,0,0,0.5);
+  pointer-events: all;
+}
+.wei-scroll{
+  width: 100%;
+  white-space: nowrap;
+  
+  height:100%;
+}
+.wei-tabs{
+  display: flex;
+  height:100%;
+}
+.wei-tab-img{
+  height:200rpx;
+  position: absolute;
+  bottom:20rpx;
+  left:20rpx;
+  right:20rpx;
+  border-radius: 5px;
+  background: var(--them-color);
+  box-shadow: 0 0 5px var(--them-color);
+  padding:10rpx;
+  transform: translate(0,500px);
+  transition: all 0.3s linear;
+}
+.wei-tab-active{
+  transform: translate(0,0);
+}
+.wei-tab-img .wei-img{
+  height:100%;
+  border:2px solid var(--them-color);
+  border-radius: 3px;
+  margin-right: 20rpx;
+  flex:0 0 150rpx;
+}
+.wei-tab-img .wei-img image{
+  width: 100%;
+  height:100%;
+  border-radius: 3px;
+}

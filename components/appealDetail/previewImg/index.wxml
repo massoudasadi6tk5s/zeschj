@@ -1,0 +1,12 @@
+<!--components/appealDetail/previewImg/index.wxml-->
+<view class="wei-preview-img {{show?'wei-preview-active':''}}" bindtap="cancelPreview">
+	<view class="wei-tab-img {{show?'wei-tab-active':''}}">
+		<scroll-view scroll-x="{{true}}" class="wei-scroll">
+			<view class="wei-tabs">
+				<view class="wei-img" wx:for="{{6}}" wx:key="index">
+					<image src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg" mode="aspectFill"></image>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</view>

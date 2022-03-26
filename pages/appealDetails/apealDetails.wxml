@@ -4,7 +4,7 @@
 <screen-header isBack>
 	<view slot="content">详情</view>
 </screen-header>
-
+<preview-img show="{{previewImgStatus}}"></preview-img>
 <view class="extra2" style="padding-top:{{CustomBar}}px;">
 	<!-- <image class="rectangleC8" mode="aspectFill" src="{{appealList.appealMaterial[0].url}}"></image> -->
 	<!-- <image class="rectangleC9" src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg"></image> -->
