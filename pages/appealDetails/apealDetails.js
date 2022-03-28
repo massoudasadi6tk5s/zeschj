@@ -12,7 +12,8 @@ Page({
   data: {
     appealList: [],
     CustomBar: app.globalData.CustomBar,
-    previewImgStatus:false
+    previewImgStatus:false,
+    currentIndex:0
   },
 
   /**
@@ -30,8 +31,9 @@ Page({
     http.appeal({
       data,
       success: res => {
+        let appealList = res.result
         that.setData({
-          appealList: res.result
+          appealList: appealList
         })
       },
       fail: err => {
@@ -44,11 +46,7 @@ Page({
   },
 
 
-  return(e){
-    wx.navigateBack({
-      delta: 2
-    })
-  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -70,6 +68,12 @@ Page({
     // })
     this.setData({
       previewImgStatus:true
+    })
+  },
+  imgChange:function(e){
+    let index = e.detail
+    this.setData({
+      currentIndex:index
     })
   }
 })

@@ -4,13 +4,14 @@
 <screen-header isBack>
 	<view slot="content">详情</view>
 </screen-header>
-<preview-img show="{{previewImgStatus}}"></preview-img>
+<preview-img show="{{previewImgStatus}}" imgs="{{appealList.appealMaterial}}" bind:imgChange="imgChange"></preview-img>
 <view class="extra2" style="padding-top:{{CustomBar}}px;">
 	<!-- <image class="rectangleC8" mode="aspectFill" src="{{appealList.appealMaterial[0].url}}"></image> -->
 	<!-- <image class="rectangleC9" src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg"></image> -->
-  <image src="../../images/appealDetails/img.png" class="show-icon" style="top:{{CustomBar+10}}px;" bindtap="previewImg"></image>
+  <image src="../../images/appealDetails/img.png" class="show-icon" style="top:{{CustomBar+10}}px;" bindtap="previewImg" wx:if="{{appealList.appealMaterial.length>0}}"></image>
 	<view class="img-box">
-		<image src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg" mode="aspectFill"></image>
+		<image src="{{appealList.appealMaterial[currentIndex].url}}" mode="aspectFill" wx:if="{{appealList.appealMaterial.length>0}}"></image>
+		<image src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg" mode="aspectFill" wx:else></image>
 	</view>
 	<!-- 标题 & 内容 & 头像 & 点赞评论 容器 -->
 	<view class="groupFather" style="height:calc(100vh - {{CustomBar}}px - 100rpx);">

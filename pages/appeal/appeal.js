@@ -30,12 +30,13 @@ Page({
     CustomBar:app.globalData.CustomBar,
     current: 0,
     leftAppealList: [], // 左侧诉求集合
-    rightAppealList: [] // 右侧诉求集合
+    rightAppealList: [], // 右侧诉求集合
+    pageData: {
+      pageNO: 2,
+      pageSize: 40
+    }
   },
-  pageData: {
-    pageNO: 1,
-    pageSize: 10
-  },
+  
 
   /**
    * 生命周期函数--监听页面加载
@@ -100,8 +101,8 @@ Page({
       createTime: false,
       endorseCount: false,
       pageQuery: {
-        pageNO: this.data.pageNO,
-        pageSize: this.data.pageSize
+        pageNO: this.data.pageData.pageNO,
+        pageSize: this.data.pageData.pageSize
       }
     }
 
@@ -110,7 +111,6 @@ Page({
     http.pageAppeal({
       data,
       success: res => {
-        console.log("dasdsa")
         let appealList = res.result.records
         let waterfallNum = {
           left: 0,

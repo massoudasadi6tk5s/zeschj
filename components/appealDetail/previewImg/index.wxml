@@ -1,10 +1,21 @@
 <!--components/appealDetail/previewImg/index.wxml-->
 <view class="wei-preview-img {{show?'wei-preview-active':''}}" bindtap="cancelPreview">
-	<view class="wei-tab-img {{show?'wei-tab-active':''}}">
+	<!-- 预览 -->
+	<swiper class="wei-swiper {{show?'wei-swiper-active':''}}" circular current="{{imgCurrentIndex}}" bindchange="swiperChange">
+		<block wx:for="{{imgs}}" wx:key="*this">
+			<swiper-item >
+				<view class="wei-swiper-item">
+					<image src="{{item.url}}" mode="aspectFill" catchtap></image>
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+	<!-- 底部tab -->
+	<view class="wei-tab-img {{show?'wei-tab-active':''}}" catchtap>
 		<scroll-view scroll-x="{{true}}" class="wei-scroll">
 			<view class="wei-tabs">
-				<view class="wei-img" wx:for="{{6}}" wx:key="index">
-					<image src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg" mode="aspectFill"></image>
+				<view class="wei-img {{imgCurrentIndex===index?'wei-img-active':''}}" data-index="{{index}}" wx:for="{{imgs}}" wx:key="index" catchtap="tabClick">
+					<image src="{{item.url}}" mode="aspectFill"></image>
 				</view>
 			</view>
 		</scroll-view>

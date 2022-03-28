@@ -99,19 +99,18 @@ Page({
 
     let data = {
       title: this.data.title,
-      content: this.data.content
+      content: this.data.content,
+      materialList:this.data.imageArray
     }
 
     http.addAppeal({
       data,
       success: res => {
-
         if (res.code === 200) {
           wx.showToast({
             title: '发送成功',
           })
         }
-
       },
       fail: err => {
 
