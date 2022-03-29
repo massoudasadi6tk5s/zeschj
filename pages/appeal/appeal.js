@@ -32,8 +32,8 @@ Page({
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [], // 右侧诉求集合
     pageData: {
-      pageNO: 2,
-      pageSize: 40
+      pageNO: 1,
+      pageSize: 10
     }
   },
   
