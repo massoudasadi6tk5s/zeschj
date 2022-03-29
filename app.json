@@ -17,30 +17,30 @@
   },
   "tabBar": {
     "color":"#ffffff",
-    "selectedColor": "#F78361",
+    "selectedColor": "#f54b64",
     "backgroundColor": "#242a37",
     "list": [
       {
-        "iconPath": "images/tabbar_icon/zhuye.png",
-        "selectedIconPath": "images/tabbar_icon/zhuye_active.png",
+        "iconPath": "images/tabbar_icon/Home.png",
+        "selectedIconPath": "images/tabbar_icon/HomeActive.png",
         "pagePath": "pages/appeal/appeal",
         "text": "首页"
       },
       {
-        "iconPath": "images/tabbar_icon/find.png",
-        "selectedIconPath": "images/tabbar_icon/find_active.png",
+        "iconPath": "images/tabbar_icon/Stream.png",
+        "selectedIconPath": "images/tabbar_icon/StreamActive.png",
         "pagePath": "pages/dynamicPage/dynamicPage",
         "text": "动态"
       },
       {
-        "iconPath": "images/tabbar_icon/xiaoxi.png",
-        "selectedIconPath": "images/tabbar_icon/xiaoxi_active.png",
+        "iconPath": "images/tabbar_icon/message.png",
+        "selectedIconPath": "images/tabbar_icon/messageActive.png",
         "pagePath": "pages/message/message",
         "text": "消息"
       },
       {
-        "iconPath": "images/tabbar_icon/wode.png",
-        "selectedIconPath": "images/tabbar_icon/wode_active.png",
+        "iconPath": "images/tabbar_icon/Notifications.png",
+        "selectedIconPath": "images/tabbar_icon/NotificationsActive.png",
         "pagePath": "pages/my/myProfile/myProfile",
         "text": "我的"
       }
