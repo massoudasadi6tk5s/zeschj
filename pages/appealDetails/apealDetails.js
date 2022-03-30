@@ -46,6 +46,16 @@ Page({
   },
 
 
+  // 去评论页面
+  gotoComment(){
+
+    wx.navigateTo({
+      url: '../appealComment/appealComment',
+    })
+
+  },
+
+
   
 
   /**

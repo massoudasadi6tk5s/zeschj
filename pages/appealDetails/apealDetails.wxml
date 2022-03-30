@@ -46,7 +46,7 @@
 				</view>
 
 				<!-- 评论 -->
-				<view class="commentFather">
+				<view class="commentFather" bindtap="gotoComment">
 					<image src="../../images/appealDetails/_icons--8-like-copy.png"></image>
 					<text>{{appealList.commentCount}}</text>
 				</view>

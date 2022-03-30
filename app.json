@@ -9,14 +9,15 @@
     "pages/appealDetails/apealDetails",
     "pages/user/user",
     "pages/message/message",
-    "pages/messageDetail/messageDetail"
+    "pages/messageDetail/messageDetail",
+    "pages/appealComment/appealComment"
   ],
   "window": {
     "navigationBarBackgroundColor": "#242A37",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color":"#ffffff",
+    "color": "#ffffff",
     "selectedColor": "#f54b64",
     "backgroundColor": "#242a37",
     "list": [
@@ -48,7 +49,7 @@
   },
   "usingComponents": {
     "custom-header": "./template/customNavHeader/customNavHeader",
-    "screen-header":"./template/allScreenHeader/allScreenHeader"
+    "screen-header": "./template/allScreenHeader/allScreenHeader"
   },
   "sitemapLocation": "sitemap.json"
 }
