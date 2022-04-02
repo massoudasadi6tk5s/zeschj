@@ -135,7 +135,7 @@ Page({
         })
 
       },
-      fail: res => {
+      fail: err => {
 
       }
     })

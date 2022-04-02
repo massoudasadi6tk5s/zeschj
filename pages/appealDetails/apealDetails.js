@@ -13,7 +13,8 @@ Page({
     appealList: [],
     CustomBar: app.globalData.CustomBar,
     previewImgStatus:false,
-    currentIndex:0
+    currentIndex:0,
+    comment: ''
   },
 
   /**
@@ -42,6 +43,59 @@ Page({
     })
 
     
+
+  },
+
+  // 监控评论
+  monitorComment(e){
+
+    let comment = e.detail.value
+
+    this.setData({
+      comment: comment
+    })
+
+  },
+
+
+  // 发送评论
+  putComment(){
+
+    let that = this
+
+    let comment = this.data.comment
+
+    let newComment = comment.replace(/\s+/g,"")
+    if(!newComment){
+      return
+    }
+    
+    let data = {
+      aboutComment: '',
+      appealId: this.data.appealList.appealId,
+      content: comment,
+      url: ''
+    }
+
+    http.appealComment({
+      data,
+      success: res => {
+
+        wx.showToast({
+          title: '评论成功',
+        })
+
+        that.setData({
+          comment: ''
+        })
+
+
+      },
+      fail: err => {
+
+      }
+    })
+
 
   },
 

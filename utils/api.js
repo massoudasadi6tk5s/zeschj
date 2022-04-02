@@ -35,6 +35,11 @@ function appeal(params) {
   GET('/wjAppeal/appeal/' + params.data.appealId, params)
 }
 
+function appealComment(params) {
+  POST('/wjAppealComment/appealComment', params)
+}
+
+
 function pageDynamic(params) {
   POST('/wjDynamic/pageDynamic', params)
 }
@@ -89,6 +94,7 @@ export default { // 暴露接口
   appealToEndorse, // 诉求点赞
   cancelEndorse, // 诉求取赞
   appeal, // 获取单个诉求
+  appealComment, // 添加诉求评论
 
   // end 诉求
 
