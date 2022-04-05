@@ -103,8 +103,10 @@ Page({
   // 去评论页面
   gotoComment(){
 
+    let appealId = this.data.appealList.appealId
+
     wx.navigateTo({
-      url: '../appealComment/appealComment',
+      url: '../appealComment/appealComment?appealId='+appealId,
     })
 
   },

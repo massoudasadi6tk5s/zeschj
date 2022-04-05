@@ -1,23 +1,23 @@
      <view class="comments-father">
 
-     	<view class="comment-item" wx:for="{{3}}">
+     	<view class="comment-item" wx:for="{{commentList}}">
      		<!-- 头像 昵称 时间 -->
      		<view class="head-nick-time">
 
      			<view class="head-portrait">
-     				<image src="/images/user/me.png"></image>
+     				<image src="{{item.headPortrait}}"></image>
      			</view>
 
      			<view class="nick-time-father">
-     				<view class="nickname">一叶知秋 * 君莫笑</view>
-     				<view class="time">2小时前</view>
+     				<view class="nickname">{{item.nickName}}</view>
+     				<view class="time">{{item.createTime}}</view>
      			</view>
 
      		</view>
 
      		<!-- 内容 -->
      		<view class="content-father">
-     			<view class="content">在介绍经验的时候，杜青云的班主任兴奋地说，阅读是杜青云最大的兴趣爱好，他平时勤于博览群书，而《史记》《资治通鉴》等史学类书籍更是他的“心头好”。</view>
+     			<view class="content">{{item.content}}</view>
      		</view>
 
      		<view class="reply-father">

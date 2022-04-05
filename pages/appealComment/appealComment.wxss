@@ -21,6 +21,7 @@
 }
 
 .head-portrait image{
+  border-radius: 50%;
   width: 80rpx;
   height: 80rpx;
 }

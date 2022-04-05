@@ -41,7 +41,7 @@ function http(url, type, params, contentType) {
     },
     success(res) {
 
-      if (res.data.code !== '00000' && res.data.code !==200) {
+      if (res.data.code !== '00000') {
         if (res.data.code === 'A0301') {
           wx.reLaunch({
             url: '/pages/welcome/welcome'

@@ -68,12 +68,38 @@
 
 > https://weiju1.oss-cn-shenzhen.aliyuncs.com/Zingo%20Social%20UI%20Kit_Dark%20theme.sketch  (sketch)   Mac 用户可以下载这个 **sketch** 打开；Windows 可以用 **Lunacy** 打开
 
-## 部分原型页面展示
 
-![img](https://images.gitee.com/uploads/images/2020/0707/181441_ad044705_2304147.png)
 
-![img](https://images.gitee.com/uploads/images/2020/0707/181441_6f5a9136_2304147.png)
+## 注意事项
 
-![img](https://images.gitee.com/uploads/images/2020/0707/181441_08e96570_2304147.png)
+1. 现在小程序还不完善哦，见谅。小程序没有授权，不需要你去额外创建什么小程序账号。看到没有，发送到后端的是一个固定的code。意味着你可以clone 下来直接操作
 
-![img](https://images.gitee.com/uploads/images/2020/0707/181441_965c37af_2304147.png)
+   ```javascript
+   // app.js  
+   
+   userLogin(){
+   
+       wx.login({
+         success(res) {
+   
+           http.userLogin({
+             // data:{code: res.code},
+             data:{code: '哔哩哔哩 (゜-゜)つロ 干杯~'},
+             success: res => {
+               
+               wx.clearStorageSync()
+               wx.setStorageSync('wjUser', res.result.wjUser)
+               wx.setStorageSync('token', res.result.token)
+   
+               console.log(res)
+             },
+             fail: err => {}
+           })
+         }
+       })
+     }
+   ```
+
+   
+
+

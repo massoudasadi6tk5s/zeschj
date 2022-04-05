@@ -40,7 +40,8 @@ App({
       success(res) {
 
         http.userLogin({
-          data:{code: res.code},
+          // data:{code: res.code},
+          data:{code: '哔哩哔哩 (゜-゜)つロ 干杯~'},
           success: res => {
             
             wx.clearStorageSync()
