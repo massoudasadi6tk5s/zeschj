@@ -27,16 +27,21 @@ Page({
       }
 
     ],
-    CustomBar:app.globalData.CustomBar,
+    CustomBar: app.globalData.CustomBar,
     current: 0,
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [], // 右侧诉求集合
     pageData: {
       pageNO: 1,
-      pageSize: 10
+      pageSize: 10,
+      total:0,
+      waterfallNum: {
+        left: 0,
+        right: 0
+      }
     }
   },
-  
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -97,6 +102,7 @@ Page({
     let that = this
     let left = this.data.leftAppealList
     let right = this.data.rightAppealList
+    let waterfallNum = this.data.pageData.waterfallNum
     let data = {
       createTime: false,
       endorseCount: false,
@@ -112,10 +118,6 @@ Page({
       data,
       success: res => {
         let appealList = res.result.records
-        let waterfallNum = {
-          left: 0,
-          right: 0
-        }
         appealList.forEach((item, index) => {
           item.createTime = util.format(new Date(item.createTime))
           if (waterfallNum.left === waterfallNum.right || waterfallNum.left < waterfallNum.right) {
@@ -131,9 +133,10 @@ Page({
         that.setData({
           leftAppealList: left,
           rightAppealList: right,
-          isLoading: false
+          isLoading: false,
+          ['pageData.waterfallNum']: waterfallNum,
+          ['pageData.total']:res.result.total
         })
-
       },
       fail: err => {
 
@@ -147,7 +150,12 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  loadMore: function () {
     console.log("到底了")
+    let pageNo = this.data.pageData.pageNO+1
+    this.setData({
+      ['pageData.pageNO']:pageNo
+    })
+    this.getAppealList()
   }
 })

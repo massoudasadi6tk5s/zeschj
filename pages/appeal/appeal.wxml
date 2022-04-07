@@ -24,7 +24,7 @@
   <view class="loading-page" wx:if="{{isLoading}}">
     <image src="../../images/logo.png"></image>
   </view>
-  <scroll-view  class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole" wx:if="{{!isLoading}}">
+  <scroll-view bindscrolltolower="loadMore" class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole" wx:if="{{!isLoading}}">
     <!-- 靠左边的 -->
     <view class="post-list-left">
       <!-- 单个帖子 -->
