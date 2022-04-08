@@ -115,8 +115,8 @@ page {
   justify-content: flex-start;
 }
 .ovalCopy3 {
-  width: 56rpx;
-  height: 56rpx;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50px;
   border: solid 1px #ffffff;
   box-shadow: 0px 0px 2rpx #eaecef;
@@ -126,6 +126,7 @@ page {
 .ovalCopy3 image {
   width: 56rpx;
   height: 56rpx;
+  border-radius: 50%;
 }
 
 

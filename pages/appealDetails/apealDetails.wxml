@@ -27,14 +27,8 @@
 		<!-- 头像 & 点赞评论 容器 -->
 		<view class="photoFather">
 			<view class="oval-box">
-				<view class="ovalCopy3 ">
-					<image src="../../images/appealDetails/oval-copy-3.png"></image>
-				</view>
-				<view class="ovalCopy3 ">
-					<image src="../../images/appealDetails/oval-copy-2.png"></image>
-				</view>
-				<view class="ovalCopy3 ">
-					<image src="../../images/appealDetails/oval.png"></image>
+				<view class="ovalCopy3 " wx:for="{{appealList.commentUserHeadPortrait}}">
+					<image src="{{item}}"></image>
 				</view>
 			</view>
 			<!-- 点赞评论 容器 -->
