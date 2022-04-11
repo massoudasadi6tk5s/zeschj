@@ -1,3 +1,4 @@
+// pages/appealComment/appealComment.js
 import http from '../../utils/api.js';
 import util from '../../utils/util.js';
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    appealId: '',
+    dynamicId: '',
     commentList: [],
     comment: ''
   },
@@ -23,10 +24,10 @@ Page({
    */
   onLoad: function (options) {
 
-    let appealId = options.appealId
+    let dynamicId = options.dynamicId
 
     this.setData({
-      appealId: appealId
+      dynamicId: dynamicId
     })
 
     this.queryComment();
@@ -34,16 +35,16 @@ Page({
   },
 
   // 查询评论
-  queryComment() {
+  queryComment(){
 
     let that = this
 
     let data = {
-      appealId: this.data.appealId,
+      dynamicId: this.data.dynamicId,
       pageQuery: this.pageData
     }
 
-    http.pageAppealComment({
+    http.pageDynamicComment({
       data,
       success: res => {
 
@@ -56,58 +57,7 @@ Page({
         that.setData({
           commentList: result.records
         })
-
-
-      },
-      fail: err => {
-
-      }
-    })
-
-  },
-
-  // 监控评论
-  monitorComment(e) {
-
-    let comment = e.detail.value
-
-    this.setData({
-      comment: comment
-    })
-
-  },
-
-  // 发送评论
-  putComment() {
-
-    let that = this
-
-    let comment = this.data.comment
-
-    let newComment = comment.replace(/\s+/g, "")
-    if (!newComment) {
-      return
-    }
-
-    let data = {
-      aboutComment: '',
-      appealId: this.data.appealId,
-      content: comment,
-      url: ''
-    }
-
-    http.appealComment({
-      data,
-      success: res => {
-
-        wx.showToast({
-          title: '评论成功',
-        })
-
-        that.setData({
-          comment: ''
-        })
-
+        
 
       },
       fail: err => {
@@ -115,8 +65,60 @@ Page({
       }
     })
 
-
   },
+
+    // 监控评论
+    monitorComment(e){
+
+      let comment = e.detail.value
+  
+      this.setData({
+        comment: comment
+      })
+  
+    },
+  
+  
+    // 发送评论
+    putComment(){
+  
+      let that = this
+  
+      let comment = this.data.comment
+  
+      let newComment = comment.replace(/\s+/g,"")
+      if(!newComment){
+        return
+      }
+      
+      let data = {
+        aboutComment: '',
+        dynamicId: this.data.dynamicId,
+        content: comment,
+        url: ''
+      }
+  
+      http.dynamicComment({
+        data,
+        success: res => {
+  
+          wx.showToast({
+            title: '评论成功',
+          })
+  
+          that.setData({
+            comment: ''
+          })
+  
+  
+        },
+        fail: err => {
+  
+        }
+      })
+  
+  
+    },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

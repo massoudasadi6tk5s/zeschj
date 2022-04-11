@@ -17,14 +17,12 @@
         <image src="/images/appeal/like{{item.isEndorse ? '-active':''}}.png" bindtap="{{item.isEndorse ? 'cancelEndorse' : 'addDynamicEndorse'}}" data-id="{{item.dynamicId}}"></image>
         <text>{{item.endorseCount}}</text>
       </view>
-      <view class="heart copy">
+      <view class="heart copy" data-dynamic-id="{{item.dynamicId}}" bindtap="gotoCommentPage">
         <image src="/images/appeal/_icons--8-like-copy.png"></image>
         <text>{{item.commentCount}}</text>
       </view>
-      <view class="avatar-more">
-        <image src="/images/user/me.png" class="avatar1"></image>
-        <image src="/images/user/me.png" class="avatar2"></image>
-        <image src="/images/user/me.png" class="avatar3"></image>
+      <view class="avatar-more" wx:for="{{item.commentUserHeadPortrait}}">
+        <image src="{{item}}" class="avatar1"></image>
       </view>
     </view>
   </view>

@@ -105,5 +105,16 @@ Component({
 
   },
 
+  // 去动态评论页面
+  gotoCommentPage(e){
+
+    let dynamicId = e.currentTarget.dataset.dynamicId
+
+    wx.navigateTo({
+      url: '/pages/dynamicComment/index?dynamicId='+dynamicId,
+    })
+
+  }
+
   }
 })

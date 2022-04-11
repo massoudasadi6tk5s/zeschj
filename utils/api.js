@@ -48,8 +48,20 @@ function pageDynamic(params) {
   POST('/wjDynamic/pageDynamic', params)
 }
 
-function myDynamicm(params) {
+function myDynamic(params) {
   POST('/wjDynamic/myDynamic', params)
+}
+
+function dynamicComment(params) {
+  POST('/wjDynamicComment/dynamicComment', params)
+}
+
+function deleteDynamicComment(params) {
+  DELETE('wjDynamicComment/dynamicComment/' + params.data.dynamicId, params)
+}
+
+function pageDynamicComment(params) {
+  POST('/wjDynamicComment/pageDynamicComment', params)
 }
 
 
@@ -109,7 +121,11 @@ export default { // 暴露接口
 
   pageDynamic, // 分页查询动态
   dynamicEndorse, // 动态点赞
-  myDynamicm, // 我的诉求
+  myDynamic, // 我的诉求
+  dynamicComment, // 添加动态
+  deleteDynamicComment, // 删除动态
+  pageDynamicComment, // 分页查询动态评论
+
 
   // end 动态
 

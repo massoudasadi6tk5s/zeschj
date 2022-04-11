@@ -153,7 +153,7 @@ Page({
       endorseCount: false
     }
 
-    http.myDynamicm({
+    http.myDynamic({
       data,
       success: res => {
 

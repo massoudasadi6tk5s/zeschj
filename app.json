@@ -10,7 +10,8 @@
     "pages/user/user",
     "pages/message/message",
     "pages/messageDetail/messageDetail",
-    "pages/appealComment/appealComment"
+    "pages/appealComment/appealComment",
+    "pages/dynamicComment/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#242A37",
