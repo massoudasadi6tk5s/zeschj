@@ -31,6 +31,7 @@ Page({
     current: 0,
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [], // 右侧诉求集合
+    title: '', // 模糊搜索诉求标题
     pageData: {
       pageNO: 1,
       pageSize: 10,
@@ -104,6 +105,7 @@ Page({
     let right = this.data.rightAppealList
     let waterfallNum = this.data.pageData.waterfallNum
     let data = {
+      title: this.data.title,
       createTime: false,
       endorseCount: false,
       pageQuery: {

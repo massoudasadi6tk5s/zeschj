@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dynamicList: {}
+    dynamicList: {},
+    content: '' // 模糊搜索动态内容
   },
 
   /**
@@ -28,6 +29,7 @@ Page({
     let that = this
 
     let data = {
+      content: this.data.content,
       createTime: false,
       endorseCount: false,
       pageQuery: {
