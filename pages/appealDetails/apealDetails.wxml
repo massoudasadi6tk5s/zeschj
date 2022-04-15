@@ -31,6 +31,7 @@
 					<image src="{{item}}"></image>
 				</view>
 			</view>
+			<text class="text2" bindtap="linkUp">进行沟通</text>
 			<!-- 点赞评论 容器 -->
 			<view class="likeCommentFather">
 				<!-- 点赞 -->

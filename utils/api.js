@@ -43,6 +43,10 @@ function pageAppealComment(params){
   POST('/wjAppealComment/pageAppealComment', params)
 }
 
+function communicationAndAppeal(params){
+  POST('/wjAppeal/communicationAndAppeal/' + params.data.appealId, params)
+}
+
 
 function pageDynamic(params) {
   POST('/wjDynamic/pageDynamic', params)
@@ -112,6 +116,7 @@ export default { // 暴露接口
   appeal, // 获取单个诉求
   appealComment, // 添加诉求评论
   pageAppealComment, //分页查询诉求评论
+  communicationAndAppeal, // 与诉求发布人 沟通
 
   // end 诉求
 

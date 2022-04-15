@@ -225,3 +225,8 @@ page {
   width: 56rpx;
   height: 56rpx;
 }
+
+.text2 {
+  font-size: 15px;
+  color: #f55264;
+}

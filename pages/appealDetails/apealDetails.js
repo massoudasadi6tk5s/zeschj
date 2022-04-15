@@ -12,8 +12,8 @@ Page({
   data: {
     appealList: [],
     CustomBar: app.globalData.CustomBar,
-    previewImgStatus:false,
-    currentIndex:0,
+    previewImgStatus: false,
+    currentIndex: 0,
     comment: ''
   },
 
@@ -42,12 +42,12 @@ Page({
       }
     })
 
-    
+
 
   },
 
   // 监控评论
-  monitorComment(e){
+  monitorComment(e) {
 
     let comment = e.detail.value
 
@@ -59,17 +59,17 @@ Page({
 
 
   // 发送评论
-  putComment(){
+  putComment() {
 
     let that = this
 
     let comment = this.data.comment
 
-    let newComment = comment.replace(/\s+/g,"")
-    if(!newComment){
+    let newComment = comment.replace(/\s+/g, "")
+    if (!newComment) {
       return
     }
-    
+
     let data = {
       aboutComment: '',
       appealId: this.data.appealList.appealId,
@@ -101,18 +101,41 @@ Page({
 
 
   // 去评论页面
-  gotoComment(){
+  gotoComment() {
 
     let appealId = this.data.appealList.appealId
 
     wx.navigateTo({
-      url: '../appealComment/appealComment?appealId='+appealId,
+      url: '../appealComment/appealComment?appealId=' + appealId,
     })
 
   },
 
 
-  
+  // 点击沟通
+  linkUp() {
+
+    let data = {
+      appealId: this.data.appealList.appealId
+    }
+
+    http.communicationAndAppeal({
+      data,
+      success: res => {
+
+        wx.switchTab({
+          url: '/pages/message/message',
+        })
+
+      },
+      fail: err => {
+
+      }
+    })
+
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -127,19 +150,19 @@ Page({
   onShow: function () {
 
   },
-  previewImg:function(){
+  previewImg: function () {
     // wx.previewImage({
     //   current: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg', // 当前显示图片的http链接
     //   urls: ['https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg'] // 需要预览的图片http链接列表
     // })
     this.setData({
-      previewImgStatus:true
+      previewImgStatus: true
     })
   },
-  imgChange:function(e){
+  imgChange: function (e) {
     let index = e.detail
     this.setData({
-      currentIndex:index
+      currentIndex: index
     })
   }
 })

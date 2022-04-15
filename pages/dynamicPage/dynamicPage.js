@@ -25,6 +25,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.queryDynamic();
+  },
+
+  queryDynamic(){
 
     let that = this
 
@@ -59,6 +63,16 @@ Page({
 
     })
 
+  },
+
+  // 监控搜索输入
+  monitorSearch(e){
+
+    let content = e.detail.value
+
+    this.setData({
+      content: content
+    })
 
   },
 
