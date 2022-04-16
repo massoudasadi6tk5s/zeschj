@@ -29,7 +29,7 @@ App({
     // host: 'http://192.168.3.8:8080/weiju',
     // chatSocket: 'http://192.168.3.8:8080/weiju/chatSocket',
     host: 'https://www.weiju.fun/weiju',
-    chatSocket: 'https://weiju.fun/weiju/chatSocket',
+    chatSocket: 'https://www.weiju.fun/weiju/chatSocket',
   },
 
 
