@@ -31,10 +31,11 @@ Page({
     current: 0,
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [], // 右侧诉求集合
+    isLoadingMore: true,
     pageData: {
       pageNO: 1,
       pageSize: 10,
-      total:0,
+      total: 0,
       waterfallNum: {
         left: 0,
         right: 0
@@ -112,12 +113,18 @@ Page({
       }
     }
 
-
     //115+图片的高度139(贪心算法)
     http.pageAppeal({
       data,
       success: res => {
         let appealList = res.result.records
+        //如果为空返回
+        if(appealList && appealList.length===0){
+          return this.setData({
+            isLoadingMore:false,
+            isLoading: false
+          })
+        }
         appealList.forEach((item, index) => {
           item.createTime = util.format(new Date(item.createTime))
           if (waterfallNum.left === waterfallNum.right || waterfallNum.left < waterfallNum.right) {
@@ -135,7 +142,7 @@ Page({
           rightAppealList: right,
           isLoading: false,
           ['pageData.waterfallNum']: waterfallNum,
-          ['pageData.total']:res.result.total
+          ['pageData.total']: res.result.total
         })
       },
       fail: err => {
@@ -151,11 +158,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   loadMore: function () {
-    console.log("到底了")
-    let pageNo = this.data.pageData.pageNO+1
-    this.setData({
-      ['pageData.pageNO']:pageNo
-    })
-    this.getAppealList()
+    if (this.data.isLoadingMore) {
+      let pageNo = this.data.pageData.pageNO + 1
+      this.setData({
+        ['pageData.pageNO']: pageNo
+      })
+      this.getAppealList()
+    }
   }
 })

@@ -1,39 +1,45 @@
 <custom-header>
-  <view class="navbar" slot="header">
-    <!-- 搜索框 -->
-    <view class="search-fiel animated rotateInDownRight">
-      <image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
-      <view class="search">
-        <input placeholder="搜索" maxlength="20"></input>
-      </view>
-    </view>
-    <view class="oval animated rotateInDownRight" bindtap="goToRelease">
-      <image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
-    </view>
-  </view>
+	<view class="navbar" slot="header">
+		<!-- 搜索框 -->
+		<view class="search-fiel animated rotateInDownRight">
+			<image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
+			<view class="search">
+				<input placeholder="搜索" maxlength="20"></input>
+			</view>
+		</view>
+		<view class="oval animated rotateInDownRight" bindtap="goToRelease">
+			<image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
+		</view>
+	</view>
 </custom-header>
 <view class="main" style="height:calc(100vh - {{CustomBar}}px);">
-  <scroll-view scroll-x>
-    <view class="nav">
-      <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}} animated bounceInRight" style="animation-delay:{{index/10}}s;" wx:for="{{navList}}" wx:key="{{index}}">
-        {{item.text}}
-      </view>
-    </view>
-  </scroll-view>
-  <!-- 帖子 || 诉求 -->
-  <view class="loading-page" wx:if="{{isLoading}}">
-    <image src="../../images/logo.png"></image>
-  </view>
-  <scroll-view bindscrolltolower="loadMore" class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole" wx:if="{{!isLoading}}">
-    <!-- 靠左边的 -->
-    <view class="post-list-left">
-      <!-- 单个帖子 -->
-      <single-appeal data="{{leftAppealList}}"></single-appeal>
-    </view>
-    <!-- 靠右边的 -->
-    <view class="post-list-right">
-      <!-- 单个帖子 -->
-      <single-appeal data="{{rightAppealList}}"></single-appeal>
-    </view>
-  </scroll-view>
+	<scroll-view scroll-x>
+		<view class="nav">
+			<view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}} animated bounceInRight" style="animation-delay:{{index/10}}s;" wx:for="{{navList}}" wx:key="{{index}}">
+				{{item.text}}
+			</view>
+		</view>
+	</scroll-view>
+	<!-- 帖子 || 诉求 -->
+	<view class="loading-page" wx:if="{{isLoading}}">
+		<image src="../../images/logo.png"></image>
+	</view>
+	<scroll-view bindscrolltolower="loadMore" class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole" wx:if="{{!isLoading}}">
+		<view class="scroll-content">
+			<!-- 靠左边的 -->
+			<view class="post-list-left">
+				<!-- 单个帖子 -->
+				<single-appeal data="{{leftAppealList}}"></single-appeal>
+			</view>
+			<!-- 靠右边的 -->
+			<view class="post-list-right">
+				<!-- 单个帖子 -->
+				<single-appeal data="{{rightAppealList}}"></single-appeal>
+			</view>
+		</view>
+		<view class="more-loading">
+			<text wx:if="{{isLoadingMore}}">加载中...</text>
+			<text class="no-more" wx:else>————到底啦————</text>
+		</view>
+	</scroll-view>
 </view>

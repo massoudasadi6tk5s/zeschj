@@ -22,13 +22,14 @@ function pageAppeal(params) {
 function myAppeal(params) {
   POST('/wjAppeal/myAppeal', params)
 }
-
+//诉求点赞接口
 function appealToEndorse(params) {
-  POST('/wjAppealEndorse/appealToEndorse/' + params.data.appealId, params)
+  POST('/wjAppealEndorse/appealToEndorse/' + params.data.appealId)
 }
 
 function cancelEndorse(params) {
-  DELETE('/wjAppealEndorse/cancelEndorse/' + params.data.appealId, params)
+  console.log("取消",params)
+  DELETE('/wjAppealEndorse/cancelEndorse/' + params.data.appealId)
 }
 
 function appeal(params) {
