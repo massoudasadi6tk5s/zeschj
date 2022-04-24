@@ -113,18 +113,26 @@ swiper-item {
   height:calc(100% - 100rpx);
   box-sizing: border-box;
 }
-
+.scroll-content{
+  display: flex;
+  justify-content: space-between;
+}
+.post-scroll .more-loading{
+  text-align: center;
+  color:var(--white);
+  font-size: 13px;
+  padding:5rpx 0;
+}
+.post-scroll .more-loading .no-more{
+  color:var(--grey-color6e);
+}
 .post-list-left {
-  width: 340rpx;
-  margin: 0 20rpx;
+  padding-left: 20rpx;
   padding-top: 30rpx;
 }
 
 .post-list-right {
-  position: absolute;
-  right: 20rpx;
-  top: 0rpx;
-  width: 340rpx;
+  padding-right: 20rpx;
   padding-top: 30rpx;
 }
 

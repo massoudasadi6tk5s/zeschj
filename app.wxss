@@ -8,6 +8,7 @@ page{
   --gray-color4:#f1f1f1;
   --them-color:#242a37;
   --white:#ffffff;
+  --grey-color6e:#4e586e;
 }
 view{
   box-sizing: border-box;
