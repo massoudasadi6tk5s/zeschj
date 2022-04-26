@@ -40,7 +40,6 @@ function http(url, type, params, contentType) {
       'token': token
     },
     success(res) {
-
       if (res.data.code !== '00000') {
         if (res.data.code === 'A0301') {
           wx.reLaunch({

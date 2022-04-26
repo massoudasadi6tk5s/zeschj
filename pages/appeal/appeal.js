@@ -31,11 +31,8 @@ Page({
     current: 0,
     leftAppealList: [], // 左侧诉求集合
     rightAppealList: [], // 右侧诉求集合
-<<<<<<< HEAD
     title: '', // 模糊搜索诉求标题
-=======
     isLoadingMore: true,
->>>>>>> lele
     pageData: {
       pageNO: 1,
       pageSize: 10,

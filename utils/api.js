@@ -24,12 +24,11 @@ function myAppeal(params) {
 }
 //诉求点赞接口
 function appealToEndorse(params) {
-  POST('/wjAppealEndorse/appealToEndorse/' + params.data.appealId)
+  POST('/wjAppealEndorse/appealToEndorse/' + params.data.appealId,params)
 }
 
 function cancelEndorse(params) {
-  console.log("取消",params)
-  DELETE('/wjAppealEndorse/cancelEndorse/' + params.data.appealId)
+  DELETE('/wjAppealEndorse/cancelEndorse/' + params.data.appealId,params)
 }
 
 function appeal(params) {
@@ -74,9 +73,7 @@ function dynamicEndorse(params) {
   POST('/wjDynamicEndorse/dynamicEndorse/' + params.data.dynamicId, params)
 }
 
-function cancelEndorse(params) {
-  DELETE('/wjDynamicEndorse/cancelEndorse/' + params.data.dynamicId, params)
-}
+
 
 function chat(params) {
   GET('/wjChat/chat', params)
