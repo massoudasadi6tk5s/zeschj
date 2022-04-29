@@ -72,8 +72,6 @@ Component({
       http.cancelEndorse({
         data,
         success: res => {
-          console.log(res)
-
           // 改变值
           let dataList = that.data.data
           dataList.forEach((item, index) => {

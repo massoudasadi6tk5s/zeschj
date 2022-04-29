@@ -22,13 +22,13 @@ function pageAppeal(params) {
 function myAppeal(params) {
   POST('/wjAppeal/myAppeal', params)
 }
-
+//诉求点赞接口
 function appealToEndorse(params) {
-  POST('/wjAppealEndorse/appealToEndorse/' + params.data.appealId, params)
+  POST('/wjAppealEndorse/appealToEndorse/' + params.data.appealId,params)
 }
 
 function cancelEndorse(params) {
-  DELETE('/wjAppealEndorse/cancelEndorse/' + params.data.appealId, params)
+  DELETE('/wjAppealEndorse/cancelEndorse/' + params.data.appealId,params)
 }
 
 function appeal(params) {
@@ -73,9 +73,7 @@ function dynamicEndorse(params) {
   POST('/wjDynamicEndorse/dynamicEndorse/' + params.data.dynamicId, params)
 }
 
-function cancelEndorse(params) {
-  DELETE('/wjDynamicEndorse/cancelEndorse/' + params.data.dynamicId, params)
-}
+
 
 function chat(params) {
   GET('/wjChat/chat', params)
