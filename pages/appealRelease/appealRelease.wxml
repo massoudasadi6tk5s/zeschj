@@ -37,9 +37,13 @@
 		</view>
 
 		<!-- 位置 -->
-		<!-- <view class="appeal-address-father">
+		<view class="appeal-address-father">
       <view class="address-word">位置</view>
-    </view> -->
+			<view class="address-icon" bindtap="handleOpenMap">
+				<image src="/images/appealRelease/location-icon.png"></image>
+			</view>
+			<view class="address-input">{{addressHint}}</view>
+    </view>
 
 		<!-- 标签 -->
 		<!-- 具体地址  可选择 隐藏部分地址，只显示一部分地址出来 -->

@@ -52,5 +52,10 @@
     "custom-header": "./template/customNavHeader/customNavHeader",
     "screen-header": "./template/allScreenHeader/allScreenHeader"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "注意保护自己的个人位置信息哦，选择一个较远地点"
+    }
+  },
   "sitemapLocation": "sitemap.json"
 }

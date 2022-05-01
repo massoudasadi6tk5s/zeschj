@@ -43,6 +43,10 @@ function pageAppealComment(params){
   POST('/wjAppealComment/pageAppealComment', params)
 }
 
+function listNearbyPageAppeal(params) {
+  POST('/wjAppeal/listNearbyPageAppeal', params)
+}
+
 function communicationAndAppeal(params){
   POST('/wjAppeal/communicationAndAppeal/' + params.data.appealId, params)
 }
@@ -108,6 +112,7 @@ export default { // 暴露接口
   // start 诉求
   addAppeal, // 添加诉求
   pageAppeal, //分页查询诉求
+  listNearbyPageAppeal, // 根据经纬度查询 附近的诉求
   myAppeal, // 查询我的诉求
   appealToEndorse, // 诉求点赞
   cancelEndorse, // 诉求取赞

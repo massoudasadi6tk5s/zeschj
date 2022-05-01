@@ -42,14 +42,13 @@
 }
 
 .dynamic-content .image-box {
-  height: 600rpx;
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .dynamic-content .image-box image {
-  height: 100%;
+  height: 600rpx;
   width: 100%;
 }
 

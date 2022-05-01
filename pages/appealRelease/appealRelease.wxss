@@ -143,6 +143,7 @@ page {
 
 .appeal-address-father {
   display: flex;
+  align-items: center;
   width: 95%;
 }
 
@@ -152,4 +153,23 @@ page {
   -webkit-background-clip: text;
   color: transparent;
   font-weight: bold;
+}
+
+.address-icon{
+  display: flex;
+  align-items: center;
+}
+
+.address-icon image{
+  margin-left: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.address-input{
+  
+  margin-left: 30rpx;
+  width: 500rpx;
+  color: #f78361;
+
 }

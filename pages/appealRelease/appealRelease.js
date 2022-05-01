@@ -12,7 +12,14 @@ Page({
     defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg',
     imgMode: 'aspectFit',
     title: '',
-    content: ''
+    content: '',
+    latitude: '',
+    longitude: '',
+
+    // 主要展示用户
+    addressHint: '一定要选择距离自己较远的位置',
+
+
   },
   pageData: {
     imageModeArray: ["scaleToFill", "aspectFit", "aspectFill", "widthFix", "heightFix",
@@ -97,6 +104,8 @@ Page({
   // 保存诉求
   saveAppeal() {
 
+    let that = this
+
     let data = {
       title: this.data.title,
       content: this.data.content,
@@ -106,7 +115,10 @@ Page({
     http.addAppeal({
       data,
       success: res => {
-        if (res.code === 200) {
+        if (res.code === '00000') {
+
+          that.clearData();
+
           wx.showToast({
             title: '发送成功',
           })
@@ -119,6 +131,49 @@ Page({
 
 
 
+  },
+
+  // 打开地图选择位置
+  handleOpenMap(){
+
+    let that = this
+
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success (res) {
+        let latitude = res.latitude
+        let longitude = res.longitude
+
+        wx.chooseLocation({
+          latitude,
+          longitude,
+          success: (result) => {
+
+            let lat = result.latitude
+            let log = result.longitude
+            that.setData({
+              latitude: lat,
+              longitude: log,
+              addressHint: result.name
+            })
+
+          },
+        })
+      }
+     })
+
+  },
+
+  // 清空数据
+  clearData(){
+    this.setData({
+      imageArray: [],
+      title: '',
+      content: '',
+      latitude: '',
+      longitude: '',
+      addressHint: '一定要选择距离自己较远的位置'
+    })
   },
 
   /**

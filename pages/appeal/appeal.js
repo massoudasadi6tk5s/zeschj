@@ -58,8 +58,21 @@ Page({
   activeNav(e) {
     this.setData({
       currentIndexNav: e.target.dataset.index,
-      current: e.target.dataset.index
+      current: e.target.dataset.index,
+      leftAppealList: [],
+      rightAppealList: []
     })
+
+    // 如果要查询附近的
+    if (e.target.dataset.index == 2) {
+
+      this.getNearAppealList();
+
+      return
+    }
+
+    this.getAppealList();
+
   },
 
   // 帖子下滑触底
@@ -94,12 +107,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
   getAppealList: function () {
     let that = this
     let left = this.data.leftAppealList
@@ -107,8 +114,8 @@ Page({
     let waterfallNum = this.data.pageData.waterfallNum
     let data = {
       title: this.data.title,
-      createTime: false,
-      endorseCount: false,
+      createTime: this.data.current == 1,
+      endorseCount: this.data.current == 0,
       pageQuery: {
         pageNO: this.data.pageData.pageNO,
         pageSize: this.data.pageData.pageSize
@@ -121,9 +128,9 @@ Page({
       success: res => {
         let appealList = res.result.records
         //如果为空返回
-        if(appealList && appealList.length===0){
+        if (appealList && appealList.length === 0) {
           return this.setData({
-            isLoadingMore:false,
+            isLoadingMore: false,
             isLoading: false
           })
         }
@@ -156,6 +163,79 @@ Page({
 
 
   },
+
+  // 附近诉求
+  getNearAppealList() {
+
+    let that = this
+
+    let left = this.data.leftAppealList
+    let right = this.data.rightAppealList
+    let waterfallNum = this.data.pageData.waterfallNum
+
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+
+        let data = {
+          title: that.data.title,
+          latitude: latitude,
+          longitude: longitude,
+          pageQuery: {
+            pageNO: that.data.pageData.pageNO,
+            pageSize: that.data.pageData.pageSize
+          }
+        }
+
+        http.listNearbyPageAppeal({
+          data,
+          success: res => {
+
+            let appealList = res.result
+            //如果为空返回
+            if (appealList && appealList.length === 0) {
+              return this.setData({
+                isLoadingMore: false,
+                isLoading: false
+              })
+            }
+            appealList.forEach((item, index) => {
+              item.createTime = util.format(new Date(item.createTime))
+              if (waterfallNum.left === waterfallNum.right || waterfallNum.left < waterfallNum.right) {
+                left.push(item)
+                let num = item.appealMaterial.length > 0 ? 139 : 0
+                waterfallNum.left += 115 + num
+              } else {
+                right.push(item)
+                let num = item.appealMaterial.length > 0 ? 139 : 0
+                waterfallNum.right += 115 + num
+              }
+            })
+            that.setData({
+              leftAppealList: left,
+              rightAppealList: right,
+              isLoading: false,
+              ['pageData.waterfallNum']: waterfallNum
+            })
+
+          },
+          fail: err => {}
+
+        })
+
+
+
+
+      }
+    })
+
+
+
+
+  },
+
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -167,5 +247,21 @@ Page({
       })
       this.getAppealList()
     }
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
+
+
 })
