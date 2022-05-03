@@ -75,11 +75,6 @@ Page({
 
   },
 
-  // 帖子下滑触底
-  postSole(e) {
-
-  },
-
   swiperCurrent(e) {
     console.log(e.detail.current)
 
@@ -247,6 +242,37 @@ Page({
       })
       this.getAppealList()
     }
+  },
+
+  // 监控搜索
+  monitorSearch(e) {
+
+    let title = e.detail.value
+
+    this.setData({
+      title: title
+    })
+
+  },
+
+  // 搜索帖子
+  searchAppeal() {
+
+    this.setData({
+      leftAppealList: [],
+      rightAppealList: []
+    })
+
+    // 如果要查询附近的
+    if (this.data.current == 2) {
+
+      this.getNearAppealList();
+
+      return
+    }
+
+    this.getAppealList();
+
   },
 
   /**

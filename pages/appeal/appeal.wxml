@@ -4,7 +4,7 @@
 		<view class="search-fiel animated rotateInDownRight">
 			<image class="search-icon" src="../../images/appeal/_icons--search.png"></image>
 			<view class="search">
-				<input placeholder="搜索" maxlength="20"></input>
+				<input placeholder="搜索" confirm-type="search" bindconfirm="searchAppeal" bindinput="monitorSearch" maxlength="20"></input>
 			</view>
 		</view>
 		<view class="oval animated rotateInDownRight" bindtap="goToRelease">
