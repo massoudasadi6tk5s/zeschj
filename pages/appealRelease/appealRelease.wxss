@@ -1,6 +1,7 @@
 
 
 page {
+  position: relative;
   background: var(--them-color);
   height: 100%;
   box-sizing: border-box;
@@ -173,3 +174,4 @@ page {
   color: #f78361;
 
 }
+

@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLoading: true,
+
     imageArray: [], // 图片
     defaultImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/xiaochengxu-readme/channels4_banner.jpg',
     imgMode: 'aspectFit',
@@ -64,7 +66,7 @@ Page({
         let totle = imgArray.length + tempFilePaths.length - 1
         that.setData({
           imageArray: imgArray.concat(tempFilePaths),
-          defaultImg:tempFilePaths
+          defaultImg: tempFilePaths
         })
 
       },
@@ -102,14 +104,67 @@ Page({
 
 
   // 保存诉求
-  saveAppeal() {
+  saveAppealOrUploadImg() {
+
+    if(this.data.imageArray.length === 0){
+      this.saveAppeal([]);
+      return
+    }
+
+    let that = this
+
+    wx.showLoading({
+      title: '上传中😍',
+    })
+
+    // 上传图片
+    this.data.imageArray.forEach((item, index) => {
+
+      // 上传好的图片
+      let uploadImgList = []
+
+      wx.uploadFile({
+        url: 'https://www.weiju.fun/weiju/wjAppealMaterial/uploadMaterial', //仅为示例，非真实的接口地址
+        filePath: item,
+        header: {
+          token: wx.getStorageSync('token')
+        },
+        name: 'file',
+        success(res) {
+
+          let data = res.data
+          data = JSON.parse(data)
+          uploadImgList.push(data.result)
+
+
+          // 上传完成了
+          if (uploadImgList.length === that.data.imageArray.length) {
+
+            that.saveAppeal(uploadImgList);
+
+          }
+
+
+        }
+      })
+
+
+
+    })
+
+  },
+
+  // 保存诉求
+  saveAppeal(imgArray){
 
     let that = this
 
     let data = {
       title: this.data.title,
       content: this.data.content,
-      materialList:this.data.imageArray
+      latitude: this.data.latitude,
+      longitude: this.data.longitude,
+      materialList: imgArray
     }
 
     http.addAppeal({
@@ -117,6 +172,7 @@ Page({
       success: res => {
         if (res.code === '00000') {
 
+          wx.hideLoading()
           that.clearData();
 
           wx.showToast({
@@ -126,21 +182,22 @@ Page({
       },
       fail: err => {
 
+        wx.hideLoading()
+
       }
     })
 
-
-
   },
 
+
   // 打开地图选择位置
-  handleOpenMap(){
+  handleOpenMap() {
 
     let that = this
 
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success (res) {
+      success(res) {
         let latitude = res.latitude
         let longitude = res.longitude
 
@@ -160,12 +217,12 @@ Page({
           },
         })
       }
-     })
+    })
 
   },
 
   // 清空数据
-  clearData(){
+  clearData() {
     this.setData({
       imageArray: [],
       title: '',

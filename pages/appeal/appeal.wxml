@@ -8,7 +8,7 @@
 			</view>
 		</view>
 		<view class="oval animated rotateInDownRight" bindtap="goToRelease">
-			<image class="icons-13-pho" src="../../images/appeal/_icons--13-photo.png"></image>
+			<image class="icons-13-pho" src="/images/appeal/_icons--13-photo.png"></image>
 		</view>
 	</view>
 </custom-header>
@@ -22,7 +22,7 @@
 	</scroll-view>
 	<!-- 帖子 || 诉求 -->
 	<view class="loading-page" wx:if="{{isLoading}}">
-		<image src="../../images/logo.png"></image>
+		<image src="/images/logo.png"></image>
 	</view>
 	<scroll-view bindscrolltolower="loadMore" class="post-scroll" scroll-y="true" enable-back-to-top="true" bindscroll="postSole" wx:if="{{!isLoading}}">
 		<view class="scroll-content">
