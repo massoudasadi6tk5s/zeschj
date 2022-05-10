@@ -1,3 +1,4 @@
+## 这个项目基本上不维护了，请转https://gitee.com/huixi_and_their_friends/weiju-wechat-cloud/tree/master_v2/云开发
 ## 微距
 
 当你在城市打拼，独自在一个人 🧑 总有某些时刻你会想：为什么总是一个人？为什么自己要到这里？
