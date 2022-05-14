@@ -1,6 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents":{
-    "dynamic-list":"./dynamicList/index"
-  }
-}

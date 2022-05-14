@@ -1,6 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "preview-img":"../../components/appealDetail/previewImg"
-  }
-}
