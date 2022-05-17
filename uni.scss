@@ -14,11 +14,43 @@
 
 /* 颜色变量 */
 
+/* start 微距相关变量 */
+// 活泼色
+$accent-blue: #007AFF;
+$accent-orange: #FF9500;
+$accent-pink: linear-gradient(220deg, #F78361, #F54B64);
+$accent-purple: #5856D6;
+$accent-teal-blue: #5AC8FA;
+$accent-yellow: #FFCC00;
+$accent-color-burn: rgba(0,0,0,0.4);
+// 灰色
+$graybase-gray1: #8E8E93;
+$graybase-gray2: #C7C7CC;
+$graybase-gray3: #D1D1D6;
+$graybase-gray4: #E5E5EA;
+$graybase-gray5: #EFEFF4;
+// 基本色
+$basic-adding: #4CD964;
+$basic-destructive: #FF3B30;
+$basic-dark: #1D1D26;
+$basic-light: #FFFFFF;
+// 背景色
+$keyboards-gray: #D2D5DB;
+$keyboards-light-gray: #EFEFF4;
+$lightest-gray: #F3F3F3;
+$bars-light-gray: #F8F8F8;
+$bars-light: rgba(255,255,255,0.92);
+$white: rgba(255,255,255,0.92);;
+$transparent: #FFFFFF;
+/* end 微距相关变量 */
+
+
 /* 行为相关颜色 */
 $uni-color-primary: #007aff;
 $uni-color-success: #4cd964;
 $uni-color-warning: #f0ad4e;
 $uni-color-error: #dd524d;
+
 
 /* 文字基本颜色 */
 $uni-text-color:#333;//基本色
