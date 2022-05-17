@@ -1,7 +1,19 @@
+
 <script>
+
+	import {userLogin} from 'api/user.js'
+	
 	export default {
-		onLaunch: function() {
-			console.log('App Launch')
+
+		globalData: {
+			
+		},
+
+		onLaunch: async function() {
+			
+			let result = await userLogin()
+			console.log(result)
+			
 		},
 		onShow: function() {
 			console.log('App Show')
