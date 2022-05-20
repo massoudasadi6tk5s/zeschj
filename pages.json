@@ -3,10 +3,79 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "微距"
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
 			}
 		}
+        ,{
+            "path" : "pages/streams/streams",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/message/message",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/notifications/notifications",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/profiles/Profiles",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
+	"tabBar": {
+	    "color": "#8e8e93",
+	    "selectedColor": "#f54b64",
+	    "borderStyle": "black",
+	    "backgroundColor": "#20242f",
+	    "list": [{
+	        "pagePath": "pages/index/index",
+	        "iconPath": "static/img/tabbar_icon/index.png",
+	        "selectedIconPath": "static/img/tabbar_icon/indexActive.png",
+	        "text": "首页"
+	    }, {
+	        "pagePath": "pages/streams/streams",
+	        "iconPath": "static/img/tabbar_icon/stream.png",
+	        "selectedIconPath": "static/img/tabbar_icon/streamActive.png",
+	        "text": "直播"
+	    },{
+	        "pagePath": "pages/message/message",
+	        "iconPath": "static/img/tabbar_icon/message.png",
+	        "selectedIconPath": "static/img/tabbar_icon/messageActive.png",
+	        "text": "消息"
+	    },{
+	        "pagePath": "pages/notifications/notifications",
+	        "iconPath": "static/img/tabbar_icon/notifications1.png",
+	        "selectedIconPath": "static/img/tabbar_icon/notificationsActive1.png",
+	        "text": "通知"
+	    },{
+	        "pagePath": "pages/profiles/Profiles",
+	        "iconPath": "static/img/tabbar_icon/profiles.png",
+	        "selectedIconPath": "static/img/tabbar_icon/profilesActive.png",
+	        "text": "我的"
+	    }]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "微距",
