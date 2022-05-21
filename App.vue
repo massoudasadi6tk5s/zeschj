@@ -11,8 +11,7 @@
 
 		onLaunch: async function() {
 			
-			let result = await userLogin()
-			console.log(result)
+			await userLogin()
 			
 		},
 		onShow: function() {
