@@ -1,6 +1,6 @@
 <template>
 	<view class="body">
-
+		
 	</view>
 </template>
 
@@ -8,7 +8,7 @@
 	export default {
 		data() {
 			return {
-
+				
 			};
 		}
 	}
@@ -18,11 +18,11 @@
 	page {
 		height: 100%;
 		width: 100%;
+		background-color: $bg-gray-dark;
 	}
 
 	.body {
 		height: 100%;
 		width: 100%;
-		background-color: $bg-gray-dark;
 	}
 </style>
