@@ -70,6 +70,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/welcome/forgotPassword/forgotPassword",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"disableScroll": true
+            }
+            
+        }
     ],
 	"tabBar": {
 	    "color": "#8e8e93",
