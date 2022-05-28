@@ -92,6 +92,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/welcome/enableNotifications/enableNotifications",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"disableScroll": true
+            }
+            
+        }
     ],
 	"tabBar": {
 	    "color": "#8e8e93",
