@@ -103,6 +103,16 @@
             }
             
         }
+        ,{
+            "path" : "pages/welcome/inviteFriends/inviteFriends",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
     ],
 	"tabBar": {
 	    "color": "#8e8e93",
