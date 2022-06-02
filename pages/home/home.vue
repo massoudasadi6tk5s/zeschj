@@ -1,6 +1,15 @@
 <template>
 	<view class="body">
 		
+		<!-- 搜索框 -->
+		<view class="search-container">
+				
+			<view class="search-input-container"></view>
+			
+			<view class="head-portrait-container"></view>
+			
+		</view>
+		
 	</view>
 </template>
 
