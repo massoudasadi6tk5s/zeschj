@@ -31,8 +31,7 @@
 						<view class="scroll-item">
 
 							<!-- 背景图 -->
-							<image class="bg-img" mode="aspectFill"
-								:src="item.bgImg">
+							<image class="bg-img" mode="aspectFill" :src="item.bgImg">
 							</image>
 
 							<!-- 直播tag -->
@@ -63,6 +62,30 @@
 
 		</view>
 
+		<!-- list -->
+		<view class="dynamic-container">
+
+			<view class="dynamic-item">
+				
+				<view class="nickname-head-other-container">
+					
+					<!-- 头像 名称 -->
+					<view class="nickname-head-container">
+						<image class="head-portrait" src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval%404x5.png"></image>
+						<view class="nickname-time-container">
+							<view class="nickname">Marcus Norris</view>
+							<view class="create-time">2 hours ago</view>
+						</view>
+					</view>
+					
+					<image class="other-icon" src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/other.png"></image>
+					
+				</view>
+				
+			</view>
+
+		</view>
+
 	</view>
 </template>
 
@@ -78,7 +101,7 @@
 						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval%404x.png',
 						nickName: 'Thomas Curtis'
 					}
-				},{
+				}, {
 					id: 2,
 					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy%2011%404x.png',
 					isLive: false,
@@ -86,7 +109,7 @@
 						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval2.png',
 						nickName: 'Christine Barton'
 					}
-				},{
+				}, {
 					id: 3,
 					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy%203%404x.png',
 					isLive: false,
@@ -275,6 +298,60 @@
 
 			}
 
+		}
+
+		.dynamic-container {
+			margin-top: 60rpx;
+			padding: 0 30rpx;
+
+			.dynamic-item {
+				padding: 0 30rpx;
+				height: 530rpx;
+				border-radius: 8rpx;
+				background: $bg-gray-dark;
+				box-shadow: 0px 3rpx 20rpx rgba(0, 0, 0, 0.5);
+				
+				.nickname-head-other-container{
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					
+					.nickname-head-container{
+						display: flex;
+						align-items: center;
+						
+						.head-portrait{
+							width: 100rpx;
+							height: 100rpx;
+						}
+						
+						.nickname-time-container{
+							display: flex;
+							flex-direction: column;
+							margin-left: 30rpx;
+							.nickname{
+								  color: $font-ffffff;
+								  font-family: "Avenir-Heavy";
+								  font-size: 17px;
+								  font-weight: 400;
+							}
+							.create-time{
+								    color: $font-4e586e;
+								    font-family: "Avenir-Book";
+								    font-size: 13px;
+								    font-weight: 400;
+							}
+						}
+						
+					}
+				
+					.other-icon{
+						  width: 56rpx;
+						  height: 56rpx;
+					}
+				}
+				
+			}
 		}
 
 	}
