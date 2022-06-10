@@ -6,13 +6,13 @@
 
 			<!-- 搜索框 -->
 			<view class="search-input-container">
-				<image src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/search.png"></image>
+				<image :src="searchIcon"></image>
 				<view class="search-word">Search</view>
 			</view>
 
 			<!-- 用户的一个头像 -->
 			<view class="head-portrait-container">
-				<image src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval%404x.png"></image>
+				<image :src="testHead"></image>
 			</view>
 
 		</view>
@@ -36,7 +36,7 @@
 
 							<!-- 直播tag -->
 							<view class="live-tag-container" v-if="item.isLive">
-								<image src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/video%404x.png"></image>
+								<image :src="liveTag"></image>
 								<view class="live-word">LIVE</view>
 							</view>
 
@@ -66,22 +66,64 @@
 		<view class="dynamic-container">
 
 			<view class="dynamic-item">
-				
+
 				<view class="nickname-head-other-container">
-					
+
 					<!-- 头像 名称 -->
 					<view class="nickname-head-container">
-						<image class="head-portrait" src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval%404x5.png"></image>
+						<image class="head-portrait"
+							:src="testHead1"></image>
 						<view class="nickname-time-container">
 							<view class="nickname">Marcus Norris</view>
 							<view class="create-time">2 hours ago</view>
 						</view>
 					</view>
-					
-					<image class="other-icon" src="https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/other.png"></image>
-					
+
+					<image class="other-icon" :src="otherIcon"></image>
+
+				</view>
+
+				<view class="post-tag-container">
+					<view class="tag-word" v-for="(item, index) in tagList" :key="item.id">
+						<text :class="[index!=0?'mgl10':'']">{{item.tagName}}</text>
+						<text>{{index+1 < tagList.length ? ",":""}}</text>
+					</view>
 				</view>
 				
+				<view class="post-content-container">
+					<text>Airport Hotels The Right Way To Start A Short Break Holiday</text>
+				</view>
+				
+				<view class="post-material-container">
+					<image class="post-img" mode="aspectFill" :src="testPostImg"></image>
+					<!-- 直播tag -->
+					<view class="live-tag-container">
+						<image :src="liveTagWhite"></image>
+						<view class="live-word">LIVE</view>
+					</view>
+				</view>
+				
+				<view class="like-comment-head-container">
+					
+					<view class="like-comment-container">
+						<view class="like-container">
+							<image :src="likeIcon"></image>
+							<view class="like-count">1125</view>
+						</view>
+						<view class="comment-container">
+							<image :src="commentIcon"></image>
+							<view class="comment-count">348</view>
+						</view>
+					</view>
+					
+					<view class="head-container">
+						<image class="comment-head-container move-right-28" :src="testHead1"></image>
+						<image class="comment-head-container move-right-14" :src="testHead1"></image>
+						<image class="comment-head-container " :src="testHead1"></image>
+					</view>
+					
+				</view>
+
 			</view>
 
 		</view>
@@ -93,6 +135,17 @@
 	export default {
 		data() {
 			return {
+				
+				searchIcon: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/search.png',
+				testHead: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval%404x.png',
+				testHead1: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval%404x5.png',
+				liveTag: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/video%404x.png',
+				liveTagWhite: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/video-white%404x.png',
+				otherIcon: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/other.png',
+				testPostImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/post-1.png',
+				likeIcon: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/like.png',
+				commentIcon: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/comment.png',
+				
 				discoverList: [{
 					id: 1,
 					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy%2010%404x.png',
@@ -117,7 +170,16 @@
 						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval3.png',
 						nickName: 'Nathan McKinney'
 					}
-				}]
+				}],
+				tagList: [{
+						id: 1,
+						tagName: '#relax'
+					},
+					{
+						id: 2,
+						tagName: '#travel'
+					}
+				]
 			};
 		}
 	}
@@ -302,55 +364,188 @@
 
 		.dynamic-container {
 			margin-top: 60rpx;
+			margin-bottom: 60rpx;
 			padding: 0 30rpx;
 
 			.dynamic-item {
-				padding: 0 30rpx;
-				height: 530rpx;
+				padding: 15rpx 30rpx;
 				border-radius: 8rpx;
 				background: $bg-gray-dark;
 				box-shadow: 0px 3rpx 20rpx rgba(0, 0, 0, 0.5);
-				
-				.nickname-head-other-container{
+
+				.nickname-head-other-container {
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
-					
-					.nickname-head-container{
+
+					.nickname-head-container {
 						display: flex;
 						align-items: center;
-						
-						.head-portrait{
+
+						.head-portrait {
 							width: 100rpx;
 							height: 100rpx;
 						}
-						
-						.nickname-time-container{
+
+						.nickname-time-container {
 							display: flex;
 							flex-direction: column;
 							margin-left: 30rpx;
-							.nickname{
+
+							.nickname {
+								color: $font-ffffff;
+								font-family: "Avenir-Heavy";
+								font-size: 17px;
+								font-weight: 400;
+							}
+
+							.create-time {
+								color: $font-4e586e;
+								font-family: "Avenir-Book";
+								font-size: 13px;
+								font-weight: 400;
+							}
+						}
+
+					}
+
+					.other-icon {
+						width: 56rpx;
+						height: 56rpx;
+					}
+				}
+
+				.post-tag-container {
+					display: flex;
+					margin-top: 18rpx;
+					.tag-word {
+						color: $font-f54b64;
+						font-family: "Avenir-Book";
+						font-size: 15px;
+						font-weight: 400;
+						
+						.mgl10{
+							margin-left: 10rpx;
+						}
+						
+					}
+				}
+
+				.post-content-container{
+					text{
+						  color: $font-ffffff;
+						  font-family: "Avenir-Book";
+						  font-size: 15px;
+						  font-weight: 400;
+					}
+				}
+
+				.post-material-container{
+					position: relative;
+					margin-top: 12rpx;
+					.post-img{
+						width: 100%;
+						max-height: 500rpx;
+						 border-radius: 4px;
+					}
+					
+					.live-tag-container {
+						position: absolute;
+						top: 20rpx;
+						right: 20rpx;
+						display: flex;
+						align-items: center;
+						justify-content: space-evenly;
+						width: 104rpx;
+						height: 36rpx;
+						background: $btn-f78-f54;
+						border-radius: 25px;
+						z-index: 2;
+					
+						image {
+							width: 32rpx;
+							height: 32rpx;
+						}
+					
+						.live-word {
+							color: $font-ffffff;
+							font-family: "Avenir-Heavy";
+							font-size: 11px;
+							font-weight: 400;
+						}
+					
+					}
+					
+					
+				}
+				
+				.like-comment-head-container{
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin-top: 14rpx;
+					
+					.like-comment-container{
+						display: flex;
+						align-items: center;
+						.like-container{
+							display: flex;
+							align-items: center;
+							image{
+								height: 38rpx;
+								width: 38rpx;
+							}
+							.like-count{
 								  color: $font-ffffff;
-								  font-family: "Avenir-Heavy";
-								  font-size: 17px;
+								  font-family: "Avenir-Book";
+								  font-size: 15px;
 								  font-weight: 400;
 							}
-							.create-time{
-								    color: $font-4e586e;
-								    font-family: "Avenir-Book";
-								    font-size: 13px;
-								    font-weight: 400;
+						}
+						
+						.comment-container{
+							display: flex;
+							align-items: center;
+							margin-left: 24rpx;
+							image{
+								height: 38rpx;
+								width: 38rpx;
+							}
+							.comment-count{
+								color: $font-ffffff;
+								font-family: "Avenir-Book";
+								font-size: 15px;
+								font-weight: 400;
 							}
 						}
 						
 					}
-				
-					.other-icon{
-						  width: 56rpx;
-						  height: 56rpx;
+					
+					.head-container{
+						.comment-head-container{
+							  width: 38rpx;
+							  height: 38rpx;
+							  border-radius: 50%;
+							  border: solid 1px #ffffff;
+							  box-shadow: 0px 0px 1px #eaecef;
+						}
+						
+						.move-right-28{
+							position: relative;
+							right: -28rpx;
+							z-index: 2;
+						}
+						.move-right-14{
+							position: relative;
+							right: -14rpx;
+							z-index: 1;
+						}
+						
 					}
+					
 				}
-				
+			
+
 			}
 		}
 
