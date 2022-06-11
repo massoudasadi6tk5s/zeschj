@@ -14,8 +14,7 @@
 		
 		<!-- list -->
 		<view class="appeal-container">
-		
-		
+			<appeal2></appeal2>
 		</view>
 		
 	</view>
@@ -25,11 +24,13 @@
 	
 	import search2 from '../../components/search/search2.vue'
 	import live2 from '../../components/live/live2.vue'
+	import appeal2 from '../../components/appeal/appeal2.vue'
 	
 	export default {
 		components: {
 			search2,
-			live2
+			live2,
+			appeal2
 		},
 		data() {
 			return {
