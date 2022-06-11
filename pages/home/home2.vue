@@ -1,42 +1,39 @@
 <template>
 	<view class="body">
-
+		
 		<!-- 搜索框 -->
 		<view class="search-container">
-			<search1></search1>
+			<search2></search2>
 		</view>
-
+		
 		<!-- 直播部分 -->
 		<view class="live-container">
-			<live1></live1>
+			<live2></live2>
 		</view>
-
-
+		
+		
 		<!-- list -->
 		<view class="appeal-container">
-
-			<appeal1></appeal1>
-
+		
+		
 		</view>
-
+		
 	</view>
 </template>
 
 <script>
-	import appeal1 from '../../components/appeal/appeal1.vue'
-	import live1 from '../../components/live/live1.vue'
-	import search1 from '../../components/search/search1.vue'
-
+	
+	import search2 from '../../components/search/search2.vue'
+	import live2 from '../../components/live/live2.vue'
+	
 	export default {
 		components: {
-			appeal1,
-			live1,
-			search1
+			search2,
+			live2
 		},
 		data() {
 			return {
-
-
+				
 			};
 		}
 	}

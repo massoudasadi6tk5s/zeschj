@@ -113,6 +113,16 @@
             }
             
         }
+        ,{
+            "path" : "pages/home/home2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
     ],
 	"tabBar": {
 	    "color": "#8e8e93",
