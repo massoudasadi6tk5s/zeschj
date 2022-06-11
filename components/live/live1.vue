@@ -187,6 +187,7 @@
 								image {
 									width: 48rpx;
 									height: 48rpx;
+									border-radius: 50%;
 								}
 
 							}

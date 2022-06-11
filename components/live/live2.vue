@@ -67,26 +67,26 @@
 				
 				discoverList: [{
 					id: 1,
-					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy%2010%404x.png',
+					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy2-1.png',
 					isLive: true,
 					userInfo: {
-						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval%404x.png',
+						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy2-1.png',
 						nickName: 'Thomas Curtis'
 					}
 				}, {
 					id: 2,
-					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy%2011%404x.png',
+					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy2-2.png',
 					isLive: false,
 					userInfo: {
-						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval2.png',
+						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy2-2.png',
 						nickName: 'Christine Barton'
 					}
 				}, {
 					id: 3,
-					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy%203%404x.png',
+					bgImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy2-3.png',
 					isLive: false,
 					userInfo: {
-						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Oval3.png',
+						headPortrait: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/home/Rectangle%20Copy2-3.png',
 						nickName: 'Nathan McKinney'
 					}
 				}],
@@ -196,6 +196,7 @@
 									image {
 										width: 48rpx;
 										height: 48rpx;
+										border-radius: 50%;
 									}
 						
 								}
