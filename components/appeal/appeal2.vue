@@ -1,5 +1,8 @@
 <template>
 	<view>
+		
+
+		
 		<view class="dynamic-item">
 
 			<view class="nickname-head-other-container">
@@ -109,6 +112,9 @@
 
 
 <style lang="scss">
+	
+
+	
 	.dynamic-item {
 		padding: 30rpx 30rpx;
 		border-radius: 8rpx;

@@ -60,7 +60,7 @@
 		.live-container {}
 
 		.appeal-container {
-			margin-top: 60rpx;
+			margin-top: 48rpx;
 			margin-bottom: 60rpx;
 			padding: 0 30rpx;
 

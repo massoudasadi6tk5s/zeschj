@@ -17,6 +17,11 @@
 			<appeal4></appeal4>
 		</view>
 		
+		<!-- 活动 -->
+		<view class="events-container">
+			<events1></events1>
+		</view>
+		
 	</view>
 </template>
 
@@ -25,12 +30,14 @@
 	import search4 from '../../components/search/search4.vue'
 	import live4 from '../../components/live/live4.vue'
 	import appeal4 from '../../components/appeal/appeal4.vue'
+	import events1 from '../../components/events/events1.vue'
 	
 	export default {
 		components: {
 			search4,
 			live4,
-			appeal4
+			appeal4,
+			events1
 		},
 		data() {
 			return {
@@ -64,6 +71,10 @@
 			padding: 0 30rpx;
 
 
+		}
+
+		.events-container{
+			
 		}
 
 	}
