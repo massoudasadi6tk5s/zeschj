@@ -4,7 +4,7 @@
 		<view class="search-input-container">
 			<view class="search-input">
 				<image :src="searchIcon"></image>
-				<input class="" />
+				<input placeholder-class="search-p" placeholder="Search" />
 			</view>
 		</view>
 	</view>
@@ -60,6 +60,24 @@
 					width: 48rpx;
 					height: 48rpx;
 				}
+				
+				input{
+					margin-left: 14rpx;
+					width: 580rpx;
+					color: $font-ffffff;
+					font-family: "Avenir-Book";
+					font-size: 15px;
+					font-weight: 400;
+				}
+				
+				.search-p{
+					
+					  color: $font-4e586e;
+					  font-family: "Avenir-Book";
+					  font-size: 15px;
+					  font-weight: 400;
+				}
+				
 			}
 			
 			
