@@ -184,6 +184,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/streams/stream2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"disableScroll": true
+            }
+            
+        }
     ],
 	"tabBar": {
 	    "color": "#8e8e93",
