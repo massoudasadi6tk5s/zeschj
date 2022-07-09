@@ -1,9 +1,0 @@
-.return {
-  
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  transform:rotate(-45deg);
-  width: 30rpx;
-  height: 30rpx;
-  z-index: 1000;
-}

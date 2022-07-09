@@ -1,47 +1,183 @@
-const format = (date) => {
-  const ONE_SECOND = 1000;
-  const ONE_MINUTE = 60000;
-  const ONE_HOUR = 3600000;
-  const ONE_DAY = 86400000;
-  const ONE_WEEK = 604800000;
-  const ONE_MONTH = 2629746000;
-  const ONE_YEAR = 31556952000;
-  const ONE_SECOND_AGO = "秒前";
-  const ONE_MINUTE_AGO = "分钟前";
-  const ONE_HOUR_AGO = "小时前";
-  const ONE_DAY_AGO = "天前";
-  const ONE_MONTH_AGO = "月前";
-  const ONE_YEAR_AGO = "年前";
-  let delta = new Date().getTime() - date.getTime()
-  if (delta < 1 * ONE_MINUTE) {
-    let seconds = ~~(delta / ONE_SECOND);
-    return (seconds <= 0 ? 1 : seconds) + ONE_SECOND_AGO;
-  }
-  if (delta < 45 * ONE_MINUTE) {
-    let minutes = ~~(delta / ONE_MINUTE)
-    return (minutes <= 0 ? 1 : minutes) + ONE_MINUTE_AGO;
-  }
-  if (delta < 24 * ONE_HOUR) {
-    let hours = ~~(delta / ONE_HOUR);
-    return (hours <= 0 ? 1 : hours) + ONE_HOUR_AGO;
-  }
-  if (delta < 48 * ONE_HOUR) {
-    return "昨天";
-  }
-  if (delta < 30 * ONE_DAY) {
-    let days = ~~(delta / ONE_DAY);
-    return (days <= 0 ? 1 : days) + ONE_DAY_AGO;
-  }
-  if (delta < 12 * 4 * ONE_WEEK) {
-    let months = ~~(delta / ONE_MONTH);
-    return (months <= 0 ? 1 : months) + ONE_MONTH_AGO;
-  } else {
-    let years = ~~(delta / ONE_YEAR);
-    return (years <= 0 ? 1 : years) + ONE_YEAR_AGO;
-  }
+
+
+
+
+/**
+ * 转换日期 适配 ios   返回 ：时间类型
+ * @param {String} 后端传过来的字符日期 
+ */
+export const formatIOSReturnDate = n => {
+
+  let date = n.replace(/-/g, '/');
+  date = date.replace(/T/g, ' ')
+  let newDate = new Date(date)
+
+  return newDate
+
 }
 
-// 时间转换 几秒前 之类的...
-module.exports = {
-  format: format
+
+/**
+ * 转换日期 适配 ios   返回 ：01-23 11:25
+ * @param {String} 后端传过来的字符日期 
+ */
+export const formatIOSYearMonthDayHoursMinutes = n => {
+
+  let date = n.replace(/-/g, '/');
+  date = date.replace(/T/g, ' ')
+  let newDate = new Date(date)
+  // 年
+  let year = newDate.getFullYear()
+  // 月
+  let month = newDate.getMonth() + 1
+  // 日
+  let day = newDate.getDate()
+  // 时
+  let hours = formatNumber(newDate.getHours())
+  // 分
+  let minutes = formatNumber(newDate.getMinutes())
+
+  return `${year}年${month}月${day}日`
+
+}
+
+
+
+// loading加载提示
+export const showLoading = () => {
+  return new Promise((resolve, reject) => {
+    wx.showLoading({
+      title: '加载中...',
+      mask: true,
+      success(res) {
+        console.log('显示loading')
+        resolve(res)
+      },
+      fail(err) {
+        reject(err)
+      }
+    })
+  })
+}
+
+// 关闭loading
+export const hideLoading = () => {
+  return new Promise((resolve) => {
+    uni.hideLoading()
+    console.log('隐藏loading')
+    resolve()
+  })
+}
+
+
+/**
+ * 获取经纬度位置
+ */
+export const getLocation = () => {
+
+  return new Promise((resolve, reject) => {
+    uni.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        let location = {
+          latitude,
+          longitude
+        }
+
+        resolve(location)
+
+
+      }
+    })
+
+  })
+
+}
+
+
+/**
+ * 获取用户code
+ */
+export const getUserCode = () => {
+
+  return new Promise((resolve, reject) => {
+
+    uni.login({
+      success(res) {
+        if (res.code) {
+          resolve(res.code)
+        } else {
+          console.log('登录失败！' + res.errMsg)
+          reject()
+        }
+      }
+    })
+
+  })
+
+}
+
+
+
+/**
+ * 小数加
+ */
+export const accAdd = (arg1, arg2) => {
+  var r1, r2, m;
+  try {
+    r1 = arg1.toString().split(".")[1].length
+  } catch (e) {
+    r1 = 0
+  }
+  try {
+    r2 = arg2.toString().split(".")[1].length
+  } catch (e) {
+    r2 = 0
+  }
+  m = Math.pow(10, Math.max(r1, r2))
+  return (arg1 * m + arg2 * m) / m
+}
+
+/**
+ * 小数减法
+ */
+export const Subtr = (arg1, arg2) => {
+  var r1, r2, m, n;
+  try {
+    r1 = arg1.toString().split(".")[1].length
+  } catch (e) {
+    r1 = 0
+  }
+  try {
+    r2 = arg2.toString().split(".")[1].length
+  } catch (e) {
+    r2 = 0
+  }
+  m = Math.pow(10, Math.max(r1, r2));
+  n = (r1 >= r2) ? r1 : r2;
+  return ((arg1 * m - arg2 * m) / m).toFixed(n);
+}
+
+
+
+/**
+ * 判断是否还有下一页
+ * @param {Number} total 总数量
+ * @param {Number} current 当前页码
+ * @param {Number} size 每页数量
+ */
+export const isExistNextPage = (total, current, size) => {
+
+  return new Promise((resolve, reject) => {
+
+    let currentNumber = current * size
+    if (currentNumber < total) {
+      resolve(true)
+    }
+    resolve(false)
+
+  })
+
 }
