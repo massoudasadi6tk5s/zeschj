@@ -19,7 +19,7 @@
 			}
 		}
         ,{
-            "path" : "pages/streams/streams",
+            "path" : "pages/streams/stream3",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -218,7 +218,7 @@
 	        "selectedIconPath": "static/img/tabbar_icon/indexActive.png",
 	        "text": "首页"
 	    }, {
-	        "pagePath": "pages/streams/streams",
+	        "pagePath": "pages/streams/stream3",
 	        "iconPath": "static/img/tabbar_icon/stream.png",
 	        "selectedIconPath": "static/img/tabbar_icon/streamActive.png",
 	        "text": "直播"

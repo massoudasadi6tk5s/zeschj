@@ -90,6 +90,13 @@
 					word: 'stream2',
 					pageImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/showPage/stream2.jpg',
 					url: '/pages/streams/stream2'
+				},
+				{
+					id: 16,
+					tabbar: true,
+					word: 'stream3',
+					pageImg: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/showPage/stream3.jpg',
+					url: '/pages/streams/stream3'
 				}]
 			};
 		},
