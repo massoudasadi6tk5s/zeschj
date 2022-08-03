@@ -1,2 +1,7 @@
 
 unpackage/
+
+# Node.js
+node_modules/
+
+unpackage/
