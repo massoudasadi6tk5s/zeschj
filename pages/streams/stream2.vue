@@ -31,13 +31,18 @@
 		<!-- 底部 -->
 		<view class="bottom-body-container">
 
+			<!-- 类型选择 -->
+			<view class="live-type-container">
+				<view v-for="(item, index) in liveTypeList" :key="index" :class="['live-type-item', item.active ? 'active':'']" @click="handleClickType(item.id, index)">{{item.name}}</view>
+				<view :class="['move-piece','right-move20', moveArray[moveIndex]]"></view>
+			</view>
 
 			<view class="stream-live-item-container">
 
 				<scroll-view scroll-x="true" enable-flex="true" show-scrollbar="false">
 
 					<block v-for="(item, index) in liveList" :key="index">
-						<view :class="['scroll-item', item.active ? 'active':'']">
+						<view :class="['scroll-item']">
 							<image class="bg" mode="aspectFill" :src="item.photo"></image>
 							<image class="shadow" mode="aspectFill" :src="rectangle1"></image>
 
@@ -73,6 +78,14 @@
 				shadow: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/streams/shadow.png',
 
 				rectangle1: 'https://weiju1.oss-cn-shenzhen.aliyuncs.com/streams/rectangle1.png',
+				
+				liveTypeList: [
+					{id: 1, name: 'For you', active: true},
+					{id: 2, name: 'Following', active: false},
+					{id: 3, name: 'Popular', active: false}
+				],
+				moveArray: ['right-move0','right-move200','right-move400'],
+				moveIndex: 0,
 
 				liveList: [{
 					id: 1,
@@ -98,7 +111,25 @@
 				}]
 
 			};
+		},
+		
+		methods: {
+			
+			handleClickType(id, index){
+				
+				this.moveIndex = index
+				
+				this.liveTypeList.forEach(item => {
+					if(item.id == id){
+						item.active = true
+					}else{
+						item.active = false
+					}
+				})
+			}
+			
 		}
+		
 	}
 </script>
 
@@ -195,12 +226,64 @@
 			position: fixed;
 			bottom: 68rpx;
 			width: 100%;
+			
+			
+			// 类型选择
+			.live-type-container{
+				position: relative;
+				display: flex;
+				align-items: center;
+				margin-bottom: 52rpx;
+				padding: 0 20rpx;
+				
+				.live-type-item{
+					margin-right: 60rpx;
+					color: #b2c0d3;
+					  font-family: "Avenir-Heavy";
+					  font-size: 17px;
+					  font-weight: 400;
+					  transition: transform 0.5s;
+				}
+				
+				.move-piece{
+					position: absolute;
+					bottom: -20rpx;
+					  width: 120rpx;
+					  height: 3px;
+					  background: $transparent;
+				}
+				
+				/* 向右移动10 */
+				.right-move0 {
+				  transition: transform 0.5s;
+				  transform: translateX(0rpx);
+				}
+				
+				.right-move200 {
+				  transition: transform 0.5s;
+				  transform: translateX(200rpx);
+				}
+				.right-move400 {
+				  transition: transform 0.5s;
+				  transform: translateX(400rpx);
+				}
+				
+				.active{
+					color: $font-ffffff;
+				}
+				
+			}
+			
 
 			.stream-live-item-container {
+				display: flex;
+				align-items: center;
 				width: 100%;
 
 				scroll-view {
+					
 					white-space: nowrap; // 滚动必须加的属性
+					height: 440rpx;
 					width: 100%;
 
 					.scroll-item {
@@ -268,10 +351,6 @@
 						}
 
 
-					}
-
-					.active {
-						border: solid #ffffff;
 					}
 
 				}

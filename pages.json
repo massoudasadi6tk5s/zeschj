@@ -1,6 +1,16 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/showPage/showPage",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		},
+		{
 			"path": "pages/home/home",
 			"style": {
 				"navigationBarTitleText": "",
@@ -9,7 +19,7 @@
 			}
 		}
         ,{
-            "path" : "pages/streams/streams",
+            "path" : "pages/streams/stream3",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -195,6 +205,7 @@
             }
             
         }
+        
     ],
 	"tabBar": {
 	    "color": "#8e8e93",
@@ -207,7 +218,7 @@
 	        "selectedIconPath": "static/img/tabbar_icon/indexActive.png",
 	        "text": "首页"
 	    }, {
-	        "pagePath": "pages/streams/streams",
+	        "pagePath": "pages/streams/stream3",
 	        "iconPath": "static/img/tabbar_icon/stream.png",
 	        "selectedIconPath": "static/img/tabbar_icon/streamActive.png",
 	        "text": "直播"
