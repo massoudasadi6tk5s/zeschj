@@ -1,7 +1,7 @@
 
 <script>
 
-	import {userLogin} from 'api/user.js'
+
 	
 	export default {
 
@@ -11,7 +11,7 @@
 
 		onLaunch: async function() {
 			
-			await userLogin()
+
 			
 		},
 		onShow: function() {

@@ -13,8 +13,8 @@
 
 			<!-- 文字部分 -->
 			<view class="word-container">
-				<view class="title">Welcome back</view>
-				<view class="assistant-title">Login to your account</view>
+				<view class="title">欢迎回家</view>
+				<view class="assistant-title">登录你的账号</view>
 			</view>
 
 			<!-- 填写表单 -->
@@ -24,30 +24,29 @@
 				<view class="name-password-container">
 					<view class="name-password-scrims"></view>
 					<view class="name-password-input-container">
-						<view class="input-word">Email</view>
-						<input  />
+						<input class="input-word" placeholder-class="input-word" @input="handleNickNameInput"
+							placeholder="昵称😊" />
 					</view>
-					
 				</view>
 
 				<!-- 密码 -->
 				<view class="name-password-container mgt20">
 					<view class="name-password-scrims"></view>
 					<view class="name-password-input-container">
-						<view class="input-word">Password</view>
-						<input password="true"  />
+						<input class="input-word" placeholder-class="input-word" @input="handlePasswordInput"
+							password="true" placeholder="密码👀" />
 					</view>
 				</view>
 
 			</view>
 
 			<!-- 按钮 -->
-			<view class="btn-container">
-				<view class="login-btn">LOGIN</view>
+			<view class="btn-container" @click="handleLogin">
+				<view class="login-btn">登录</view>
 			</view>
 
 			<!-- 忘记密码 -->
-			<view class="forget-password">Forgot your password?</view>
+			<view class="forget-password">忘记密码?</view>
 
 		</view>
 
@@ -56,12 +55,67 @@
 </template>
 
 <script>
+	import {
+		userLogin
+	} from '../../../api/login.js'
+
 	export default {
 		data() {
 			return {
-
+				nickName: '',
+				password: ''
 			};
+		},
+
+		methods: {
+
+			handleNickNameInput(e) {
+				this.nickName = e.detail.value
+			},
+			handlePasswordInput(e) {
+				this.password = e.detail.value
+			},
+			
+			// 登录
+			async handleLogin(){
+				let nickName = this.nickName
+				let password = this.password
+				
+				let data = {
+					nickName, password
+				}
+				
+				if(!nickName){
+					uni.showToast({
+						title: '昵称未填写',
+						icon: 'none'
+					})
+					return
+				}
+				if(!password){
+					uni.showToast({
+						title: '密码未填写',
+						icon: 'none'
+					})
+					return
+				}
+				
+				let resultData = await userLogin(data)
+				
+				let {token, user} = resultData.result
+				
+				uni.setStorageSync('token', token)
+				uni.setStorageSync('user', user)
+				
+				uni.reLaunch({
+					url: '/pages/home/home'
+				})
+				
+				
+			},
+
 		}
+
 	}
 </script>
 
@@ -71,11 +125,11 @@
 		width: 100%;
 		background-color: $bg-gray-dark;
 	}
-	
-	.mgt20{
+
+	.mgt20 {
 		margin-top: 20rpx;
 	}
-	
+
 
 
 	.body {
@@ -160,33 +214,32 @@
 						border-radius: 22px;
 						background: $uni-bg-color;
 					}
-				
-					.name-password-input-container{
+
+					.name-password-input-container {
 						position: absolute;
 						top: 0;
 						left: 0;
 						display: flex;
 						align-items: center;
-						justify-content: space-between;
+						justify-content: center;
 						width: 100%;
 						height: 88rpx;
-						
-						.input-word{
-							margin-left: 100rpx;
-							  color: $font-ffffff;
-							  font-family: "Avenir-Book";
-							  font-size: 17px;
-							  font-weight: 400;
-						}
-						
-						input{
+
+						.input-word {
+
 							color: $font-ffffff;
-							margin-right: 100rpx;
-							width: 400rpx;
+							font-family: "Avenir-Book";
+							font-size: 17px;
+							font-weight: 400;
 						}
-						
+
+						input {
+							color: $font-ffffff;
+							width: 550rpx;
+						}
+
 					}
-				
+
 				}
 
 			}
@@ -194,39 +247,37 @@
 		}
 
 		// 按钮
-		.btn-container{
+		.btn-container {
 			margin-top: 80rpx;
 			padding: 0 60rpx;
-			
-			
-			.login-btn{
+
+
+			.login-btn {
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				height: 88rpx;
 				border-radius: 22px;
 				background: $btn-f78-f54;
-				
-				  color: #ffffff;
-				  font-family: "Avenir-Heavy";
-				  font-size: 15px;
-				  font-weight: 400;
+
+				color: #ffffff;
+				font-family: "Avenir-Heavy";
+				font-size: 15px;
+				font-weight: 400;
 			}
-			
+
 		}
-		
+
 		// 忘记密码
-		.forget-password{
+		.forget-password {
 			margin-top: 108rpx;
-			  color: $font-ffffff;
-			  font-family: "Avenir-Book";
-			  font-size: 17px;
-			  font-weight: 400;
-			  text-align: center;
+			color: $font-ffffff;
+			font-family: "Avenir-Book";
+			font-size: 17px;
+			font-weight: 400;
+			text-align: center;
 		}
 
 
 	}
-
-
 </style>
