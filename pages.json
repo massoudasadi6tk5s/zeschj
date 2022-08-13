@@ -1,6 +1,15 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/notifications/notifications",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
 			"path": "pages/home/home",
 			"style": {
 				"navigationBarTitleText": "",
@@ -35,14 +44,6 @@
 
 		}, {
 			"path": "pages/message/message",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-			}
-
-		}, {
-			"path": "pages/notifications/notifications",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false,
@@ -180,35 +181,48 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/notifications/dynamicDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "动态详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
+    ],
 	"tabBar": {
 		"color": "#8e8e93",
 		"selectedColor": "#f54b64",
 		"borderStyle": "black",
 		"backgroundColor": "#20242f",
 		"list": [{
-			"pagePath": "pages/home/home",
-			"iconPath": "static/img/tabbar_icon/index.png",
-			"selectedIconPath": "static/img/tabbar_icon/indexActive.png",
-			"text": "首页"
-		}, 
-		{
 			"pagePath": "pages/notifications/notifications",
 			"iconPath": "static/img/tabbar_icon/notifications1.png",
 			"selectedIconPath": "static/img/tabbar_icon/notificationsActive1.png",
 			"text": "动态"
 		}, {
-			"pagePath": "pages/message/message",
-			"iconPath": "static/img/tabbar_icon/message.png",
-			"selectedIconPath": "static/img/tabbar_icon/messageActive.png",
-			"text": "消息"
-		},{
 			"pagePath": "pages/profiles/Profiles",
 			"iconPath": "static/img/tabbar_icon/profiles.png",
 			"selectedIconPath": "static/img/tabbar_icon/profilesActive.png",
 			"text": "我"
 		}]
 	},
+
+	// {
+	// 		"pagePath": "pages/home/home",
+	// 		"iconPath": "static/img/tabbar_icon/index.png",
+	// 		"selectedIconPath": "static/img/tabbar_icon/indexActive.png",
+	// 		"text": "首页"
+	// 	},
+	// {
+	// 	"pagePath": "pages/message/message",
+	// 	"iconPath": "static/img/tabbar_icon/message.png",
+	// 	"selectedIconPath": "static/img/tabbar_icon/messageActive.png",
+	// 	"text": "消息"
+	// },
+
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "微距",
