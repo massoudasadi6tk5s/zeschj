@@ -37,6 +37,41 @@
 
 			<view class="header-word">全部评论 21</view>
 
+			<view class="comment-list-container">
+
+				<view class="comment-item">
+
+					<view class="comment-header">
+
+						<!-- 头像 & 用户名称 -->
+						<view class="user-head-nick">
+
+							<image class="head-icon" :src="testHead"></image>
+							<view class="nick-info-container">
+								<view class="nick-name">鸭鸭世界第一可爱</view>
+								<view class="title-time">java后端·30分钟前</view>
+							</view>
+
+						</view>
+
+						<!-- 点赞 -->
+						<view class="icon-container">
+							<image class="like-icon" :src="likeActiveIcon"></image>
+						</view>
+
+
+					</view>
+					<view class="comment-content">
+						<view class="comment">
+							<text>加班给钱吗</text>
+						</view>
+					</view>
+					
+
+				</view>
+
+			</view>
+
 		</view>
 
 	</view>
@@ -175,6 +210,86 @@
 			font-size: 14px;
 			font-weight: 400;
 		}
+
+		.comment-list-container {
+
+			.comment-item {
+				display: flex;
+				flex-direction: column;
+				padding: 20rpx;
+				border-bottom: 1px solid #1E2432;
+
+				.comment-header {
+					display: flex;
+					align-items: flex-start;
+					justify-content: space-between;
+
+					// 头像 & 用户名称
+					.user-head-nick {
+						display: flex;
+						align-items: center;
+
+						.head-icon {
+							height: 80rpx;
+							width: 80rpx;
+							border-radius: 50%;
+						}
+
+						.nick-info-container {
+							display: flex;
+							flex-direction: column;
+							justify-content: space-around;
+							margin-left: 20rpx;
+							height: 80rpx;
+
+							.nick-name {
+								color: #ffffff;
+								font-family: "Avenir-Heavy";
+								font-size: 15px;
+								font-weight: 400;
+							}
+
+							.title-time {
+								color: #4e586e;
+								font-family: "Avenir-Book";
+								font-size: 13px;
+								font-weight: 400;
+
+							}
+
+						}
+
+					}
+
+					// 点赞
+					.icon-container {
+						.like-icon {
+							width: 48rpx;
+							height: 48rpx;
+						}
+					}
+
+				}
+
+				.comment-content {
+					display: flex;
+					justify-content: flex-end;
+					width: 100%;
+					.comment{
+						margin-top: 10rpx;
+						width: 87%;
+						color: #ffffff;
+						font-family: "Avenir-Book";
+						font-size: 14px;
+						font-weight: 400;
+					}
+
+				}
+
+			}
+
+		}
+
 
 	}
 </style>
